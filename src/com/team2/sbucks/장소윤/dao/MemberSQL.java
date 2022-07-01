@@ -18,7 +18,7 @@ public class MemberSQL {
 	
 	public static final String MEMBER_UPDATE
 				= "update membership set member_phone=?,member_email = ?, member_nickname=?, "
-						+ "member_loc = ?, member_pagree=?, member_eagree=?";
+						+ "member_loc = ?, member_pagree=?, member_eagree=? where member_id =?";
 	
 	public static final String CHECK_ID
 				="select member_id from membership where member_id=?";

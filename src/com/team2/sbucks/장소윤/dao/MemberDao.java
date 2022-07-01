@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.team2.sbucks.common.DataSource;
+import com.team2.sbucks.장소윤.common.DataSource;
 import com.team2.sbucks.장소윤.dto.Member;
 
 /*
@@ -29,29 +29,28 @@ MEMBER_EAGREE            NUMBER(10)
 public class MemberDao {
 
 	private DataSource dataSource;
-	
+
 	public MemberDao() {
 		dataSource = new DataSource();
 	}
-	
-	
-	public int insertMember (Member newMember) throws Exception{
-		
+
+	public int insertMember(Member newMember) throws Exception {
+
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_INSERT);
-		
+
 		pstmt.setString(1, newMember.getMember_id());
 		pstmt.setString(2, newMember.getMember_phone());
 		java.sql.Date member_date = new java.sql.Date(newMember.getMember_birthday().getTime());
 		pstmt.setDate(3, member_date);
 		pstmt.setString(4, newMember.getMember_email());
 		pstmt.setString(5, newMember.getMemeber_nickname());
-		pstmt.setString(6,newMember.getMember_loc());
+		pstmt.setString(6, newMember.getMember_loc());
 		pstmt.setInt(7, newMember.getMember_pagree());
 		pstmt.setInt(8, newMember.getMember_eagree());
-		
+
 		int insertCount = pstmt.executeUpdate();
-		
+
 		pstmt.close();
 		con.close();
 		return insertCount;
@@ -60,11 +59,12 @@ public class MemberDao {
 		Date sqlBirthDay=new Date(utilBirthDay.getTime());
 		pstmt.setDate(2,sqlBirthDay);
 		 */
-		
-		// 질문. java.util.Date utilBirthDay = new SimpleDateFormat("yyyy/MM/dd").parse("");
-		//Date sqlBirthDay = new Date(utilBirthDay.getTime());
-		//pstmt.setDate(5,sqlBirthDay);
-		
+
+		// 질문. java.util.Date utilBirthDay = new
+		// SimpleDateFormat("yyyy/MM/dd").parse("");
+		// Date sqlBirthDay = new Date(utilBirthDay.getTime());
+		// pstmt.setDate(5,sqlBirthDay);
+
 	}
 	/*
 	public int checkId (String member_id) throws Exception{
@@ -80,37 +80,33 @@ public class MemberDao {
 		return 0;
 	}
 	*/
-	
-	
-	
-	
-	
-	
-	public int updateMember (Member updateMember) throws Exception{
-		
+
+	public int updateMember(Member updateMember) throws Exception {
+
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_UPDATE);
-		
+
 		pstmt.setString(1, updateMember.getMember_phone());
 		pstmt.setString(2, updateMember.getMember_email());
 		pstmt.setString(3, updateMember.getMemeber_nickname());
 		pstmt.setString(4, updateMember.getMember_loc());
 		pstmt.setInt(5, updateMember.getMember_pagree());
 		pstmt.setInt(6, updateMember.getMember_eagree());
-		
+		pstmt.setString(7, updateMember.getMember_id());
+
 		int updateCount = pstmt.executeUpdate();
-		
+
 		pstmt.close();
 		con.close();
-		
+
 		return updateCount;
 	}
-	
-public int updateByNo (Member updateByNoMember) throws Exception{
-		
+
+	public int updateByNo(Member updateByNoMember) throws Exception {
+
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_NO_UPDATE);
-		
+
 		pstmt.setString(1, updateByNoMember.getMember_phone());
 		pstmt.setString(2, updateByNoMember.getMember_email());
 		pstmt.setString(3, updateByNoMember.getMemeber_nickname());
@@ -118,74 +114,67 @@ public int updateByNo (Member updateByNoMember) throws Exception{
 		pstmt.setInt(5, updateByNoMember.getMember_pagree());
 		pstmt.setInt(6, updateByNoMember.getMember_eagree());
 		pstmt.setInt(7, updateByNoMember.getMember_no());
-		
+
 		int updateByNoCount = pstmt.executeUpdate();
-		
+
 		pstmt.close();
 		con.close();
-		
+
 		return updateByNoCount;
 	}
-	
-	
-	public int deleteMember (int member_no) throws Exception{
-		
+
+	public int deleteMember(int member_no) throws Exception {
+
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_DELETE);
-		
+
 		pstmt.setInt(1, member_no);
-		
+
 		int deleteCount = pstmt.executeUpdate();
-		
+
 		pstmt.close();
 		con.close();
-		
+
 		return deleteCount;
 	}
-	
-	
-	public Member findById(String member_id) throws Exception{
-		
+
+	public Member findById(String member_id) throws Exception {
+
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDBYID);
-		
+
 		Member findMember = null;
-		
+
 		pstmt.setString(1, member_id);
 		ResultSet rs = pstmt.executeQuery();
-		
-		if(rs.next()) {
-			findMember = new Member(rs.getInt("member_no"), rs.getString("member_id"),
-					                rs.getString("member_phone"), rs.getDate("member_birthday"),
-					                rs.getString("member_email"), rs.getString("member_nickname"),
-					                rs.getString("member_loc"), rs.getInt("member_pagree"),
-					                rs.getInt("member_eagree"));
+
+		if (rs.next()) {
+			findMember = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
+					rs.getDate("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
 		}
 		rs.close();
 		pstmt.close();
 		con.close();
 		return findMember;
 	}
-	
-	
-	public List<Member> findAll() throws Exception{
-		
+
+	public List<Member> findAll() throws Exception {
+
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDALL);
-		
-		ArrayList<Member> memberList = new ArrayList<Member>();  //여기 그냥 null로 해도 되는지?
-		
+
+		ArrayList<Member> memberList = new ArrayList<Member>(); // 여기 그냥 null로 해도 되는지?
+
 		ResultSet rs = pstmt.executeQuery();
-		
-		while(rs.next()) {
-			
-			memberList.add(new Member(rs.getInt("member_no"), rs.getString("member_id"),
-	                rs.getString("member_phone"), rs.getDate("member_birthday"),
-	                rs.getString("member_email"), rs.getString("member_nickname"),
-	                rs.getString("member_loc"), rs.getInt("member_pagree"),
-	                rs.getInt("member_eagree")));
+
+		while (rs.next()) {
+
+			memberList.add(new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
+					rs.getDate("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree")));
 		}
-		
+
 		return memberList;
 	}
 }
