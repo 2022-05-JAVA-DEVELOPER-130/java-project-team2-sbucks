@@ -1,5 +1,3 @@
-DROP TABLE addshot CASCADE CONSTRAINTS;
-DROP TABLE addsyrup CASCADE CONSTRAINTS;
 DROP TABLE login CASCADE CONSTRAINTS;
 DROP TABLE orderDetail CASCADE CONSTRAINTS;
 DROP TABLE orderList CASCADE CONSTRAINTS;
@@ -11,9 +9,9 @@ DROP TABLE membership CASCADE CONSTRAINTS;
 CREATE TABLE membership(
 		member_no                     		NUMBER(10)		 NULL ,
 		member_id                     		VARCHAR2(50)		 NOT NULL,
-		member_phone                  		VARCHAR2(50)		 NOT NULL ,
+		member_phone                  		VARCHAR2(50)		 NULL ,
 		member_birthday               		DATE		 DEFAULT sysdate		 NULL ,
-		member_email                  		VARCHAR2(50)		 NOT NULL ,
+		member_email                  		VARCHAR2(50)		 NULL ,
 		member_nickname               		VARCHAR2(50)		 NULL ,
 		member_loc                    		VARCHAR2(50)		 NULL ,
 		member_PAgree                 		NUMBER(10)		 DEFAULT 0		 NULL ,
@@ -26,6 +24,7 @@ CREATE SEQUENCE membership_member_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 
+
 CREATE TABLE product(
 		product_no                    		NUMBER(10)		 NULL ,
 		product_name                  		VARCHAR2(50)		 NULL ,
@@ -33,7 +32,9 @@ CREATE TABLE product(
 		product_allergy               		VARCHAR2(500)		 NULL ,
 		product_content               		VARCHAR2(500)		 NULL ,
 		product_espresso              		NUMBER(10)		 NULL ,
-		product_syrup                 		NUMBER(10)		 NULL 
+		product_syrup                 		NUMBER(10)		 NULL ,
+		product_syrupPrice            		NUMBER(10)		 NULL ,
+		product_espressoPrice         		NUMBER(10)		 NULL 
 );
 
 DROP SEQUENCE product_product_no_SEQ;
@@ -51,17 +52,16 @@ CREATE TABLE productDetail(
 
 
 CREATE TABLE cart(
-        cart_no                       		NUMBER(10)		 NULL ,
+		cart_no                       		NUMBER(10)		 NULL ,
 		product_no                    		NUMBER(10)		 NULL ,
 		member_no                     		NUMBER(10)		 NULL ,
-		cart_qty                      		NUMBER(10)		 NULL ,
-		product_espresso              		NUMBER(10)		 NULL ,
-		product_syrup                 		NUMBER(10)		 NULL 
+		cart_qty                      		NUMBER(10)		 NULL 
 );
 
 DROP SEQUENCE cart_cart_no_SEQ;
 
 CREATE SEQUENCE cart_cart_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 
@@ -72,11 +72,9 @@ CREATE TABLE orderList(
 		order_price                   		NUMBER(10)		 NULL 
 );
 
-DROP SEQUENCE orderList_orderDetail_no_SEQ;
+DROP SEQUENCE orderList_order_no_SEQ;
 
-CREATE SEQUENCE orderList_orderDetail_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-
+CREATE SEQUENCE orderList_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 
@@ -86,14 +84,14 @@ CREATE TABLE orderDetail(
 		order_no                      		NUMBER(10)		 NULL ,
 		order_qty                     		NUMBER(10)		 NULL ,
 		order_stmt                    		NUMBER(10)		 NULL ,
-		product_no                    		NUMBER(10)		 NULL ,
-		product_espresso              		NUMBER(10)		 NULL ,
-		product_syrup                 		NUMBER(10)		 NULL 
+		product_no                    		NUMBER(10)		 NULL 
 );
 
-DROP SEQUENCE orderDetail_order_no_SEQ;
+DROP SEQUENCE orderDetail_orderDetail_no_SEQ;
 
-CREATE SEQUENCE orderDetail_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+CREATE SEQUENCE orderDetail_orderDetail_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
 
 
 CREATE TABLE login(
@@ -103,26 +101,11 @@ CREATE TABLE login(
 );
 
 
-CREATE TABLE addsyrup(
-		product_syrup                 		NUMBER(10)		 NULL ,
-		syrup_price                   		NUMBER(10)		 NULL 
-);
-
-
-CREATE TABLE addshot(
-		product_espresso              		NUMBER(10)		 NULL ,
-		shot_price                    		NUMBER(10)		 NULL 
-);
-
-
 
 ALTER TABLE membership ADD CONSTRAINT IDX_membership_PK PRIMARY KEY (member_no);
 ALTER TABLE membership ADD CONSTRAINT IDX_membership_1 UNIQUE (member_id);
 ALTER TABLE membership ADD CONSTRAINT IDX_membership_2 UNIQUE (member_email);
 ALTER TABLE membership ADD CONSTRAINT IDX_membership_3 UNIQUE (member_phone);
-
-
-
 
 ALTER TABLE product ADD CONSTRAINT IDX_product_PK PRIMARY KEY (product_no);
 
@@ -132,14 +115,8 @@ ALTER TABLE cart ADD CONSTRAINT IDX_cart_PK PRIMARY KEY (cart_no);
 ALTER TABLE cart ADD CONSTRAINT IDX_cart_FK0 FOREIGN KEY (product_no) REFERENCES product (product_no);
 ALTER TABLE cart ADD CONSTRAINT IDX_cart_FK1 FOREIGN KEY (member_no) REFERENCES membership (member_no);
 
-
-
-
 ALTER TABLE orderList ADD CONSTRAINT IDX_orderList_PK PRIMARY KEY (order_no);
-ALTER TABLE orderList ADD CONSTRAINT IDX_orderList_FK0 FOREIGN KEY (member_no) REFERENCES  membership (member_no);
-
-
-
+ALTER TABLE orderList ADD CONSTRAINT IDX_orderList_FK0 FOREIGN KEY (member_no) REFERENCES membership (member_no);
 
 ALTER TABLE orderDetail ADD CONSTRAINT IDX_orderDetail_PK PRIMARY KEY (orderDetail_no);
 ALTER TABLE orderDetail ADD CONSTRAINT IDX_orderDetail_FK0 FOREIGN KEY (order_no) REFERENCES orderList (order_no);
@@ -147,9 +124,5 @@ ALTER TABLE orderDetail ADD CONSTRAINT IDX_orderDetail_FK1 FOREIGN KEY (product_
 
 ALTER TABLE login ADD CONSTRAINT IDX_login_PK PRIMARY KEY (member_id);
 ALTER TABLE LOGIN ADD CONSTRAINT IDX_LOGIN_FK FOREIGN KEY (member_id) REFERENCES MEMBERSHIP(member_id);
-
-ALTER TABLE addsyrup ADD CONSTRAINT IDX_addsyrup_PK PRIMARY KEY (product_syrup);
-
-ALTER TABLE addshot ADD CONSTRAINT IDX_addshot_PK PRIMARY KEY (product_espresso);
 
 
