@@ -5,6 +5,7 @@ import java.sql.Connection;
 
 
 
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -161,7 +162,76 @@ public class MemberDao {
 		con.close();
 		return findMember;
 	}
+	
+	
+	public Member findEmail(String member_email) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDBYEMAIL);
+		Member findMember = null;
+		pstmt.setString(1, member_email);
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()){
+			
+			findMember = new Member(rs.getString("member_email"));
+			
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		
+		
+		return findMember;
+	}
+	
+	public boolean findPhone(String member_phone) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDPHONE);
+		
+		pstmt.setString(1, member_phone);
+		ResultSet rs = pstmt.executeQuery();
+		
+		rs.next();
+		int rowCount = rs.getInt(1);
+		
+		if(rowCount==1) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	/*
+	 * 이메일, 핸드폰 넣으면 아이디찾기
+	 */
+	public Member findId(String member_email, String member_phone) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.FIND_ID);
+		Member searchId = null;
+		
+		pstmt.setString(1, member_email);
+		pstmt.setString(2, member_phone);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			
+			searchId = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
+					rs.getDate("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
+		}
 
+		rs.close();
+		pstmt.close();
+		con.close();
+		return searchId;
+	}
+	
+	
+	
+	
+	
 	public List<Member> findAll() throws Exception {
 
 		Connection con = dataSource.getConnection();

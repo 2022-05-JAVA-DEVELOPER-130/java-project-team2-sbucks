@@ -33,9 +33,18 @@ public class MemberSQL {
 	public static final String MEMBER_FINDBYID
 				="select * from membership where member_id =?";
 	
+	public static final String MEMBER_FINDBYEMAIL
+				="select member_email from membership where member_email = ?";
+	
+	public static final String MEMBER_FINDPHONE
+				="select count(*) from membership where member_phone =?";
+	
 	public static final String MEMBER_FINDALL
 				="select * from membership";
 	
 	public static final String MEMBER_PRINT_BY_ID_PASSWORD
 				="select * from membership m join login l on m.member_id = l.member_id where m.member_id = ? and member_password = ?";
+	
+	public static final String FIND_ID
+				="select * from membership where member_email =? and member_phone =?";
 }

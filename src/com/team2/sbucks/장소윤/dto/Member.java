@@ -50,6 +50,11 @@ MEMBER_EAGREE            NUMBER(10)
 		this.member_eagree = member_eagree;
 	}
 	
+	public Member(String member_email) {
+		super();
+		this.member_email = member_email;
+	}
+	
 	public int getMember_no() {
 		return member_no;
 	}

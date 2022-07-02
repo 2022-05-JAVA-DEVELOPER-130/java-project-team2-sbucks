@@ -14,8 +14,8 @@ public class MemberDaoTestMain {
 	public static void main(String[] args) throws Exception{
 		 MemberDao memberDao = new MemberDao();
 		 
-		 Member findMember = memberDao.findById("guard1");
-		 System.out.println(findMember);
+		 //Member findMember = memberDao.findById("guard1");
+		 //System.out.println(findMember);
 		 
 		// Member insertMember =  new Member(0, "candy1", "010-5656-5656", new Date(), "candy1@naver.com",  "무슨사탕", "경기도 안양시", 0, 0);
 		 //int insertCount = memberDao.insertMember(insertMember);
@@ -31,11 +31,15 @@ public class MemberDaoTestMain {
 		 
 		 //int deleteCount = memberDao.deleteMember(1);
 		 //System.out.println("삭제된 행의 수 :"+deleteCount);
-		 
+		  
+		 /*
 		List<Member> memberList = memberDao.findAll();
 		 for (Member member : memberList) {
 			 	System.out.println(member);
 		}
+		 */
+		 
+		 
 		 
 		 
 	}

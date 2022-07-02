@@ -45,17 +45,37 @@ public class MemberService {
 		/*
 		 * 이메일중복체크
 		 */
-	public boolean duplicateEmail(String email) {
+	public boolean duplicateEmail(Member newMember) throws Exception{
+		boolean isSuccess = false;
+		Member findMember = memberDao.findEmail(newMember.getMember_email());
 		
-		
-		return false;
+		if(findMember==null) {
+			System.out.println("가능한 이메일입니다.");
+			isSuccess = true;
+		}else {
+			System.out.println("이미 가입되어 있는 이메일입니다.");
+			isSuccess = false;
+		}
+		return isSuccess;
 	}
 	
 	
 		/*
 		 * 핸드폰중복체크
 		 */
-	
+	public boolean duplicatePhone(String member_phone) throws Exception{
+			boolean isSuccess = false;
+					
+			if(memberDao.findPhone(member_phone)==true) {
+				System.out.println("이미 가입되어 있는 핸드폰번호입니다.");
+				isSuccess = false;
+			}else {
+				System.out.println("가능한 핸드폰번호입니다.");
+				isSuccess = true;
+			}
+		
+		return isSuccess;
+	}
 	
 	
 	
@@ -139,5 +159,11 @@ public class MemberService {
 			//if(findMember.getMember_id().equals(findMember))
 			
 			
+		}
+		/*
+		 *	 이메일, 핸드폰번호로 아이디 찾기
+		 */
+		public Member findId(String member_email, String member_phone) throws Exception{
+			return memberDao.findId(member_email, member_phone);
 		}
 }

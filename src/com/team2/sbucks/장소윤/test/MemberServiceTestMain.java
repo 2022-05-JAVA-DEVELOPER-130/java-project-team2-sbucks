@@ -2,8 +2,10 @@ package com.team2.sbucks.장소윤.test;
 
 import java.util.Date;
 
+
 import java.util.Scanner;
 
+import com.team2.sbucks.장소윤.dao.MemberDao;
 import com.team2.sbucks.장소윤.dto.Member;
 import com.team2.sbucks.장소윤.service.MemberService;
 
@@ -25,17 +27,41 @@ public class MemberServiceTestMain {
 
 	public static void main(String[] args) throws Exception{
 		Scanner scan = new Scanner(System.in);
+		MemberDao memberDao = new MemberDao();
 		MemberService memberService = new MemberService();
 		
-		System.out.println("회원가입");
-		Member insertMember = new Member(0, "dfd", "010-3434-df", new Date(), "dfd@naver.com",  "사탕주세요", "서울시 강남구", 0, 0);
-		boolean insertOK = memberService.addMember(insertMember);
-		System.out.println(insertOK);
+		//System.out.println("회원가입");
+		//Member insertMember = new Member(0, "dfd", "010-3434-df", new Date(), "dfd@naver.com",  "사탕주세요", "서울시 강남구", 0, 0);
+		//boolean insertOK = memberService.addMember(insertMember);
+		//System.out.println(insertOK);
 		//int deleteCount =memberService.deleteMember(1);
 		//System.out.println(">>삭제된 행의 수:"+deleteCount);
-		memberService.updateMember(insertMember);
+		//memberService.updateMember(insertMember);
 		//String memberid = scan.nextLine();
 		//memberService.findById(memberid);
+		/*
+		System.out.println("----아이디찾기----");
+		System.out.println("이메일입력");
+		String email = scan.nextLine();
+		System.out.println("핸드폰번호입력");
+		String phone = scan.nextLine();
+		
+		System.out.println(memberService.findId(email,phone).getMember_id());
+		*/
+		
+		//Member checkEmail = new Member("guard2@naver.com");
+		//boolean checkEmailOk = memberService.duplicateEmail(checkEmail);
+		//System.out.println(checkEmailOk);
+		
+		/*
+		 * 둘 중에 어떤 메쏘드가 더 합리적인지 물어보기
+		 */
+		
+		
+		//boolean checkPhoneOk = memberService.duplicatePhone("010-2222-dddd");
+		//System.out.println(checkPhoneOk);
+		
+		
 	}
 
 }
