@@ -31,6 +31,7 @@ public class MemberService {
 		Member findMember = memberDao.findById(newMember.getMember_id());
 		if (findMember == null) {
 			// memberDao.insertMember(newMember);
+			System.out.println("가능한 아이디입니다.");
 			isSuccess = true;
 		} else {
 			isSuccess = false;
