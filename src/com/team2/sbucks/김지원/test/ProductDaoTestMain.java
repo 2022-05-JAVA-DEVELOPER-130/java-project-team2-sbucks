@@ -2,8 +2,10 @@ package com.team2.sbucks.김지원.test;
 
 import java.util.List;
 
-import com.itwill.product.Product;
-import com.itwill.product.ProductDao;
+import com.team2.sbucks.김지원.dao.ProductDao;
+import com.team2.sbucks.김지원.dto.Product;
+
+
 
 public class ProductDaoTestMain {
 
