@@ -35,4 +35,7 @@ public class MemberSQL {
 	
 	public static final String MEMBER_FINDALL
 				="select * from membership";
+	
+	public static final String MEMBER_PRINT_BY_ID_PASSWORD
+				="select * from membership m join login l on m.member_id = l.member_id where m.member_id = ? and member_password = ?";
 }

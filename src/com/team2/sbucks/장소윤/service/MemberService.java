@@ -116,11 +116,11 @@ public class MemberService {
 		}
 		
 		/*
-		 * 회원정보 출력
+		 * 회원정보 출력 (아이디랑 비밀번호로)
 		 */
 		
 		public void printMember(Member findMember) throws Exception{
-			Member printMember = memberDao.findById(findMember.getMember_id());
+			//if(findMember.getMember_id().equals(findMember))
 			
 			
 		}
