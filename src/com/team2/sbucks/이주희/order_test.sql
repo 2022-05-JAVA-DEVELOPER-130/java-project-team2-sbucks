@@ -113,7 +113,76 @@ values (ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,orderList_order_no_SEQ.currval,1,
 
 
 
+/*
+3번 회원이 4번 상품 4개, 5번 상품 1개 한번에 주문
+*/
+insert into orderlist(order_no,order_date,member_no) 
+values (orderList_order_no_SEQ.nextval,sysdate,3);
+
+insert into orderdetail(orderdetail_no, order_no, order_stmt, product_no,order_qty)
+values (ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,orderList_order_no_SEQ.currval,1,4,4);
+
+insert into orderdetail(orderdetail_no, order_no, order_stmt, product_no,order_qty)
+values (ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,orderList_order_no_SEQ.currval,1,5,1);
+
+select o.order_no "주문번호", o.order_date "주문날짜", p.product_name "상품명", d.order_qty "수량"
+from orderlist o
+join orderdetail d
+on o.order_no=d.order_no
+join product p
+on d.product_no=p.product_no
+where o.order_no=4;
 
 
+/*
+4번 회원이 장바구니에 2번 상품 3개, 3번 상품 9개, 4번 상품 1를 넣고 장바구니 전체 주문 
+*/
+--장바구니에 담기
+
+insert into cart(cart_no,product_no,member_no,cart_qty) 
+values(cart_cart_no_seq.nextval,2,3,3);
+
+insert into cart(cart_no,product_no,member_no,cart_qty) 
+values(cart_cart_no_seq.nextval,3,3,9);
+
+insert into cart(cart_no,product_no,member_no,cart_qty) 
+values(cart_cart_no_seq.nextval,4,3,1);
+
+--장바구니에 담겼는지 확인
+select * from cart 
+where member_no=3;
+
+--이건 그냥 제가 편하게 확인하려고 한거예요 
+select c.product_no "제품",cart_qty "수량" 
+from cart c
+where c.member_no=3;
+
+-- orderlist에 한 개의 주문 넣기 
+insert into orderlist(order_no,order_date,member_no) 
+values (orderList_order_no_SEQ.nextval,sysdate,3);
+
+--장바구니에 있던 상품목록 및 수량 전체를 orderdetail에 넣기 
+insert into orderdetail (orderdetail_no, order_no, order_stmt, product_no,order_qty)
+select 
+ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,
+orderList_order_no_SEQ.currval,
+1,
+c.product_no,c.cart_qty
+from cart c
+where member_no=3;
+
+--장바구니 담았던 목록 삭제 (주문이 완료됐으므로)
+delete from cart where member_no=3;
+
+--주문이 잘 들어갔는지 확인
+select o.order_no "주문번호", o.order_date "주문날짜", p.product_name "상품명", d.order_qty "수량"
+from orderlist o
+join orderdetail d
+on o.order_no=d.order_no
+join product p
+on d.product_no=p.product_no
+where o.order_no=5;
 
 
+--해당 회원의 장바구니 비었는지 확인
+select * from cart where member_no=3;
