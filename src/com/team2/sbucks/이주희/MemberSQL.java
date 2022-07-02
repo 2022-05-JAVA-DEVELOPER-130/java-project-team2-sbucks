@@ -6,6 +6,10 @@ public class MemberSQL {
 	public static final String updateMember="update membership set member_no=member_no,member_id=member_id,member_phone=?,member_birthday=?,member_email=?,member_nickname=?,member_loc=?,member_pagree=?,member_eagree=? where member_no=?";
 	public static final String selectByNo="select * from membership where member_no=?";
 	public static final String selectAll="select * from membership";
+	public static final String MEMBER_FINDBYID
+	="select * from membership where member_id =?";
+	public static final String CHECK_ID
+	="select count(*) from membership where member_id=?";
 	
 
 }

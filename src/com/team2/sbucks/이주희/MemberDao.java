@@ -10,6 +10,7 @@ import com.team2.sbucks.common.DataSource;
 
 
 
+
 public class MemberDao {
 
 	private DataSource dataSource;
@@ -153,5 +154,43 @@ public class MemberDao {
 		return findMemberList;
 		
 	}
+	
+	public Member findById(String member_id) throws Exception {
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDBYID);
+
+		Member findMember = null;
+
+		pstmt.setString(1, member_id);
+		ResultSet rs = pstmt.executeQuery();
+
+		if (rs.next()) {
+			findMember = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
+					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return findMember;
+	}
+	
+	public boolean checkID(String id) throws Exception {
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(MemberSQL.CHECK_ID);
+		pstmt.setString(1, id);
+		ResultSet rs=pstmt.executeQuery();
+		rs.next();
+		int userCount = rs.getInt(1);
+		if(userCount==1) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	
 
 }
