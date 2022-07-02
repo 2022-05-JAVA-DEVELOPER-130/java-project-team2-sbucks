@@ -1,30 +1,23 @@
 package com.team2.sbucks.김희철.service;
 
+import java.util.List;
+
 import com.team2.sbucks.김희철.dao.ProductDao;
 import com.team2.sbucks.김희철.dao.ProductDetailDao;
+import com.team2.sbucks.김희철.dto.Product;
 
 public class ProductService {
 	private ProductDao productDao;
-	private ProductDetailDao productDetailDao;
 
-	//리스트 전체보기
-	/*
-	public void product() throws Exception{
-		
+	public ProductService() {
+		productDao = new ProductDao();
 	}
-	*/
-	/*
-	//제품 상세보기
-	public void product() throws Exception{
-		
+
+	public Product selectByNo(int no) throws Exception {
+		return productDao.selectByNo(no);
 	}
-	//영양정보전체보기
-	public void productDetail() throws Exception{
-		
+
+	public List<Product> selectAll() throws Exception {
+		return productDao.selectAll();
 	}
-	//제품영양정보 상세보기		
-	public void productDetail() throws Exception{
-		
-	}
-	*/
 }
