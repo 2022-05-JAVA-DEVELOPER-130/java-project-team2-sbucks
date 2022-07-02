@@ -42,7 +42,7 @@ public class MemberDao {
 
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_INSERT);
-
+		
 		pstmt.setString(1, newMember.getMember_id());
 		pstmt.setString(2, newMember.getMember_phone());
 		java.sql.Date member_date = new java.sql.Date(newMember.getMember_birthday().getTime());
@@ -154,7 +154,7 @@ public class MemberDao {
 
 		if (rs.next()) {
 			findMember = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
-					rs.getDate("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
 					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
 		}
 		rs.close();
@@ -218,7 +218,7 @@ public class MemberDao {
 		if(rs.next()) {
 			
 			searchId = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
-					rs.getDate("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
 					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
 		}
 
