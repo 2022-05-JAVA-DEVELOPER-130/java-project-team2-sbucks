@@ -37,19 +37,44 @@ delete from cart where member_no = 1;
 select p.product_name "상품이름", p.product_price+
                                 (p.product_espresso*p.product_espressoprice)+
                                 (p.product_syrup*p.product_syrupprice) "상품가격",
-       cart_qty
+       cart_qty "상품개수",      (p.product_price+
+                                (p.product_espresso*p.product_espressoprice)+
+                                (p.product_syrup*p.product_syrupprice))*
+                                 cart_qty "총 가격"
 from cart c
 join product p
 on c.product_no = p.product_no
 where member_no = 1;
 
+-- 1번 회원이 선택한 상품 총 가격
+select sum((p.product_price+
+         (p.product_espresso*p.product_espressoprice)+
+         (p.product_syrup*p.product_syrupprice))*
+          cart_qty) "전체 가격"
+from cart c
+join product p
+on c.product_no = p.product_no
+group by member_no;
+
 ---------------------주문------------------------
+-- orderList는 주문번호와 주문시간을 빼기 위한 테이블인듯하다. insert, delete
+-- orderList에 price는 아직 쓰임새를 모르겠네요.
 --1번회원이 상품을 주문한다
-insert into orderlist(order_no, order_date, member_no, order_price)
-values(orderlist_order_no_seq.nextval, sysdate, 1, 7000);
---1번 회원이 주문을 취소한다.  
-delete from orderlist where member_no = 1;  
-
-
+insert into orderlist(order_no, order_date, member_no)
+values(orderlist_order_no_seq.nextval, sysdate, 1);
+--1번 회원이 주문을 취소한다.
+delete from orderlist where member_no = 1;
+--1번 회원 주문 내역
+select order_no, member_no, order_date from orderlist;
 --------------------주문상세----------------------
---
+--orderDetail
+--order_stmt 1.주문완료, 2.준비중, 3.준비완료, 4.픽업 완료
+--1번 회원이 1번 상품을 1개 주문했다.
+insert into orderdetail(orderdetail_no, order_no, order_qty, order_stmt, product_no)
+        values(ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,3,1,1,1);
+
+--1번 회원의 주문 상세내역을 본다.
+select 
+
+
+
