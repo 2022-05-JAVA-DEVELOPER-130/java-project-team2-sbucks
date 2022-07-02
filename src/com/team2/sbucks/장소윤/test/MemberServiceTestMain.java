@@ -32,6 +32,7 @@ public class MemberServiceTestMain {
 		System.out.println(insertOK);
 		//int deleteCount =memberService.deleteMember(1);
 		//System.out.println(">>삭제된 행의 수:"+deleteCount);
+		memberService.updateMember(insertMember);
 	}
 
 }

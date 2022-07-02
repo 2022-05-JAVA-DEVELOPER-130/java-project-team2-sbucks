@@ -11,4 +11,11 @@ public class LoginSQL {
 	public static final String LOGIN_INSERT 
 						= "insert into login values (?,?,?)";
 	
+	public static final String UPDATE_PASSWORD
+						= "update login set member_password =? where member_password =?";
+	
+	public static final String FIND_PASSWORD
+						= "select member_password"
+								+ " from login l join membership m on l.member_id = m.member_id "
+								+ " where m.member_id = ? and m.member_email = ?";
 }

@@ -10,11 +10,37 @@ LOGIN                    NUMBER(10)
 public class Login {
 	private String member_id;
 	private String member_password;
+	private Member member_email;
 	private int login;
 	
 	public Login() {
 		
 	}
+	
+
+
+	public Member getMember_email() {
+		return member_email;
+	}
+
+
+
+
+
+
+
+
+
+	public void setMember_email(Member member_email) {
+		this.member_email = member_email;
+	}
+
+
+
+
+
+
+
 
 
 	public Login(String member_id, String member_password, int login) {
