@@ -14,7 +14,6 @@ public class Login {
 	private int login;
 	
 	public Login() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Login(String member_id, String member_password, int login) {
