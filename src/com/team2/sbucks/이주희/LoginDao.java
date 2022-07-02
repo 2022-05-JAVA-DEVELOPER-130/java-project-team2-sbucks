@@ -35,7 +35,7 @@ public class LoginDao {
 		return rowCount;
 	}
 
-	public int deleteLogin(String id) throws Exception {
+	/*public int deleteLogin(String id) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(LoginSQL.deleteLogin);
 
@@ -46,7 +46,7 @@ public class LoginDao {
 		pstmt.close();
 		return rowCount;
 
-	}
+	}*/
 
 	public int updateLogin(Login login) throws Exception {
 
