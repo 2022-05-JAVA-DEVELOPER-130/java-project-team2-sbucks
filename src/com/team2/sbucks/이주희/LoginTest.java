@@ -2,8 +2,7 @@ package com.team2.sbucks.이주희;
 
 import java.util.Scanner;
 
-import dao.LoginDao;
-import dto.Login;
+
 
 public class LoginTest {
 	public static void main(String[] args) throws Exception {
