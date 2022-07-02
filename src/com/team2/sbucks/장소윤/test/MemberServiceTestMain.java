@@ -39,6 +39,7 @@ public class MemberServiceTestMain {
 		//memberService.updateMember(insertMember);
 		//String memberid = scan.nextLine();
 		//memberService.findById(memberid);
+		
 		/*
 		System.out.println("----아이디찾기----");
 		System.out.println("이메일입력");
@@ -49,7 +50,7 @@ public class MemberServiceTestMain {
 		System.out.println(memberService.findId(email,phone).getMember_id());
 		*/
 		
-		//Member checkEmail = new Member("guard2@naver.com");
+		//Member checkEmail = new Member("guard1@naver.com");
 		//boolean checkEmailOk = memberService.duplicateEmail(checkEmail);
 		//System.out.println(checkEmailOk);
 		
@@ -58,8 +59,10 @@ public class MemberServiceTestMain {
 		 */
 		
 		
-		//boolean checkPhoneOk = memberService.duplicatePhone("010-2222-dddd");
+		//boolean checkPhoneOk = memberService.duplicatePhone("010-6542-0815");
 		//System.out.println(checkPhoneOk);
+		
+		
 		
 		
 	}

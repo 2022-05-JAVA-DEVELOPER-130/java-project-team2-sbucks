@@ -25,4 +25,7 @@ public class LoginSQL {
 	
 	public static final String FIND_BY_ID
 						="select * from login where member_id =?";
+	
+	public static final String CHECK_PASSWORD
+						="select count(*) from login where member_password =?";
 }
