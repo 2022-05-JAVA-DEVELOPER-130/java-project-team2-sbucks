@@ -1,6 +1,8 @@
 package com.team2.sbucks.장소윤.dto;
 
 import java.text.SimpleDateFormat;
+
+
 import java.util.Date;
 
 public class Member {
@@ -47,8 +49,7 @@ MEMBER_EAGREE            NUMBER(10)
 		this.member_pagree = member_pagree;
 		this.member_eagree = member_eagree;
 	}
-
-
+	
 	public int getMember_no() {
 		return member_no;
 	}

@@ -1,6 +1,8 @@
 package com.team2.sbucks.장소윤.test;
 
 import java.util.ArrayList;
+
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +14,8 @@ public class MemberDaoTestMain {
 	public static void main(String[] args) throws Exception{
 		 MemberDao memberDao = new MemberDao();
 		 
-		 //Member findMember = memberDao.findById("guard1");
-		 //System.out.println(findMember);
+		 Member findMember = memberDao.findById("guard1");
+		 System.out.println(findMember);
 		 
 		// Member insertMember =  new Member(0, "candy1", "010-5656-5656", new Date(), "candy1@naver.com",  "무슨사탕", "경기도 안양시", 0, 0);
 		 //int insertCount = memberDao.insertMember(insertMember);
