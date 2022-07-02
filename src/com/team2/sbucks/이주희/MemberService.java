@@ -4,6 +4,7 @@ package com.team2.sbucks.이주희;
 
 
 
+
 public class MemberService {
 	private MemberDao memberDao; 
 	private LoginDao loginDao;
@@ -44,6 +45,34 @@ public class MemberService {
 		return check;
 	}
 	
+	public boolean Checkemail(String email) throws Exception{
+		boolean check=false;
+		
+		if(memberDao.checkEmail(email)==true) {
+			check=true;
+			System.out.println("중복된 이메일입니다.");
+		}else {
+			System.out.println("사용가능 이메일입니다.");
+		}
+		
+		
+		return check;
+	}
+	
+	public boolean CheckPhone(String phone) throws Exception{
+		boolean check=false;
+		
+		if(memberDao.checkPhone(phone)==true) {
+			check=true;
+			System.out.println("중복된 핸드폰 번호입니다.");
+		}else {
+			System.out.println("사용가능 핸드폰 번호입니다.");
+		}
+		
+		
+		return check;
+	}
+	
 	public boolean CheckPassword(String id,String password) throws Exception{
 		boolean check=false;
 		
@@ -58,9 +87,9 @@ public class MemberService {
 		return check;
 	}
 	
-	//회원탈퇴
+	//회원탈퇴 (비밀번호 확인 후 탈퇴)
 	
-	//회원정보출력
+	//회원정보출력 (비밀번호 확인 후 출력)
 	public void printMember(int no) throws Exception{
 		String memberID=memberDao.selectByNo(no).getMember_id();
 		
@@ -68,9 +97,9 @@ public class MemberService {
 		System.out.println(memberDao.selectByNo(no));
 		//System.out.println(loginDao.selectByID(memberID));
 	}
-	//회원정보수정 - 
+	//회원정보수정 (업데이트)
 	
-	//비밀번호변경
+	//비밀번호변경 (비밀번호확인 후 업데이트)
 	
 	//비밀번호 찾기 
 	

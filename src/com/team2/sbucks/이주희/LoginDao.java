@@ -10,6 +10,8 @@ import com.team2.sbucks.common.DataSource;
 
 
 
+
+
 public class LoginDao {
 
 	DataSource dataSource = new DataSource();
@@ -51,7 +53,8 @@ public class LoginDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(LoginSQL.updateLogin);
 		pstmt.setString(1, login.getMember_password());
-		pstmt.setString(2, login.getMember_id());
+		pstmt.setInt(2, login.getLogin());
+		pstmt.setString(3, login.getMember_id());
 		int rowCount = pstmt.executeUpdate();
 		con.close();
 		pstmt.close();
