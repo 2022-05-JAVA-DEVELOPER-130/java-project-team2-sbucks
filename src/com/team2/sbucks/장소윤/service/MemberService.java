@@ -42,7 +42,23 @@ public class MemberService {
 		}
 		return isSuccess;
 		}
+		/*
+		 * 이메일중복체크
+		 */
+	public boolean duplicateEmail(String email) {
 		
+		
+		return false;
+	}
+	
+	
+		/*
+		 * 핸드폰중복체크
+		 */
+	
+	
+	
+	
 		/*
 		 * 비밀번호 확인 
 		 */
