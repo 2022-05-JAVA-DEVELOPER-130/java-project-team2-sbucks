@@ -10,9 +10,11 @@ public class LoginServiceTestMain {
 		LoginService loginService = new LoginService();
 		Scanner scan = new Scanner(System.in);
 		
-		
-		//boolean updatePasswordOk =loginService.CheckUpdatePassword("7777", "9999");
-		//System.out.println(updatePasswordOk);
+		/*
+		 * 비밀번호변경 (비밀번호가 맞는지 확인.맞으면 변경/ 틀리면 다시 입력 메세지출력)
+		 */
+		boolean updatePasswordOk =loginService.CheckUpdatePassword("7777", "9999");
+		System.out.println(updatePasswordOk);
 
 	}
 
