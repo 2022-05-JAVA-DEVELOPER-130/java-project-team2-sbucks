@@ -21,7 +21,7 @@ public class MemberSQL {
 						+ "member_loc = ?, member_pagree=?, member_eagree=? where member_id =?";
 	
 	public static final String CHECK_ID
-				="select member_id from membership where member_id=?";
+				="select count(*) from membership where member_id=?";
 	
 	public static final String MEMBER_NO_UPDATE
 					= "update membership set member_phone=?,member_email = ?, member_nickname=?, "
@@ -32,6 +32,9 @@ public class MemberSQL {
 	
 	public static final String MEMBER_FINDBYID
 				="select * from membership where member_id =?";
+	
+	public static final String MEMBER_FINDBYNO
+				="select * from membership where member_no = ?";
 	
 	public static final String MEMBER_FINDBYEMAIL
 				="select member_email from membership where member_email = ?";

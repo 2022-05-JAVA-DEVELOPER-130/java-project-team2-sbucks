@@ -3,6 +3,8 @@ package com.team2.sbucks.장소윤.test;
 import java.util.Date;
 
 
+
+
 import java.util.Scanner;
 
 import com.team2.sbucks.장소윤.dao.MemberDao;
@@ -27,11 +29,14 @@ public class MemberServiceTestMain {
 
 	public static void main(String[] args) throws Exception{
 		Scanner scan = new Scanner(System.in);
-		MemberDao memberDao = new MemberDao();
 		MemberService memberService = new MemberService();
 		
 		//System.out.println("회원가입");
-		//Member insertMember = new Member(0, "dfd", "010-3434-df", new Date(), "dfd@naver.com",  "사탕주세요", "서울시 강남구", 0, 0);
+		//Member insertMember = new Member(0, "candy", "010-1111-1111", "2022-05-06", "candy@naver.com",  "사탕주세요", "서울시 강남구", 0, 0);
+		//int insertCount = memberService.insertMember(insertMember);
+		//System.out.println(insertCount);
+		
+		
 		//boolean insertOK = memberService.addMember(insertMember);
 		//System.out.println(insertOK);
 		//int deleteCount =memberService.deleteMember(1);
@@ -62,9 +67,30 @@ public class MemberServiceTestMain {
 		//boolean checkPhoneOk = memberService.duplicatePhone("010-6542-0815");
 		//System.out.println(checkPhoneOk);
 		
+		/*
+		System.out.println("아이디를 입력하세요");
+		String memberID = scan.next();
+		System.out.println("비밀번호를 입력하세요");
+		String memberPassword = scan.next();
+		Member printInfo = memberService.findInfo(memberID, memberPassword);
+		System.out.println(printInfo);
+		*/
 		
 		
 		
+		
+		
+		/*
+		 * 로그인
+		 */
+		System.out.println("아이디를 입력하세요");
+		String memberID = scan.next();
+		System.out.println("비밀번호를 입력하세요");
+		String memberPassword = scan.next();
+		boolean loginCheck = memberService.loginSuccess(memberID, memberPassword);
+		System.out.println(loginCheck);
+		
+		
+		}
 	}
 
-}

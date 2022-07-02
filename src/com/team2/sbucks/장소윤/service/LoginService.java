@@ -1,31 +1,20 @@
 package com.team2.sbucks.장소윤.service;
 
 import com.team2.sbucks.장소윤.dao.LoginDao;
-import com.team2.sbucks.장소윤.dto.Member;
+import com.team2.sbucks.장소윤.dao.MemberDao;
+import com.team2.sbucks.장소윤.dto.Login;
+
 
 public class LoginService {
 	private LoginDao loginDao;
+	private MemberDao memberDao;
 	
 	public LoginService() {
 		loginDao = new LoginDao();
+		memberDao = new MemberDao();
 	}
 	
-	
-	/*
-	 * 비밀번호 확인 후 해당 회원정보 조회
-	 */
-	
-	
-	public boolean findMemberInfo (String id, String password) throws Exception {
-		boolean isSuccess = false;
-		
-		
-		
-		
-		
-		return false;
-	}
-	
+
 	
 	/*
 	 * 비밀번호 확인 후 맞으면 비밀번호 변경
@@ -33,7 +22,7 @@ public class LoginService {
 	public boolean CheckUpdatePassword (String newPassword, String oldPassword) throws Exception{
 		boolean isSuccess = false;
 		
-		if(loginDao.CheckPassword(oldPassword)==true) {
+		if(loginDao.checkPassword(oldPassword)==true) {
 			
 			loginDao.updatePassword(newPassword, oldPassword);
 			isSuccess = true;

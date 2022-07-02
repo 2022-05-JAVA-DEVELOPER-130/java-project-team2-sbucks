@@ -3,16 +3,15 @@ package com.team2.sbucks.장소윤.test;
 import java.util.Scanner;
 
 
+
 import com.team2.sbucks.장소윤.dao.LoginDao;
 import com.team2.sbucks.장소윤.dto.Login;
-import com.team2.sbucks.장소윤.service.LoginService;
 
 public class LoginDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
 		LoginDao loginDao = new LoginDao();
-		LoginService loginService = new LoginService();
-		Scanner scan = new Scanner(System.in);
+		
 		/*
 		System.out.println("---비밀번호 찾기----");
 		System.out.println("아이디 입력");
@@ -29,9 +28,14 @@ public class LoginDaoTestMain {
 		//System.out.println("비밀번호 변경");
 		//loginDao.updatePassword("8888", "7777");
 		
-		boolean updatePasswordOk =loginService.CheckUpdatePassword("7777", "9999");
-		System.out.println(updatePasswordOk);
-
+		//System.out.println("아이디 비밀번호 로그인 상태 입력");
+		//Login insertLoginLow = new Login("guard11","1011",1);
+		//int insertCount=loginDao.insertLogin(insertLoginLow);
+		//System.out.println(insertCount);
+		
+		//boolean isCheck = loginDao.CheckPassword("1011");
+		//System.out.println(isCheck);
+		
 	}
 
 }

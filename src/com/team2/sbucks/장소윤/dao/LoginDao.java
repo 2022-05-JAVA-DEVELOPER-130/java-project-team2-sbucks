@@ -62,7 +62,7 @@ public class LoginDao {
 		return updateCount;
 	}
 	
-	public boolean CheckPassword(String member_password) throws Exception{
+	public boolean checkPassword(String member_password) throws Exception{
 		
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(LoginSQL.CHECK_PASSWORD);

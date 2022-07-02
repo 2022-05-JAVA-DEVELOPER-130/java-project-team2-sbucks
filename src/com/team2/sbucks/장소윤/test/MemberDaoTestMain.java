@@ -3,6 +3,7 @@ package com.team2.sbucks.장소윤.test;
 import java.util.ArrayList;
 
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -17,9 +18,9 @@ public class MemberDaoTestMain {
 		 //Member findMember = memberDao.findById("guard1");
 		 //System.out.println(findMember);
 		 
-		// Member insertMember =  new Member(0, "candy1", "010-5656-5656", new Date(), "candy1@naver.com",  "무슨사탕", "경기도 안양시", 0, 0);
-		 //int insertCount = memberDao.insertMember(insertMember);
-		// System.out.println("삽입된 행의 수:"+insertCount);
+		//Member insertMemberTest = new Member(0, "greengrape", "010-1234-1234", "2022-07-01", "greengrape@naver.com", "청포도사탕", "경기도 용인시", 1, 1);
+		//int insertOk = memberDao.insertMember(insertMemberTest);
+		//System.out.println("삽입된 행의 수:"+insertOk);
 		 
 		 //Member updateMember = new Member(0,"candy1", "010-3587-7898", new Date(),"candy2@naver.com", "청포도사탕", "경기도 시흥시",0,0);
 		 //int updateCount = memberDao.updateMember(updateMember);
@@ -39,7 +40,8 @@ public class MemberDaoTestMain {
 		}
 		 */
 		 
-		 
+		Member printInfo = memberDao.findInfo("guard1", "1111");
+		System.out.println(printInfo);
 		 
 		 
 	}

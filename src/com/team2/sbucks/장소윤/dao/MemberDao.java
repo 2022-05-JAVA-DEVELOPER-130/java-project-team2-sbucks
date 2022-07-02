@@ -163,6 +163,26 @@ public class MemberDao {
 		return findMember;
 	}
 	
+	public Member findByNo(int member_no) throws Exception {
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDBYNO);
+
+		Member findMember = null;
+
+		pstmt.setInt(1, member_no);
+		ResultSet rs = pstmt.executeQuery();
+
+		if (rs.next()) {
+			findMember = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
+					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return findMember;
+	}
 	
 	public Member findEmail(String member_email) throws Exception{
 		Connection con = dataSource.getConnection();
@@ -202,6 +222,24 @@ public class MemberDao {
 		}
 		
 	}
+		
+		
+	public boolean checkID(String member_id) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.CHECK_ID);
+		
+		pstmt.setString(1, member_id);
+		ResultSet rs = pstmt.executeQuery();
+		
+		rs.next();
+		int rowCount = rs.getInt(1);
+		
+		if(rowCount==1) {
+			return true;
+		}else {
+			return false;
+			}
+	}
 	/*
 	 * 이메일, 핸드폰 넣으면 아이디찾기
 	 */
@@ -228,8 +266,30 @@ public class MemberDao {
 		return searchId;
 	}
 	
+	/*
+	 * 아이디랑 비밀번호로 회원정보찾기
+	 */
 	
-	
+	public Member findInfo(String member_id, String member_password) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_PRINT_BY_ID_PASSWORD);
+		Member printInfo = null;
+		
+		pstmt.setString(1, member_id);
+		pstmt.setString(2, member_password);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			
+			printInfo = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
+					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
+			
+		}
+		
+		return printInfo;
+	}
 	
 	
 	public List<Member> findAll() throws Exception {
