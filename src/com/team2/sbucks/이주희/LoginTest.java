@@ -24,7 +24,7 @@ public class LoginTest {
 
 		System.out.println(loginDao.selectAll());
 
-		System.out.println("---비밀번호 찾기---");
+		System.out.println("---비밀번호 찾기----");
 		System.out.println("아이디 입력");
 		String memberid = scan.nextLine();
 		System.out.println("이메일 입력");
