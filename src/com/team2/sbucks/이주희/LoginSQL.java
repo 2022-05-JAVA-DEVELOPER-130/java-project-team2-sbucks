@@ -3,7 +3,7 @@ package com.team2.sbucks.이주희;
 public class LoginSQL {
 	public static final String insertLogin = "insert into login values(?,?,?)";
 	public static final String deleteLogin="delete from login where member_id=?";
-	public static final String updateLogin="update login set member_id=member_id,member_password=?,login=1 where member_id=?";
+	public static final String updateLogin="update login set member_id=member_id,member_password=?,login=? where member_id=?";
 	public static final String selectById="select * from login where member_id=?";
 	public static final String selectAll="select * from login";
 	

@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 
 
+
 public class MemberServiceTest {
 	public static void main(String[] args) throws Exception {
 		Scanner scan=new Scanner(System.in);
 		MemberService memberService=new MemberService();
-		memberService.Checkid("id8");
+		memberService.Checkid("id1");
+		//System.out.println("이메일을 입력하세요");
+		//String email=scan.nextLine();
+		//memberService.Checkemail("bbb@email.com");
 		
+		//memberService.CheckPhone("1111-7771");
 		/*
 		Member newMember=new Member(0, "아이디", , null, null, null, null, 0, 0);
 		memberService.MemberIn()

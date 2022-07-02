@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 
 
-public class LoginTest {
+
+
+
+
+public class LoginDaoTest {
 	public static void main(String[] args) throws Exception {
 		Scanner scan = new Scanner(System.in);
 		LoginDao loginDao = new LoginDao();
@@ -29,7 +33,7 @@ public class LoginTest {
 		String memberid = scan.nextLine();
 		System.out.println("이메일 입력");
 		String memberEmail = scan.nextLine();
-		System.out.println(loginDao.findPassword(memberid, memberEmail));
+		System.out.println(loginDao.findPassword(memberid, memberEmail).getMember_password());
 	}
 
 }

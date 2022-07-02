@@ -1,6 +1,10 @@
 package com.team2.sbucks.이주희;
 
 
+
+
+
+
 public class MemberDaoTest {
 	public static void main(String[] args) throws Exception {
 		MemberDao memberDao = new MemberDao();

@@ -11,6 +11,11 @@ import com.team2.sbucks.common.DataSource;
 
 
 
+/**
+ * 
+ * @author juhui
+ *
+ */
 public class MemberDao {
 
 	private DataSource dataSource;
@@ -49,7 +54,12 @@ public class MemberDao {
 		return 0;
 	
 	}*/
-
+/**
+ * 
+ * @param newMember 가입하는 회
+ * @return 입력성공시 1 
+ * @throws Exception
+ */
 	public int insertMember(Member newMember) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt1 = con.prepareStatement(MemberSQL.insertMember);
@@ -72,6 +82,13 @@ public class MemberDao {
 		return rowCount;
 
 	}
+	
+	/**
+	 * 
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 
 	public int deleteMember(int memberNo) throws Exception {
 		Connection con = dataSource.getConnection();
@@ -84,7 +101,12 @@ public class MemberDao {
 		pstmt.close();
 		return rowCount;
 	}
-
+/**
+ * 
+ * @param upMember
+ * @return
+ * @throws Exception
+ */
 	public int updateMember(Member upMember) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.updateMember);
@@ -104,6 +126,13 @@ public class MemberDao {
 		return rowCount;
 	
 	}
+	
+	/**
+	 * 
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 
 	public Member selectByNo(int memberNo) throws Exception {
 		Connection con = dataSource.getConnection();
@@ -134,7 +163,11 @@ public class MemberDao {
 		con.close();
 		return findMember;
 	}
-
+/**
+ * 
+ * @return
+ * @throws Exception
+ */
 	public List<Member> selectAll() throws Exception {
 		List<Member> findMemberList = new ArrayList<Member>();
 
@@ -155,27 +188,12 @@ public class MemberDao {
 		
 	}
 	
-	public Member findById(String member_id) throws Exception {
-
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDBYID);
-
-		Member findMember = null;
-
-		pstmt.setString(1, member_id);
-		ResultSet rs = pstmt.executeQuery();
-
-		if (rs.next()) {
-			findMember = new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
-					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
-					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree"));
-		}
-		rs.close();
-		pstmt.close();
-		con.close();
-		return findMember;
-	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return 
+	 * @throws Exception
+	 */
 	public boolean checkID(String id) throws Exception {
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(MemberSQL.CHECK_ID);
@@ -190,7 +208,48 @@ public class MemberDao {
 		}
 		
 	}
+	/**
+	 * 
+	 * @param email 이메일 입력 
+	 * @return 이미 존재하는 이메일일 경우 true 반환
+	 * @throws Exception ㅇㅇ
+	 */
 	
+	public boolean checkEmail(String email) throws Exception {
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(MemberSQL.CHECK_EMAIL);
+		pstmt.setString(1, email);
+		ResultSet rs=pstmt.executeQuery();
+		rs.next();
+		int userCount = rs.getInt(1);
+		if(userCount==1) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	/**
+	 * 
+	 * @param phone 핸드폰번호
+	 * @return 이미 존재하는 번호일 경우 true 반
+	 * @throws Exception ㅇㅇ
+	 */
+	
+	public boolean checkPhone(String phone) throws Exception {
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(MemberSQL.CHECK_PHONE);
+		pstmt.setString(1, phone);
+		ResultSet rs=pstmt.executeQuery();
+		rs.next();
+		int userCount = rs.getInt(1);
+		if(userCount==1) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 	
 
 }
