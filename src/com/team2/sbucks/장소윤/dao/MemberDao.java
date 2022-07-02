@@ -244,7 +244,7 @@ public class MemberDao {
 		while (rs.next()) {
 
 			memberList.add(new Member(rs.getInt("member_no"), rs.getString("member_id"), rs.getString("member_phone"),
-					rs.getDate("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
+					rs.getString("member_birthday"), rs.getString("member_email"), rs.getString("member_nickname"),
 					rs.getString("member_loc"), rs.getInt("member_pagree"), rs.getInt("member_eagree")));
 		}
 
