@@ -2,7 +2,7 @@ package com.team2.sbucks.장소윤.service;
 
 import java.util.List;
 
-
+import com.team2.sbucks.장소윤.dao.LoginDao;
 import com.team2.sbucks.장소윤.dao.MemberDao;
 import com.team2.sbucks.장소윤.dto.Member;
 
@@ -11,11 +11,11 @@ import com.team2.sbucks.장소윤.dto.Member;
 public class MemberService {
 
 	private MemberDao memberDao; 
-	
+	private LoginDao loginDao;
 	
 	public MemberService() {
 		memberDao = new MemberDao();  //객체초기화?
-	
+		loginDao = new LoginDao();
 	}
 	/*
 	 * 회원가입
@@ -38,10 +38,33 @@ public class MemberService {
 			isSuccess = true;
 		}else {
 			isSuccess = false;
+			System.out.println("이미 존재하는 아이디입니다.");
 		}
 		return isSuccess;
 		}
-
+		
+		/*
+		 * 비밀번호 확인 
+		 */
+	
+	public boolean checkPassword(String id, String password) throws Exception{
+		boolean check = false;
+		if(loginDao.selectByID(id).getMember_password().equals(password)) {
+			check = true;
+			System.out.println("비밀번호가 일치합니다");
+			
+		}else {
+			System.out.println("비밀번호가 일치하지 않습니다.");
+			check = false;
+		}
+			
+		return check;
+	}
+	
+	
+	
+	
+	
 		/*
 		 * 회원가입
 		 */
@@ -89,6 +112,16 @@ public class MemberService {
 		public int deleteMember(int member_no)throws Exception{
 			
 			return memberDao.deleteMember(member_no);
+			
+		}
+		
+		/*
+		 * 회원정보 출력
+		 */
+		
+		public void printMember(Member findMember) throws Exception{
+			Member printMember = memberDao.findById(findMember.getMember_id());
+			
 			
 		}
 }

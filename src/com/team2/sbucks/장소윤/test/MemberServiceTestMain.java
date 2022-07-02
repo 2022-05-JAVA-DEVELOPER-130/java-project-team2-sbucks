@@ -2,6 +2,7 @@ package com.team2.sbucks.장소윤.test;
 
 import java.util.Date;
 
+import java.util.Scanner;
 
 import com.team2.sbucks.장소윤.dto.Member;
 import com.team2.sbucks.장소윤.service.MemberService;
@@ -23,7 +24,7 @@ MEMBER_EAGREE            NUMBER(10)
 public class MemberServiceTestMain {
 
 	public static void main(String[] args) throws Exception{
-		
+		Scanner scan = new Scanner(System.in);
 		MemberService memberService = new MemberService();
 		
 		System.out.println("회원가입");
@@ -33,6 +34,8 @@ public class MemberServiceTestMain {
 		//int deleteCount =memberService.deleteMember(1);
 		//System.out.println(">>삭제된 행의 수:"+deleteCount);
 		memberService.updateMember(insertMember);
+		//String memberid = scan.nextLine();
+		//memberService.findById(memberid);
 	}
 
 }
