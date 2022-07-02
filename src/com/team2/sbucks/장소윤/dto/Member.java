@@ -36,13 +36,16 @@ MEMBER_EAGREE            NUMBER(10)
 	}
 
 
-	public Member(int member_no, String member_id, String member_phone, Date member_birthday, String member_email,
-			String memeber_nickname, String member_loc, int member_pagree, int member_eagree) {
+	public Member(int member_no, String member_id, String member_phone, String sBirthday, String member_email,
+			String memeber_nickname, String member_loc, int member_pagree, int member_eagree) throws Exception{
 		super();
 		this.member_no = member_no;
 		this.member_id = member_id;
 		this.member_phone = member_phone;
-		this.member_birthday = member_birthday;
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		sdf.applyPattern("yyyy-MM-dd");
+		Date birthday = sdf.parse(sBirthday);
+		this.member_birthday = birthday;
 		this.member_email = member_email;
 		this.memeber_nickname = memeber_nickname;
 		this.member_loc = member_loc;

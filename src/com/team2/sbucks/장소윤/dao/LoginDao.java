@@ -46,12 +46,13 @@ public class LoginDao {
 		return insertCount;
 	}
 	
-	public int updatePassword (Login newPassword) throws Exception{
+	public int updatePassword (String newPassword, String oldPassword) throws Exception{
 		
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(LoginSQL.UPDATE_PASSWORD);
 		
-		pstmt.setString(1, newPassword.getMember_password());
+		pstmt.setString(1, newPassword);
+		pstmt.setString(2, oldPassword);
 		
 		int updateCount = pstmt.executeUpdate();
 		
@@ -59,6 +60,25 @@ public class LoginDao {
 		con.close();
 		
 		return updateCount;
+	}
+	
+	public boolean CheckPassword(String member_password) throws Exception{
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(LoginSQL.CHECK_PASSWORD);
+		
+		pstmt.setString(1, member_password);
+		ResultSet rs = pstmt.executeQuery();
+		
+		rs.next();
+		
+		int rowCount = rs.getInt(1);
+		
+		if(rowCount==1) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public Login findPassword (String id, String email) throws Exception{
