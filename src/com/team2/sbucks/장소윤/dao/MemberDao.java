@@ -141,6 +141,20 @@ public class MemberDao {
 
 		return deleteCount;
 	}
+	
+	public int deleteMemberByID(String member_id) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBERDELETE_BY_ID);
+		
+		pstmt.setString(1, member_id);
+
+		int deleteCount = pstmt.executeUpdate();
+
+		pstmt.close();
+		con.close();
+
+		return deleteCount;
+	}
 
 	public Member findById(String member_id) throws Exception {
 

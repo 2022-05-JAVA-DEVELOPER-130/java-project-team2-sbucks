@@ -30,6 +30,9 @@ public class MemberSQL {
 	public static final String MEMBER_DELETE
 				="delete from membership where member_no =?";
 	
+	public static final String MEMBERDELETE_BY_ID
+				="delete from membership where member_id =?";
+	
 	public static final String MEMBER_FINDBYID
 				="select * from membership where member_id =?";
 	

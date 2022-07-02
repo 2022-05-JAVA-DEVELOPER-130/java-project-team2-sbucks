@@ -83,12 +83,24 @@ public class MemberServiceTestMain {
 		/*
 		 * 로그인
 		 */
+		/*
 		System.out.println("아이디를 입력하세요");
 		String memberID = scan.next();
 		System.out.println("비밀번호를 입력하세요");
 		String memberPassword = scan.next();
 		boolean loginCheck = memberService.loginSuccess(memberID, memberPassword);
 		System.out.println(loginCheck);
+		*/
+		
+		/*
+		 * 회원탈퇴 / 비밀번호가 틀리면 다시 입력해주세요 메세지 출력. 맞으면 탈
+		 */
+		System.out.println("아이디를 입력하세요");
+		String memberID = scan.next();
+		System.out.println("비밀번호를 입력하세요");
+		String memberPassword = scan.next();
+		boolean outMember = memberService.deleteByPassword(memberID, memberPassword);
+		System.out.println(outMember);
 		
 		
 		}

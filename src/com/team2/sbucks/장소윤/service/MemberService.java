@@ -157,13 +157,32 @@ public class MemberService {
 		return memberDao.deleteMember(member_no);
 
 	}
+	
+	/*
+	 * 비밀번호 확인 후 회원 삭제
+	 */
+	
+	public boolean deleteByPassword(String member_id, String member_password) throws Exception{
+		boolean isSuccess = false;
+		if(loginDao.checkPassword(member_password)==true) {
+			memberDao.deleteMemberByID(member_id);
+			isSuccess = true;
+			System.out.println("회원탈퇴가 정상적으로 되었습니다.");
+		}else {
+			System.out.println("비밀번호를 다시 입력해주세요.");
+			isSuccess = false;
+		}
+		
+		
+		
+		return isSuccess;
+	}
 
 	/*
 	 * 회원정보 출력 (회원번호)
 	 */
 
 	public void printMember(int member_no) throws Exception {
-		String memberID = memberDao.findByNo(member_no).getMember_id();
 		System.out.println(memberDao.findByNo(member_no));
 
 	}
