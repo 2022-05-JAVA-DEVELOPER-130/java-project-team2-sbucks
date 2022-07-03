@@ -22,7 +22,7 @@ values(cart_cart_no_seq.nextval,1,1,1);
 insert into cart(cart_no,product_no,member_no,cart_qty)
 values(cart_cart_no_seq.nextval,2,1,1);
 -- 1번 상품이 1개 이상일때는 update
-update cart set cart_qty = cart_qty+1 where member_no = 1 and cart_qty >= 1;
+update cart set cart_qty = cart_qty+1 where member_no = 1 and product_no = 1;
 
 -- 장바구니에 상품을 삭제한다. ## 삭제 = delete, update ##
 -- 1번회원이 장바구니에서 상품을 삭제함.
@@ -63,9 +63,9 @@ group by member_no;
 insert into orderlist(order_no, order_date, member_no)
 values(orderlist_order_no_seq.nextval, sysdate, 1);
 --1번 회원이 주문을 취소한다.
-delete from orderlist where member_no = 1;
+delete from orderlist where order_no = 1;
 --1번 회원 주문 내역
-select order_no, member_no, order_date from orderlist;
+select * from orderlist where member_no = 1;
 --------------------주문상세----------------------
 --orderDetail
 --order_stmt 1.주문완료, 2.준비중, 3.준비완료, 4.픽업 완료
@@ -74,7 +74,29 @@ insert into orderdetail(orderdetail_no, order_no, order_qty, order_stmt, product
         values(ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,3,1,1,1);
 
 --1번 회원의 주문 상세내역을 본다.
+select list.order_no "주문번호",order_date "주문일자", member_no "회원번호",
+       product_name "상품이름", product_price "상품가격",
+       product_espresso "에스프레소 옵션", product_syrup "샷 옵션"
+       
+from orderdetail detail
+join orderlist list
+on detail.order_no = list.order_no
+join product p
+on detail.product_no = p.product_no;
+
+
+
+insert into orderlist(order_no,order_date,member_no) 
+values (orderList_order_no_SEQ.nextval,sysdate,1);
+insert into orderdetail(orderdetail_no, order_no, order_stmt, product_no,order_qty)
+values (ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,orderList_order_no_SEQ.currval,1,1,2);
+
+
+insert into orderdetail (orderdetail_no, order_no, order_stmt, product_no,order_qty)
 select 
-
-
-
+ORDERDETAIL_ORDERDETAIL_NO_SEQ.nextval,
+orderList_order_no_SEQ.currval,
+1,
+c.product_no,c.cart_qty
+from cart c
+where member_no=3;

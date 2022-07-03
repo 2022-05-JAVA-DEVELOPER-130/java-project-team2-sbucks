@@ -1,23 +1,18 @@
 package com.team2.sbucks.유지훈.dto.order;
 
-import com.team2.sbucks.유지훈.dto.member.Membership;
 import com.team2.sbucks.유지훈.dto.product.Product;
 
 public class Cart {
 	private int cart_no;
+	private int member_no; // member 테이블의 no만 써서 int로 했어요.
 	private Product product_no; // product 
-	private Membership member_no; // member
 	private int cart_qty;
 	
-	public Cart() {
-		
-	}
-
-	public Cart(int cart_no, Product product_no, Membership member_no, int cart_qty) {
+	public Cart(int cart_no, int member_no, Product product_no, int cart_qty) {
 		super();
 		this.cart_no = cart_no;
-		this.product_no = product_no;
 		this.member_no = member_no;
+		this.product_no = product_no;
 		this.cart_qty = cart_qty;
 	}
 
@@ -29,20 +24,20 @@ public class Cart {
 		this.cart_no = cart_no;
 	}
 
+	public int getMember_no() {
+		return member_no;
+	}
+
+	public void setMember_no(int member_no) {
+		this.member_no = member_no;
+	}
+
 	public Product getProduct_no() {
 		return product_no;
 	}
 
 	public void setProduct_no(Product product_no) {
 		this.product_no = product_no;
-	}
-
-	public Membership getMember_no() {
-		return member_no;
-	}
-
-	public void setMember_no(Membership member_no) {
-		this.member_no = member_no;
 	}
 
 	public int getCart_qty() {
@@ -55,9 +50,10 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [cart_no=" + cart_no + ", product_no=" + product_no + ", member_no=" + member_no + ", cart_qty="
+		return "Cart [cart_no=" + cart_no + ", member_no=" + member_no + ", product_no=" + product_no + ", cart_qty="
 				+ cart_qty + "]";
 	}
+	
 	
 	
 	

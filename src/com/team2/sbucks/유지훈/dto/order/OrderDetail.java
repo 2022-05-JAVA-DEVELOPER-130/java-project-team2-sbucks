@@ -3,7 +3,7 @@ package com.team2.sbucks.유지훈.dto.order;
 import com.team2.sbucks.유지훈.dto.product.Product;
 
 public class OrderDetail {
-	private int orderDetail_no;
+	private int orderdetail_no;
 	private OrderList order_no;
 	private int order_qty;
 	private int order_stmt;
