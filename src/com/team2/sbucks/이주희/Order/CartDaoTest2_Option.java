@@ -1,15 +1,12 @@
 package com.team2.sbucks.이주희.Order;
 
-import dao.CartDao;
-import dao.ProductDao;
-import dto.Cart;
-import dto.Product;
+
 
 public class CartDaoTest2_Option {
 	public static void main(String[] args) throws Exception{
-		CartDao cartDao=new CartDao();
+		CartDao2_Option cartDao=new CartDao2_Option();
 		ProductDao productDao=new ProductDao();
-		//1번 회원이 3번상품을 4개 담
+		
 		
 		Product product3=productDao.selectByNo(3);
 		product3.setProduct_espresso(2);
@@ -17,39 +14,47 @@ public class CartDaoTest2_Option {
 		
 		System.out.println(product3);
 		
-		Cart newCartItem=new Cart(0, 1 ,product3,4);
+		//1번 회원에게 3번 상품 4개 - (샷 2번 / 시럽 3번 추가) 
 		
-		System.out.println("카트에 입력:"+cartDao.addCart(newCartItem));
+		Cart2 newCartItem=new Cart2(0, product3,1,4,product3.getProduct_espresso(),product3.getProduct_syrup());
+		
+		//System.out.println("카트에 입력:"+cartDao.addCart(newCartItem));
+		
 		
 		System.out.println(cartDao.selectbyMemebrNo(1));
 		
-		/*
+		
 		
 		int memberNo=3;
 		System.out.println(memberNo+"번 회원 카트 삭제:"+cartDao.deleteCart(memberNo));
 		
-		System.out.println(cartDao.selectbyMemebrNo(1));
 		
-		boolean check=cartDao.checkProductCount(1, 3);
+		Cart2 checkCartItem=new Cart2(0, productDao.selectByNo(3),1,4,0,0);
+		//boolean check=cartDao.checkProductCount(newCartItem);
+		int check=cartDao.returnCartno(checkCartItem);
+
+		System.out.println(check);
 		
-		if(check==true) {
-			System.out.println("장바구니에 상품 존재");
+		if(cartDao.returnCartno(checkCartItem)==0) {
+			System.out.println("존재하지 않는 상품이므로 새롭게 추가");
+
+			cartDao.addCart(checkCartItem);
 		}else {
-		System.out.println("장바구니에 상품 없음 ");
+			cartDao.addProductCount(30, check);
+			System.out.println("이미 존재하는 상품이므로 수량 추가");
+
 		}
 		
-		memberNo=3;
-		int productNo=1;
-		int productQTY=3;
 		
-		if(cartDao.checkProductCount(memberNo, productNo)==true){
-			cartDao.addProductCount(memberNo, productNo, productQTY);
-			System.out.println("이미 장바구니에 존재하는 상품 수량 추가");
+		if(cartDao.checkProductCount(newCartItem)==false){
+			cartDao.addCart(newCartItem);
+			System.out.println("존재하지 않는 상품이므로 새롭게 추가");
 		}else {
-			cartDao.addCart(new Cart(0, memberNo, productDao.selectByNo(productNo), productQTY));
-			System.out.println("장바구니에 새로운 상품 추가");
+			check=cartDao.returnCartno(newCartItem);
+			cartDao.addProductCount(100, check);
+			System.out.println("이미 존재하는 상품이므로 수량 추가");
 		}
-		*/
+		
 		
 	}
 
