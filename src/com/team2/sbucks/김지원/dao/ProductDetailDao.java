@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.team2.sbucks.김지원.common.DataSource;
+import com.team2.sbucks.common.DataSource;
 import com.team2.sbucks.김지원.dto.ProductDetail;
 
 
