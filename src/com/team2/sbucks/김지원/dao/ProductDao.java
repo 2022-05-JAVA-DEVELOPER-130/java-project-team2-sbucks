@@ -77,12 +77,7 @@ public class ProductDao {
 									  rs.getString("product_name"),
 									  rs.getInt("product_price"),
 									  rs.getString("product_allergy"),
-									  rs.getString("product_content"),
-									  rs.getInt("product_espresso"),
-									  rs.getInt("product_syrup"),
-									  rs.getInt("product_syrupprice"),
-									  rs.getInt("product_espressoprice")
-									  
+									  rs.getString("product_content")
 									 );
 		}
 		rs.close();
@@ -101,11 +96,8 @@ public class ProductDao {
 										rs.getString("product_name"),
 										rs.getInt("product_price"),
 										rs.getString("product_allergy"),
-										rs.getString("product_content"),
-										rs.getInt("product_espresso"),
-										rs.getInt("product_syrup"),
-										rs.getInt("product_syrupprice"),
-										rs.getInt("product_espressoprice")));
+										rs.getString("product_content")
+										));
 		}
 		rs.close();
 		pstmt.close();
