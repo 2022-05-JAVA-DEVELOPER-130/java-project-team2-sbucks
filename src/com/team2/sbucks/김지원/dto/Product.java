@@ -14,17 +14,6 @@ public class Product {
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Product(int product_no, String product_name, int product_price, String product_allergy,
-			String product_content) {
-		super();
-		this.product_no = product_no;
-		this.product_name = product_name;
-		this.product_price = product_price;
-		this.product_allergy = product_allergy;
-		this.product_content = product_content;
-		
-	}
 	public Product(int product_no, String product_name, int product_price, String product_allergy,
 			String product_content, int product_espresso, int product_syrup, int product_syrupprice,
 			int product_espressoprice) {
