@@ -8,6 +8,9 @@ import java.util.List;
 
 import com.team2.sbucks.유지훈.common.DataSource;
 import com.team2.sbucks.유지훈.dto.order.OrderDetail;
+import com.team2.sbucks.유지훈.dto.order.OrderList;
+import com.team2.sbucks.유지훈.dto.product.Product;
+import com.team2.sbucks.유지훈.sql.order.OrderDetailSQL;
 
 public class OrderDetailDao {
 	private DataSource dataSource;
@@ -17,10 +20,8 @@ public class OrderDetailDao {
 	}
 	
 	public int insertOrderDetail(OrderDetail orderDetail) throws Exception{
-		String orderDetailSQL =
-				"insert into orderdetail(orderdetail_no, order_no, order_stmt, product_no, order_qty) values(orderdetail_orderdetail_no_seq.nextval, orderlist_order_no_seq.currval, ?, ?, ?)";
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(orderDetailSQL);
+		PreparedStatement pstmt = con.prepareStatement(OrderDetailSQL.ORDERDETAIL_INSERT);
 		pstmt.setInt(1, orderDetail.getOrder_stmt());
 		pstmt.setInt(2, orderDetail.getProduct_no().getProduct_no());
 		pstmt.setInt(3, orderDetail.getOrder_qty());
@@ -33,22 +34,34 @@ public class OrderDetailDao {
 	
 	public List<OrderDetail> selectAllOrderDetail(int orderNo) throws Exception{
 		List<OrderDetail> selectAllOrderDetail = new ArrayList<OrderDetail>();
-		String orderDetailSQL = 
-				"select o.order_no, o.order_date, p.product_name, d.order_qty from orderlist o join orderdetail d on o.order_no = d.order_no join product p on d.product_no = p.product_no where o.order_no = ?";
+		
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(orderDetailSQL);
+		PreparedStatement pstmt = con.prepareStatement(OrderDetailSQL.ORDERDETAIL_SELECTALL);
 		pstmt.setInt(1, orderNo);
 		
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
 			selectAllOrderDetail.add(new OrderDetail(rs.getInt("orderdetail_no"),
-									 new OrderList(rs.)));
+									 new OrderList(rs.getInt("order_no"),
+											 	   rs.getDate("order_date"),
+											 	   rs.getInt("member_no"),
+											 	   rs.getInt("order_price")),
+									 				 rs.getInt("order_qty"),
+									 				 rs.getInt("order_stmt"),
+									 new Product(rs.getInt("product_no"),
+											 	 rs.getString("product_name"),
+												 rs.getInt("product_price"),
+												 rs.getString("product_allergy"),
+												 rs.getString("product_content"),
+												 rs.getInt("product_espresso"),
+												 rs.getInt("product_syrup"),
+												 rs.getInt("product_syrupprice"),
+												 rs.getInt("product_espressoprice"))));
 		}
-		s
 		
 		rs.close();
 		pstmt.close();
 		con.close();
-		return null;
+		return selectAllOrderDetail;
 	}
 }

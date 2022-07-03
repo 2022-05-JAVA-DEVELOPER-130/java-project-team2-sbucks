@@ -1,4 +1,4 @@
-package com.team2.sbucks.유지훈.dao.order;
+package com.team2.sbucks.유지훈.sql.order;
 
 public class CartSQL {
 	//카트(장바구니)에 상품을 추가한다.
