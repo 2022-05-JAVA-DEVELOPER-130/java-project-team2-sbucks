@@ -44,7 +44,7 @@ public class OrderDetailDao {
 			selectAllOrderDetail.add(new OrderDetail(rs.getInt("orderdetail_no"),
 									 new OrderList(rs.)));
 		}
-		
+		s
 		
 		rs.close();
 		pstmt.close();
