@@ -2,8 +2,11 @@ package com.team2.sbucks.김지원.service;
 
 import java.util.List;
 
-import com.itwill.product.Product;
-import com.itwill.product.ProductDao;
+import com.team2.sbucks.김지원.dao.ProductDetailDao;
+import com.team2.sbucks.김지원.dto.ProductDetail;
+
+
+
 
 public class ProductDetailService {
 	private ProductDetailDao productDetailDao;
