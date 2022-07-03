@@ -13,11 +13,10 @@ public class OrderDetail {
 	public OrderDetail() {
 		
 	}
-
-
-	public OrderDetail(int orderDetail_no, OrderList order_no, int order_qty, int order_stmt, Product product_no) {
+			
+	public OrderDetail(int orderdetail_no, OrderList order_no, int order_qty, int order_stmt, Product product_no) {
 		super();
-		this.orderDetail_no = orderDetail_no;
+		this.orderdetail_no = orderdetail_no;
 		this.order_no = order_no;
 		this.order_qty = order_qty;
 		this.order_stmt = order_stmt;
@@ -25,13 +24,13 @@ public class OrderDetail {
 	}
 
 
-	public int getOrderDetail_no() {
-		return orderDetail_no;
+	public int getOrderdetail_no() {
+		return orderdetail_no;
 	}
 
 
-	public void setOrderDetail_no(int orderDetail_no) {
-		this.orderDetail_no = orderDetail_no;
+	public void setOrderdetail_no(int orderdetail_no) {
+		this.orderdetail_no = orderdetail_no;
 	}
 
 
@@ -77,9 +76,10 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "OrderDetail [orderDetail_no=" + orderDetail_no + ", order_no=" + order_no + ", order_qty=" + order_qty
+		return "OrderDetail [orderdetail_no=" + orderdetail_no + ", order_no=" + order_no + ", order_qty=" + order_qty
 				+ ", order_stmt=" + order_stmt + ", product_no=" + product_no + "]";
 	}
+	
 	
 	
 }

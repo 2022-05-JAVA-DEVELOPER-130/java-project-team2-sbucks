@@ -1,4 +1,4 @@
-package com.team2.sbucks.유지훈.dao.order;
+package com.team2.sbucks.유지훈.sql.order;
 
 public class OrderListSQL {
 	// 회원이 상품을 주문한다.
