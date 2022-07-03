@@ -11,5 +11,5 @@ public class ProductSQL {
 	public static final String PRODUCT_SELECT_BY_NO
 	="select product_no,product_name,product_price,product_allergy,product_content from product where product_no=?";
 	public static final String PRODUCT_SELECT_ALL
-	="select * from product";
+	="select product_no,product_name,product_price,product_allergy,product_content from product";
 }
