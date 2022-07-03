@@ -9,7 +9,7 @@ public class ProductSQL {
 	public static final String PRODUCT_DELETE
 	="delete from product where product_no=?";
 	public static final String PRODUCT_SELECT_BY_NO
-	="select * from product where product_no=?";
+	="select product_no,product_name,product_price,product_allergy,product_content from product where product_no=?";
 	public static final String PRODUCT_SELECT_ALL
 	="select * from product";
 }
