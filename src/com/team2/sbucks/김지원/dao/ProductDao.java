@@ -93,9 +93,8 @@ public class ProductDao {
 	
 	public List<Product> selectAll() throws Exception{
 		List<Product> productList = new ArrayList<Product>();
-		String product_selectAll = "select * from product";
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(product_selectAll);
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SELECT_ALL);
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()){
 			productList.add(new Product(rs.getInt("product_no"),

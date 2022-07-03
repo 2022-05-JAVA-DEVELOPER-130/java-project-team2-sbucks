@@ -16,13 +16,13 @@ public class ProductDaoTestMain {
 		/*
 		 * 상품상세리스트 보기
 		 */
-		//System.out.println(productDao.selectByNo(1));
-		//System.out.println();
+		System.out.println(productDao.selectByNo(1));
+		System.out.println();
 		/*
 		 * 상품전체 리스트보기
 		 */
-		//List<Product> productList = productDao.selectAll();
-		//System.out.println(productList);
+		List<Product> productList = productDao.selectAll();
+		System.out.println(productList);
 		
 		/*
 		 * 상품추가
