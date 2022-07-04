@@ -12,7 +12,7 @@ import com.team2.sbucks.dto.OrderDetail;
 import com.team2.sbucks.dto.OrderList;
 import com.team2.sbucks.dto.Product;
 
-public class OrderDaoTest2 {
+public class OrderDaoTest {
 	public static void main(String[] args) throws Exception {
 		OrderDao orderdao = new OrderDao();
 		ProductDao productDao = new ProductDao();

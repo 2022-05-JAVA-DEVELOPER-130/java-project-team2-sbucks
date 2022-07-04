@@ -5,7 +5,7 @@ import com.team2.sbucks.dao.product.ProductDao;
 import com.team2.sbucks.dto.Cart;
 import com.team2.sbucks.dto.Product;
 
-public class CartDaoTest2_Option {
+public class CartDaoTest {
 	public static void main(String[] args) throws Exception {
 		CartDao cartDao = new CartDao();
 		ProductDao productDao = new ProductDao();
