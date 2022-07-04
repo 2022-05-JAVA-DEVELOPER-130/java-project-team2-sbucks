@@ -19,14 +19,15 @@ public class ProductDao {
 	public int insertProduct(Product product) throws Exception {
 		Connection con = dataSource.getConncetion();
 		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_INSERT);
-		pstmt.setString(1, product.getProduct_name());
-		pstmt.setInt(2, product.getProduct_price());
-		pstmt.setString(3, product.getProduct_allergy());
-		pstmt.setString(4, product.getProduct_content());
-		pstmt.setInt(5, product.getProduct_espresso());
-		pstmt.setInt(6, product.getProduct_syrup());
-		pstmt.setInt(7, product.getProduct_syrupPrice());
-		pstmt.setInt(8, product.getProduct_espressoPrice());
+		pstmt.setInt(1, product.getProduct_no());
+		pstmt.setString(2, product.getProduct_name());
+		pstmt.setInt(3, product.getProduct_price());
+		pstmt.setString(4, product.getProduct_allergy());
+		pstmt.setString(5, product.getProduct_content());
+		pstmt.setInt(6, product.getProduct_espresso());
+		pstmt.setInt(7, product.getProduct_syrup());
+		pstmt.setInt(8, product.getProduct_syrupPrice());
+		pstmt.setInt(9, product.getProduct_espressoPrice());
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
 		con.close();

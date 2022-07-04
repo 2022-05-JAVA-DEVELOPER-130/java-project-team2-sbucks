@@ -9,8 +9,12 @@ public class CartDaoTest {
 		CartDao cartDao = new CartDao();
 		ProductDao productDao = new ProductDao();
 		
+<<<<<<< HEAD
 		// 2번 회원이 2번 상품을 1개 담았다.
 		Cart newCart = new Cart(1, 2, productDao.selectByNo(1), 1);
 		System.out.println("장바구니 입력: "+cartDao.insertCart(newCart));
+=======
+		
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team2-sbucks.git
 	}
 }
