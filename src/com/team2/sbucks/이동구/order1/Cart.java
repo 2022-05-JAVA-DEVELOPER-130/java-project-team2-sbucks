@@ -1,4 +1,4 @@
-package com.team2.sbucks.order;
+package com.team2.sbucks.이동구;
 
 /*
 이름         널?       유형         
