@@ -23,8 +23,8 @@ public class CartDao {
 	public int insertCart(Cart cart) throws Exception{
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_INSERT);
-		pstmt.setInt(1, cart.getProduct_no().getProduct_no()); // product 객체 안의 product no로 진입
-		pstmt.setInt(2, cart.getMember_no());
+		pstmt.setInt(1, cart.getMember_no());
+		pstmt.setInt(2, cart.getProduct_no().getProduct_no()); // product 객체 안의 product no로 진입
 		pstmt.setInt(3, cart.getCart_qty());
 		
 		int rowCount = pstmt.executeUpdate();

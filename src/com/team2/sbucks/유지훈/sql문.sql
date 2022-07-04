@@ -62,10 +62,23 @@ group by member_no;
 --1번회원이 상품을 주문한다
 insert into orderlist(order_no, order_date, member_no)
 values(orderlist_order_no_seq.nextval, sysdate, 1);
---1번 회원이 주문을 취소한다.
+
+
+--1번 회원이 주문을 취소한다. (안쓸듯)
 delete from orderlist where order_no = 1;
+
+
 --1번 회원 주문 내역
 select * from orderlist where member_no = 1;
+
+
+
+
+
+
+
+
+
 --------------------주문상세----------------------
 --orderDetail
 --order_stmt 1.주문완료, 2.준비중, 3.준비완료, 4.픽업 완료

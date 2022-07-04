@@ -3,7 +3,7 @@ package com.team2.sbucks.유지훈.sql.order;
 public class CartSQL {
 	//카트(장바구니)에 상품을 추가한다.
 	public static final String CART_INSERT
-	="insert into cart(cart_no, product_no, member_no, cart_qty) values(cart_cart_no_seq_nextval, ?, ?, ?)";
+	="insert into cart(cart_no, member_no, product_no, cart_qty) values(cart_cart_no_seq.nextval, ?, ?, ?)";
 	
 	//카트(장바구니)에 상품의 수량을 변경(업데이트) 한다.
 	public static final String CART_UPDATE

@@ -9,7 +9,8 @@ public class CartDaoTest {
 		CartDao cartDao = new CartDao();
 		ProductDao productDao = new ProductDao();
 		
-		Cart newCart = new Cart(1, 2, productDao.selectByNo(2), 1);
-		
+		// 2번 회원이 2번 상품을 1개 담았다.
+		Cart newCart = new Cart(1, 2, productDao.selectByNo(1), 1);
+		System.out.println("장바구니 입력: "+cartDao.insertCart(newCart));
 	}
 }
