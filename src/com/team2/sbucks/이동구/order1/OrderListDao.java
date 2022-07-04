@@ -53,7 +53,7 @@ public class OrderListDao {
 		rs = pstmt.executeQuery();
 		
 		if(rs.next()) {
-			findPrice = new OrderList( rs.getInt("order_price"));
+			//findPrice = new OrderList( rs.getInt("order_price"));
 		}
 		rs.close();
 		con.close();

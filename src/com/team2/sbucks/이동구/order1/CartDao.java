@@ -30,7 +30,7 @@ public class CartDao {
 		Connection con = dataSource.getConncetion();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_INSERT);
 
-		pstmt.setInt(1, cartitem.getProduct().getProduct_no());
+		//pstmt.setInt(1, cartitem.getProduct().getProduct_no());
 		pstmt.setInt(2, cartitem.getMember_no());
 		pstmt.setInt(3, cartitem.getCart_qty());
 		
@@ -114,13 +114,13 @@ public class CartDao {
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
-			
+			/*
 			findCartList.add(new Cart(rs.getInt("cart_no"), rs.getInt("member_no"),
 					new Product(rs.getInt("product_no"), rs.getString("product_name"), 
 							rs.getInt("product_price"), rs.getString("product_allergy"), rs.getString("product_content"), 
 							rs.getInt("product_espresso"), rs.getInt("product_syrup"), rs.getInt("product_syrupprice"), rs.getInt("product_espressoprice")),   
 					rs.getInt("cart_qty")));
-
+			*/
 		}
 		rs.close();
 		pstmt.close();
