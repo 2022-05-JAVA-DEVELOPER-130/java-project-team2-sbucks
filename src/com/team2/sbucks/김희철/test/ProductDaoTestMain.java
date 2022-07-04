@@ -9,6 +9,9 @@ public class ProductDaoTestMain {
 	
 	ProductDao productDao = new ProductDao();
 	
+	Product inserProduct = new Product(1, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+inserProduct);
+	/*
 	Product newProduct = 
 				new Product(1, "아이스 아메리카노", 4500, "고카페인함유",
 			"진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피",
@@ -41,8 +44,8 @@ public class ProductDaoTestMain {
 	newProduct = new Product(10, "카푸치노", 5000, "우유",
 			"풍부하고 진한 에스프레소에 따뜻한 우유와 벨벳 같은 우유 거품이 1:1 비율로 어우러져 마무리된 커피 음료",
 			0, 0, 0, 0);
-		
-	System.out.println("메뉴생성 : "+productDao.insertProduct(newProduct));
+		*/
+	
 	
 	System.out.println("메뉴삭제 : "+productDao.deleteProduct(2));
 	
