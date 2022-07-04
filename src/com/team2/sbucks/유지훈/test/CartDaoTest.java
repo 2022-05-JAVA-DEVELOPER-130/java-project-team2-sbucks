@@ -9,7 +9,6 @@ public class CartDaoTest {
 		CartDao cartDao = new CartDao();
 		ProductDao productDao = new ProductDao();
 		
-		Cart newCart = new Cart(1, 2, productDao.selectByNo(2), 1);
 		
 	}
 }
