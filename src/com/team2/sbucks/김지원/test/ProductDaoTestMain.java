@@ -25,7 +25,7 @@ public class ProductDaoTestMain {
 		System.out.println(productList);
 		
 		/*
-		 * 상품추가
+		 * 상품추가.
 		 */
 //		Product insertProduct1 = new Product(1,"(ICE)아메리카노",4500,"고카페인함유","진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피",0,0,500,300);
 //		Product insertProduct2 = new Product(2,"(HOT)아메리카노",4500,"고카페인함유","진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피",0,0,500,300);
