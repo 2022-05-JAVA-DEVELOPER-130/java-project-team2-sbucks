@@ -6,6 +6,7 @@ package com.team2.sbucks.이주희;
 MEMBER_ID       NOT NULL VARCHAR2(50) 
 MEMBER_PASSWORD          VARCHAR2(50) 
 LOGIN                    NUMBER(10) 
+
 */
 
 public class Login {
