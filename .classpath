@@ -6,6 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_333/jre/lib/ext/ojdbc6.jar"/>
+=======
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team2-sbucks.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
