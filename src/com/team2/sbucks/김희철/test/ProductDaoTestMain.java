@@ -8,9 +8,27 @@ public class ProductDaoTestMain {
 		
 	
 	ProductDao productDao = new ProductDao();
-	
+	/*
 	Product inserProduct = new Product(1, "null", 4500, "null", "null", 0, 0, 0, 0);
-	System.out.println("메뉴생성 : "+inserProduct);
+	inserProduct = new Product(2, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(3, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(4, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(5, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(6, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(7, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(8, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(9, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	inserProduct = new Product(10, "null", 4500, "null", "null", 0, 0, 0, 0);
+	System.out.println("메뉴생성 : "+productDao.insertProduct(inserProduct));
+	*/
 	/*
 	Product newProduct = 
 				new Product(1, "아이스 아메리카노", 4500, "고카페인함유",
@@ -47,9 +65,12 @@ public class ProductDaoTestMain {
 		*/
 	
 	
-	System.out.println("메뉴삭제 : "+productDao.deleteProduct(2));
+	System.out.println("메뉴삭제 : "+productDao.deleteProduct(3));
+	System.out.println("메뉴삭제 : "+productDao.deleteProduct(4));
+	System.out.println("메뉴삭제 : "+productDao.deleteProduct(5));
+	System.out.println("메뉴삭제 : "+productDao.deleteProduct(6));
 	
-	Product updatProduct = new Product(11,"업데이트 테스트", 99999999, "실험1", "실험2", 9999, 999, 99, 9);
+	Product updatProduct = new Product(7, "null", 0, "null", "null", 0, 0, 0, 0);
 	System.out.println("메뉴수정 : "+productDao.updateProduct(updatProduct));
 	
 	System.out.println(productDao.selectByNo(1));

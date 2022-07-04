@@ -8,7 +8,7 @@ public class ProductServiceTestMain {
 		
 		ProductService productService = new ProductService();
 		
-		System.out.println(productService.selectByNo(2));
+		System.out.println(productService.selectByNo(8));
 		
 		System.out.println(productService.selectAll());
 		

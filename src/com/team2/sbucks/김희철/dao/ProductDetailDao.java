@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.team2.sbucks.김희철.common.DataSource;
+import com.team2.sbucks.common.DataSource;
 import com.team2.sbucks.김희철.dto.ProductDetail;
 
 
@@ -17,7 +17,7 @@ public class ProductDetailDao {
 	}
 	
 	public int insertProductDetail(ProductDetail productDetail) throws Exception {
-		Connection con = dataSource.getConncetion();
+		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductDetailSQL.PRODUCTDETAIL_INSERT);
 		pstmt.setInt(1, productDetail.getProduct_no());
 		pstmt.setInt(2, productDetail.getKal());
@@ -31,12 +31,12 @@ public class ProductDetailDao {
 	}
 	
 	public int updateProductDetail(ProductDetail productDetail) throws Exception{
-		Connection con = dataSource.getConncetion();
+		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductDetailSQL.PRODUCTDETAIL_UPDATE);
-		pstmt.setInt(1, productDetail.getProduct_no());
-		pstmt.setInt(2, productDetail.getKal());
-		pstmt.setInt(3, productDetail.getCaffeine());
-		pstmt.setInt(4, productDetail.getNa());
+		pstmt.setInt(1, productDetail.getKal());
+		pstmt.setInt(2, productDetail.getCaffeine());
+		pstmt.setInt(3, productDetail.getNa());
+		pstmt.setInt(4, productDetail.getProduct_no());
 		
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
@@ -45,7 +45,7 @@ public class ProductDetailDao {
 	}
 	
 	public int deleteProductDetail(int product_no) throws Exception {
-		Connection con = dataSource.getConncetion();
+		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductDetailSQL.PRODUCTDETAIL_DELETE);
 		pstmt.setInt(1, product_no);
 		int rowCount = pstmt.executeUpdate();
@@ -56,7 +56,7 @@ public class ProductDetailDao {
 	
 	public ProductDetail selectByNo(int product_no) throws Exception {
 		ProductDetail findProductDetail = null;
-		Connection con = dataSource.getConncetion();
+		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductDetailSQL.PRODUCTDETAIL_SELECT_BY_NO);
 		pstmt.setInt(1, product_no);
 		ResultSet rs = pstmt.executeQuery();
@@ -74,7 +74,7 @@ public class ProductDetailDao {
 	
 	public List<ProductDetail> selectAll() throws Exception {
 		List<ProductDetail> productDetailList = new ArrayList<ProductDetail>();
-		Connection con = dataSource.getConncetion();
+		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductDetailSQL.PRODUCTDETAIL_SELECT_ALL);
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
