@@ -1,4 +1,6 @@
-package com.team2.sbucks.order;
+package com.team2.sbucks.이동구.order1;
+
+import com.team2.sbucks.dto.Product;
 
 public class OrderDetail {
 	private int orderDetail_no; 

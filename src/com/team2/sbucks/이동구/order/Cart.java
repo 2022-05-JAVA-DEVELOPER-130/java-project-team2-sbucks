@@ -1,4 +1,4 @@
-package listdtovo.order;
+package com.team2.sbucks.이동구.order;
 
 public class Cart {
 	private int cart_no;

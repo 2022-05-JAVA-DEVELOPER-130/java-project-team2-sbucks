@@ -1,4 +1,5 @@
-package listdtovo.order;
+package com.team2.sbucks.이동구.order;
+
 
 import java.sql.Date;
 

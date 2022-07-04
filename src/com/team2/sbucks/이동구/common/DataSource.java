@@ -1,4 +1,4 @@
-package common;
+package com.team2.sbucks.이동구.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

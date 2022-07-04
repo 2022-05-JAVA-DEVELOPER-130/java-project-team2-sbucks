@@ -1,4 +1,6 @@
-package listsql.order;
+package com.team2.sbucks.이동구.order;
+
+
 
 public class OrderDetailSQL {
 	public static final String ORDERDETAIL_INSERT

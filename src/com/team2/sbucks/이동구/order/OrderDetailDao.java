@@ -1,4 +1,7 @@
-package listdao.order;
+package com.team2.sbucks.이동구.order;
+
+import com.team2.sbucks.이동구.order.*;
+import com.team2.sbucks.이동구.common.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import common.DataSource;
-import listdtovo.order.OrderDetail;
-import listsql.order.OrderDetailSQL;
+
 
 public class OrderDetailDao {
 	private DataSource dataSource;

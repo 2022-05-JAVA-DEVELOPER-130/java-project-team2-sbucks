@@ -1,4 +1,4 @@
-package com.team2.sbucks.order;
+package com.team2.sbucks.이동구.order1;
 
 import java.sql.Date;
 

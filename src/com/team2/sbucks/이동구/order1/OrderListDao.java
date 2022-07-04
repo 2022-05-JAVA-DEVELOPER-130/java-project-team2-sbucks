@@ -1,13 +1,12 @@
-package com.team2.sbucks.orderdao;
+package com.team2.sbucks.이동구.order1;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.team2.sbucks.order.OrderList;
-import com.team2.sbucks.ordersql.OrderListSQL;
+import com.team2.sbucks.이동구.common.DataSource;
 
-import common.DataSource;
+
 
 
 

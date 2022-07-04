@@ -1,5 +1,7 @@
 package com.team2.sbucks.이동구;
 
+import com.team2.sbucks.dto.Product;
+
 /*
 이름         널?       유형         
 ---------- -------- ---------- 
