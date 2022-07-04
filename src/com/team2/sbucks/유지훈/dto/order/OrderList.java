@@ -1,8 +1,6 @@
 package com.team2.sbucks.유지훈.dto.order;
 
-import java.sql.Date;
-
-import com.team2.sbucks.유지훈.dto.member.Membership;
+import java.util.Date;
 
 public class OrderList {
 	private int  order_no;
@@ -10,6 +8,9 @@ public class OrderList {
 	private int  member_no; // member_no만 join 할꺼라 int
 	private int  order_price;
 	
+	public OrderList() {
+		
+	}
 	public OrderList(int order_no, Date order_date, int member_no, int order_price) {
 		super();
 		this.order_no = order_no;

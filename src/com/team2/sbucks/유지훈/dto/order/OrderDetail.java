@@ -3,11 +3,11 @@ package com.team2.sbucks.유지훈.dto.order;
 import com.team2.sbucks.유지훈.dto.product.Product;
 
 public class OrderDetail {
-	private int orderdetail_no;
-	private OrderList order_no;
-	private int order_qty;
-	private int order_stmt;
-	private Product product_no;
+	private int orderdetail_no; //주문상세번호
+	private OrderList order_no; // 주문번호 주문객체
+	private int order_qty; // 주문 수량
+	private int order_stmt; // 주문 상태
+	private Product product_no; // 상품번호 상품객체
 
 	
 	public OrderDetail() {

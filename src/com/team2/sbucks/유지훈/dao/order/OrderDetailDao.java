@@ -15,10 +15,7 @@ import com.team2.sbucks.유지훈.sql.order.OrderDetailSQL;
 public class OrderDetailDao {
 	private DataSource dataSource;
 	
-	public OrderDetailDao() {
-		dataSource = new DataSource();
-	}
-	
+	// 주문이 들어온다.
 	public int insertOrderDetail(OrderDetail orderDetail) throws Exception{
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(OrderDetailSQL.ORDERDETAIL_INSERT);

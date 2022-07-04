@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.team2.sbucks.common.DataSource;
+import com.team2.sbucks.유지훈.common.DataSource;
+import com.team2.sbucks.유지훈.dto.product.Product;
 import com.team2.sbucks.유지훈.sql.product.ProductSQL;
 
 public class ProductDao {
