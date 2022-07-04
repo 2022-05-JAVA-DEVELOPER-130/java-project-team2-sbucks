@@ -14,6 +14,8 @@ public class LoginSQL {
 	public static final String UPDATE_PASSWORD
 						= "update login set member_password =? where member_password =?";
 	
+	public static final String UPDATE_LOGIN="update login set member_id=member_id,member_password=?,login=? where member_id=?";
+	
 	public static final String FIND_PASSWORD
 						= "select *"
 								+ " from login l join membership m on l.member_id = m.member_id "
@@ -28,4 +30,6 @@ public class LoginSQL {
 	
 	public static final String CHECK_PASSWORD
 						="select count(*) from login where member_password =?";
+	
+	public static final String SElECT_ALL="select * from login";
 }

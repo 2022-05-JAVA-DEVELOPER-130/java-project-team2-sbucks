@@ -3,12 +3,15 @@ package com.team2.sbucks.장소윤.dao;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.team2.sbucks.common.DataSource;
-import com.team2.sbucks.장소윤.dto.Login;
-import com.team2.sbucks.장소윤.dto.Member;
+import com.team2.sbucks.dto.Login;
+
 
 
 
@@ -44,6 +47,19 @@ public class LoginDao {
 		con.close();
 		
 		return insertCount;
+	}
+	
+	public int updateLogin(Login login) throws Exception {
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(LoginSQL.UPDATE_LOGIN);
+		pstmt.setString(1, login.getMember_password());
+		pstmt.setInt(2, login.getLogin());
+		pstmt.setString(3, login.getMember_id());
+		int rowCount = pstmt.executeUpdate();
+		con.close();
+		pstmt.close();
+		return rowCount;
 	}
 	
 	public int updatePassword (String newPassword, String oldPassword) throws Exception{
@@ -129,7 +145,20 @@ public class LoginDao {
 	
 	
 	
-	
+	public List<Login> selectAll() throws Exception {
+		List<Login> findLoginList = new ArrayList<Login>();
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(LoginSQL.SElECT_ALL);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			findLoginList
+					.add(new Login(rs.getString("member_id"), rs.getString("member_password"), rs.getInt("login")));
+		}
+		con.close();
+		pstmt.close();
+		rs.close();
+		return findLoginList;
+	}
 	
 	
 	
