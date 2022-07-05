@@ -206,9 +206,14 @@ public class CartPanel extends JPanel {
 		priceTF.setBounds(270, 328, 88, 21);
 		add(priceTF);
 		priceTF.setColumns(10);
-		/*String price=Integer.toString(cartItemPrice(11))	;
-		priceTF.setText()
-		*/
+		try {
+			String price = Integer.toString(cartService.cartItemPrice(11));
+			priceTF.setText(price);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		JComboBox numchangBtn = new JComboBox();
 		numchangBtn.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		numchangBtn.setBounds(218, 327, 40, 23);
