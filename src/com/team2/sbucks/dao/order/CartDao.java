@@ -10,7 +10,6 @@ import com.team2.sbucks.common.DataSource;
 import com.team2.sbucks.dto.Cart;
 import com.team2.sbucks.dto.Product;
 
-
 public class CartDao {
 
 	private DataSource dataSource;
@@ -133,7 +132,7 @@ public class CartDao {
 		return rowCount;
 	}*/
 
-	// 장바구니 수량 업데이
+	// 장바구니 수량 업데이트
 	public int addProductCount(int qty, int cart_no) throws Exception {
 		String updateCartSQL = "update cart set cart_no=cart_no,product_no=product_no,member_no=member_no,product_espresso=product_espresso,product_syrup=product_syrup,cart_qty=cart_qty+? where cart_no=?";
 		Connection con = dataSource.getConnection();
@@ -143,6 +142,8 @@ public class CartDao {
 		int rowCount = pstmt.executeUpdate();
 		return rowCount;
 	}
+	
+	
 
 	/*
 	이름                    널?       유형            

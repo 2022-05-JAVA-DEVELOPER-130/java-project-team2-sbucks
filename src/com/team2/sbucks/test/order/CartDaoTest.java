@@ -54,6 +54,9 @@ public class CartDaoTest {
 			cartDao.addProductCount(100, check);
 			System.out.println("이미 존재하는 상품이므로 수량 추가");
 		}
+		
+		cartDao.addProductCount(100, 1);
+		
 
 	}
 
