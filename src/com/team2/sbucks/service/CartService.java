@@ -77,7 +77,7 @@ public class CartService {
 	// 회원의 카트 전체 출력
 	public List<Cart> printCart(int memberNo) throws Exception {
 		List<Cart> memberCartList = new ArrayList<Cart>();
-		memberCartList = cartDao.selectbyMemebrNo(memberNo);
+		memberCartList = cartDao.selectbyMemberNo(memberNo);
 		return memberCartList;
 
 	}

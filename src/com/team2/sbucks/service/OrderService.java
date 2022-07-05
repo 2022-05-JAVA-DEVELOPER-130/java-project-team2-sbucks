@@ -18,6 +18,7 @@ public class OrderService {
 
 	public OrderService() {
 		orderDao = new OrderDao();
+		cartDao = new CartDao();
 	}
 
 	// 주문입력
@@ -37,8 +38,10 @@ public class OrderService {
 		return 0;
 	}
 
+	// 장바구니 전체 주문
 	public int createCartToOrder(int memberNo) throws Exception {
-		List<Cart> cartlist = cartDao.selectbyMemebrNo(memberNo);
+		List<Cart> cartlist = new ArrayList<Cart>();
+		cartlist = cartDao.selectbyMemberNo(memberNo);
 		List<OrderDetail> orderdetailList = new ArrayList<OrderDetail>();
 
 		for (Iterator iterator = cartlist.iterator(); iterator.hasNext();) {
@@ -49,12 +52,13 @@ public class OrderService {
 		}
 		OrderList order = new OrderList(0, null, memberNo, orderDao.calOrderdetail(orderdetailList), orderdetailList);
 		orderDao.create(order);
+		cartDao.deleteCart(memberNo);
 		return 0;
 	}
 
 	// 주문삭제
-	public int deleteOrderAll() throws Exception {
-		return 0;
+	public int deleteOrder(int order_no) throws Exception {
+		return orderDao.deleteOrder(order_no);
 	}
 
 	// 주문 상태 변경

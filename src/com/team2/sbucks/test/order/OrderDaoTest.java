@@ -46,12 +46,14 @@ public class OrderDaoTest {
 		
 		orderdetailList.clear();
 		
-		List<Cart> cartlist=cartDao.selectbyMemebrNo(3);
+		List<Cart> cartlist=cartDao.selectbyMemberNo(3);
 		for (Iterator iterator = cartlist.iterator(); iterator.hasNext();) {
 			Cart cart2 = (Cart) iterator.next();
 			orderdetailList.add(new OrderDetail(0, 0, cart2.getCart_qty(), 0, cart2.getProduct(), cart2.getProduct_espresso(), cart2.getProduct_syrup()));
 			
 		}
+		
+		
 		OrderList cartOrder=new OrderList(0, null, 3, orderdao.calOrderdetail(orderdetailList), orderdetailList);
 		
 		orderdao.create(cartOrder);
@@ -61,6 +63,8 @@ public class OrderDaoTest {
 		System.out.println(orderdao.selectAll(3));
 		
 		orderdao.updateOrder(61);
+		
+		orderdao.deleteOrder(2);
 	}
 
 }
