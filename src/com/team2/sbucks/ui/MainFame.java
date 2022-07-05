@@ -21,16 +21,7 @@ import com.team2.sbucks.service.ProductService;
 
 public class MainFame extends JFrame {
 
-	/*************1.Service객체선언**********/
-	private MemberService memberService;
-	private LoginService loginService;
-	private CartService cartService;
-	private OrderService orderService;
-	private OrderDetailService orderDetailService;
-	private ProductService productService;
-	private ProductDetailService productDetailService;
-	/****************************************/
-	
+		
 	private JPanel contentPane;
 	private JPanel loginPanel;
 	private JPanel joinPanel;
@@ -187,5 +178,10 @@ public class MainFame extends JFrame {
 		panel_6 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_6, null);
 		panel_6.setLayout(null);
-	}
-}
+	}//생성자끝
+	
+	
+	
+	
+	
+}//클래스끝
