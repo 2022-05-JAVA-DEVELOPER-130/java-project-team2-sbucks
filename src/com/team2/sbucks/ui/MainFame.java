@@ -74,12 +74,15 @@ public class MainFame extends JFrame {
 		
 		panel_1 = new JPanel();
 		memberTabbedPane.addTab("New tab", null, panel_1, null);
+		panel_1.setLayout(null);
 		
 		panel_2 = new JPanel();
 		memberTabbedPane.addTab("New tab", null, panel_2, null);
+		panel_2.setLayout(null);
 		
 		panel_3 = new JPanel();
 		memberTabbedPane.addTab("New tab", null, panel_3, null);
+		panel_3.setLayout(null);
 		
 		JPanel productPanel = new JPanel();
 		tabbedPane.addTab("상품", null, productPanel, null);
