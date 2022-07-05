@@ -65,7 +65,8 @@ public class OrderDao {
 	}
 	
 	
-	public int deleteOrder() {
+	public int deleteOrder(int order_no) {
+		String deleteOrder="delete order where order_no=?";
 		return 0;
 	}
 
