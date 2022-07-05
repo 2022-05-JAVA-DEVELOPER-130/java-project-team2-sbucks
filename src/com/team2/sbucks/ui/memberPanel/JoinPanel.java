@@ -196,6 +196,7 @@ public class JoinPanel extends JPanel {
 		joinCancelBtn.setBorder(null);
 		joinCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//취소버튼을 누르면 다시 로그인페이지로 가게끔 만들기
 			}
 		});
 		joinCancelBtn.setIcon(new ImageIcon(JoinPanel.class.getResource("/images/취소.png")));
