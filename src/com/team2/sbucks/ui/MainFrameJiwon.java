@@ -20,7 +20,7 @@ import com.team2.sbucks.service.ProductDetailService;
 import com.team2.sbucks.service.ProductService;
 import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
-public class MainFame extends JFrame {
+public class MainFrameJiwon extends JFrame {
 
 		
 	private JPanel contentPane;
@@ -39,7 +39,7 @@ public class MainFame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainFame frame = new MainFame();
+					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +51,7 @@ public class MainFame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainFame() {
+	public MainFrameJiwon() {
 		setTitle("sbucks");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 600);

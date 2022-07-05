@@ -11,13 +11,14 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 
+import com.team2.sbucks.dto.Member;
 import com.team2.sbucks.service.MemberService;
 
 import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class LoginPanel extends JPanel {
+public class loginPanel extends JPanel {
 	private JTextField id_TF;
 	private JTextField password_TF;
 	private JTextField loginExplain;
@@ -26,12 +27,12 @@ public class LoginPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public LoginPanel() {
+	public loginPanel() {
 		setLayout(null);
 		
 		JButton sbucksLogo = new JButton("");
 		sbucksLogo.setBorderPainted(false);
-		sbucksLogo.setIcon(new ImageIcon("/Users/ddoyoon/eclipse/git-repositories/java-project-team2-sbucks/bin/images/스타벅스로고.png"));
+		sbucksLogo.setIcon(new ImageIcon(loginPanel.class.getResource("/images/스타벅스로고.png")));
 		sbucksLogo.setBounds(61, 62, 242, 111);
 		add(sbucksLogo);
 		
@@ -64,14 +65,25 @@ public class LoginPanel extends JPanel {
 		password_TF.setColumns(10);
 		password_TF.setBounds(155, 352, 149, 42);
 		add(password_TF);
-		JButton loginBtn = new JButton("로그인");
+		JButton loginBtn = new JButton("");
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
 					String id = id_TF.getText();
 					String password = password_TF.getText();
-					memberService.loginSuccess(id, password);
+					int result = memberService.loginSuccess(id, password);
+					if(result == 0) {
+						loginProccess(id);
+					}else if(result == 1) {
+						//아이디틀림
+						System.out.println("아이디를 다시 입력해주세요.");
+						id_TF.requestFocus();
+					}else if(result ==2) {
+						//비밀번호 틀림
+						System.out.println("비밀번호를 다시 입력해주세요.");
+						password_TF.requestFocus();
+					}
 					
 				}catch(Exception e1) {
 					
@@ -80,7 +92,7 @@ public class LoginPanel extends JPanel {
 				
 			}
 		});
-		loginBtn.setIcon(new ImageIcon("/Users/ddoyoon/eclipse/git-repositories/java-project-team2-sbucks/bin/images/로그인버튼.png"));
+		loginBtn.setIcon(new ImageIcon(loginPanel.class.getResource("/images/로그인버튼.png")));
 		loginBtn.setBorderPainted(false);
 		loginBtn.setForeground(new Color(0, 128, 0));
 		loginBtn.setBackground(new Color(0, 100, 0));
@@ -88,4 +100,22 @@ public class LoginPanel extends JPanel {
 		add(loginBtn);
 
 	}
+//생성자끝
+
+/**************로그인 성공시 호출할 메쏘드*******************/
+public void loginProccess(String id) throws Exception{
+	/*
+	 * 1.로그인멤버객체 저장
+	 * 2.MemberMainFrame타이틀변경
+	 * 3.로그인,회원가입 tab 불활성화
+	 * 4.로그아웃메뉴아이템 활성화
+	 * 5.회원리스트탭 활성화
+	 */
+	Member loginSuccessMember = memberService.findById(id);
+	Member loginMember = loginSuccessMember;
+	//setTitle(loginMember.getMember_id());
+	
+	
+}
+
 }
