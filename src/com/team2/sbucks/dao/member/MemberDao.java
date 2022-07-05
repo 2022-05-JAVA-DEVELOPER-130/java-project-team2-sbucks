@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.team2.sbucks.common.DataSource;
 import com.team2.sbucks.dto.Member;
+import com.team2.sbucks.장소윤.dao.MemberSQL;
 
 
 public class MemberDao {
@@ -65,6 +66,27 @@ public class MemberDao {
 	}
 	
 	
+	public int updateByNo(Member updateByNoMember) throws Exception {
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_NO_UPDATE);
+
+		pstmt.setString(1, updateByNoMember.getMember_phone());
+		pstmt.setString(2, updateByNoMember.getMember_email());
+		pstmt.setString(3, updateByNoMember.getMemeber_nickname());
+		pstmt.setString(4, updateByNoMember.getMember_loc());
+		pstmt.setInt(5, updateByNoMember.getMember_pagree());
+		pstmt.setInt(6, updateByNoMember.getMember_eagree());
+		pstmt.setInt(7, updateByNoMember.getMember_no());
+
+		int updateByNoCount = pstmt.executeUpdate();
+
+		pstmt.close();
+		con.close();
+
+		return updateByNoCount;
+	}
+	
 	
 	public int deleteMember(int member_no) throws Exception {
 
@@ -80,6 +102,24 @@ public class MemberDao {
 
 		return deleteCount;
 	}
+	
+	
+	public int deleteMemberByID(String member_id) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBERDELETE_BY_ID);
+		
+		pstmt.setString(1, member_id);
+
+		int deleteCount = pstmt.executeUpdate();
+
+		pstmt.close();
+		con.close();
+
+		return deleteCount;
+	}
+	
+	
+	
 	
 	public Member findById(String member_id) throws Exception {
 
