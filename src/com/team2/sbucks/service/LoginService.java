@@ -2,6 +2,7 @@ package com.team2.sbucks.service;
 
 import com.team2.sbucks.dao.member.LoginDao;
 import com.team2.sbucks.dao.member.MemberDao;
+import com.team2.sbucks.dto.Login;
 
 public class LoginService {
 	private LoginDao loginDao;
@@ -33,5 +34,12 @@ public class LoginService {
 		return isSuccess;
 	}
 	
+	/*
+	 * 회원가입 성공시 로그인 객체에 정보저장
+	 */
+	public int insertLogin(Login newLogin) throws Exception{
+		
+		return loginDao.insertLogin(newLogin);
+	}
 	
 }

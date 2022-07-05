@@ -33,13 +33,22 @@ public class MemberService {
 
 		Member findMember = memberDao.findById(newMember.getMember_id());
 		if (findMember == null) {
-			// memberDao.insertMember(newMember);
-			System.out.println("가능한 아이디입니다.");
+			memberDao.insertMember(newMember);
 			isSuccess = true;
 		} else {
 			isSuccess = false;
-			System.out.println("이미 존재하는 아이디입니다.");
 		}
+		return isSuccess;
+	}
+	
+	public boolean IDCheck(String id) throws Exception{
+		boolean isSuccess = false;
+		if(memberDao.findById(id)==null) {
+			isSuccess = true;
+		} else {
+			isSuccess = false;
+		}
+		
 		return isSuccess;
 	}
 
@@ -50,10 +59,8 @@ public class MemberService {
 		boolean isSuccess = false;
 
 		if (memberDao.checkEmail(member_email) == true) {
-			System.out.println("이미 가입되어 있는 이메일입니다.");
 			isSuccess = false;
 		} else {
-			System.out.println("사용 가능한 이메일입니다.");
 			isSuccess = true;
 		}
 		return isSuccess;
@@ -66,10 +73,8 @@ public class MemberService {
 		boolean isSuccess = false;
 
 		if (memberDao.checkPhone(member_phone) == true) {
-			System.out.println("이미 가입되어 있는 핸드폰번호입니다.");
 			isSuccess = false;
 		} else {
-			System.out.println("사용 가능한 핸드폰번호입니다.");
 			isSuccess = true;
 		}
 
@@ -98,7 +103,7 @@ public class MemberService {
 	 * 아이디확인
 	 */
 
-	public boolean checkID(String id, String password) throws Exception {
+	public boolean sameID(String id, String password) throws Exception {
 		boolean check = false;
 		if (loginDao.selectByID(id).getMember_id().equals(id)) {
 			check = true;
@@ -224,5 +229,6 @@ public class MemberService {
 
 		return loginResult;
 	}
+	
 
 }

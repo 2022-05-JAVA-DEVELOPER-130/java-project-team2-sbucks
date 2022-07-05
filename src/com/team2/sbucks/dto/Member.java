@@ -28,6 +28,7 @@ public class Member {
 			private String member_loc;
 			private int member_pagree;
 			private int member_eagree;
+			private Login login;
 			
 			
 			public Member() {
@@ -52,11 +53,21 @@ public class Member {
 				this.member_eagree = member_eagree;
 			}
 			
-			public Member(String member_email) {
-				super();
-				this.member_email = member_email;
+			
+			public Member(Login login) {
+				this.login = login;
 			}
 			
+			public Login getLogin() {
+				return login;
+			}
+
+
+			public void setLogin(Login login) {
+				this.login = login;
+			}
+
+
 			public int getMember_no() {
 				return member_no;
 			}

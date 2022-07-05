@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
 
 public class MySuperFrame extends JFrame {
 
@@ -38,8 +39,22 @@ public class MySuperFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel memberPanel = new JPanel();
+		tabbedPane.addTab("New tab", null, memberPanel, null);
+		memberPanel.setLayout(null);
+		
+		JTabbedPane memberTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		memberTabbedPane.setBounds(0, 0, 369, 512);
+		memberPanel.add(memberTabbedPane);
+		
 		LoginPanel loginPanel = new LoginPanel();
-		contentPane.add(loginPanel, BorderLayout.CENTER);
+		memberTabbedPane.addTab("New tab", null, loginPanel, null);
+		loginPanel.setLayout(new BorderLayout(0, 0));
+		
+		JoinPanel joinPanel = new JoinPanel();
+		memberTabbedPane.addTab("New tab", null, joinPanel, null);
 	}
-
 }
