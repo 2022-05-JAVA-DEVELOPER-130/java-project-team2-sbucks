@@ -11,8 +11,26 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.team2.sbucks.service.CartService;
+import com.team2.sbucks.service.LoginService;
+import com.team2.sbucks.service.MemberService;
+import com.team2.sbucks.service.OrderDetailService;
+import com.team2.sbucks.service.OrderService;
+import com.team2.sbucks.service.ProductDetailService;
+import com.team2.sbucks.service.ProductService;
+
 public class MainFame extends JFrame {
 
+	/*************1.Service객체선언**********/
+	private MemberService memberService;
+	private LoginService loginService;
+	private CartService cartService;
+	private OrderService orderService;
+	private OrderDetailService orderDetailService;
+	private ProductService productService;
+	private ProductDetailService productDetailService;
+	/****************************************/
+	
 	private JPanel contentPane;
 	private JPanel loginPanel;
 	private JPanel joinPanel;
