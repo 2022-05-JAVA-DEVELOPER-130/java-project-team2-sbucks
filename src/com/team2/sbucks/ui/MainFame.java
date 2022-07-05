@@ -166,14 +166,18 @@ public class MainFame extends JFrame {
 		
 		panel_4 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_4, null);
+		panel_4.setLayout(null);
 		
 		panel_5 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_5, null);
+		panel_5.setLayout(null);
 		
 		panel_6 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_6, null);
+		panel_6.setLayout(null);
 		
 		panel_7 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_7, null);
+		panel_7.setLayout(null);
 	}
 }
