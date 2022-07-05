@@ -21,6 +21,7 @@ public class OrderDao {
 		orderDetail = new ArrayList<OrderDetail>();
 	}
 	
+	
 	//한번에 여러 개 추가 (근데 사용 안할듯?)
 	public int insert(int member_no, List<OrderDetail> orderDetail) throws Exception {
 		String insertOrder = "insert into orderlist(order_no,order_date,member_no) values (orderList_order_no_SEQ.nextval,sysdate,?)";
