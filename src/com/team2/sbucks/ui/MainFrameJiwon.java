@@ -52,7 +52,7 @@ public class MainFrameJiwon extends JFrame {
 		
 		productAllPanel = new ProductAllPanel();
 		tabbedPane.addTab("New tab", null, productAllPanel, null);
-		productAllPanel.productListDispaly();
+		
 	}
 		
 

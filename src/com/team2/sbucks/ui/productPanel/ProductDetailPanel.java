@@ -103,4 +103,6 @@ public class ProductDetailPanel extends JPanel {
 		add(btnNewButton_1);
 
 	}
+
+	
 }
