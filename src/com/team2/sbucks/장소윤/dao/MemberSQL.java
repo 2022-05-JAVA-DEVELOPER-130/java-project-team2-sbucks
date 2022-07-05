@@ -20,7 +20,7 @@ public class MemberSQL {
 				= "update membership set member_phone=?,member_email = ?, member_nickname=?, "
 						+ "member_loc = ?, member_pagree=?, member_eagree=? where member_id =?";
 	
-	public static final String CHECK_ID
+	public static final String MEMBER_CHECK_ID
 				="select count(*) from membership where member_id=?";
 	
 	public static final String MEMBER_NO_UPDATE
@@ -39,10 +39,10 @@ public class MemberSQL {
 	public static final String MEMBER_FINDBYNO
 				="select * from membership where member_no = ?";
 	
-	public static final String MEMBER_FINDBYEMAIL
-				="select member_email from membership where member_email = ?";
+	public static final String MEMBER_CHECKEMAIL
+				="select count(*) from membership where member_email = ?";
 	
-	public static final String MEMBER_FINDPHONE
+	public static final String MEMBER_CHECKPHONE
 				="select count(*) from membership where member_phone =?";
 	
 	public static final String MEMBER_FINDALL

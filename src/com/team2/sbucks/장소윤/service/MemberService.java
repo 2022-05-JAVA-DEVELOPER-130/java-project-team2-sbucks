@@ -2,6 +2,7 @@ package com.team2.sbucks.장소윤.service;
 
 import java.util.List;
 
+
 import com.team2.sbucks.장소윤.dao.LoginDao;
 import com.team2.sbucks.장소윤.dao.MemberDao;
 import com.team2.sbucks.장소윤.dto.Member;
@@ -43,16 +44,15 @@ public class MemberService {
 	/*
 	 * 이메일중복체크
 	 */
-	public boolean duplicateEmail(Member newMember) throws Exception {
+	public boolean duplicateEmail(String member_email) throws Exception {
 		boolean isSuccess = false;
-		Member findMember = memberDao.findEmail(newMember.getMember_email());
 
-		if (findMember == null) {
-			System.out.println("가능한 이메일입니다.");
-			isSuccess = true;
-		} else {
+		if (memberDao.checkEmail(member_email) == true) {
 			System.out.println("이미 가입되어 있는 이메일입니다.");
 			isSuccess = false;
+		} else {
+			System.out.println("사용 가능한 이메일입니다.");
+			isSuccess = true;
 		}
 		return isSuccess;
 	}
@@ -63,11 +63,11 @@ public class MemberService {
 	public boolean duplicatePhone(String member_phone) throws Exception {
 		boolean isSuccess = false;
 
-		if (memberDao.findPhone(member_phone) == true) {
+		if (memberDao.checkPhone(member_phone) == true) {
 			System.out.println("이미 가입되어 있는 핸드폰번호입니다.");
 			isSuccess = false;
 		} else {
-			System.out.println("가능한 핸드폰번호입니다.");
+			System.out.println("사용 가능한 핸드폰번호입니다.");
 			isSuccess = true;
 		}
 
