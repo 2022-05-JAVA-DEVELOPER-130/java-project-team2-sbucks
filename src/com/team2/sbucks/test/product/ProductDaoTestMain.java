@@ -52,7 +52,7 @@ public class ProductDaoTestMain {
 		/*
 		 * 상품정보 업데이트
 		 */
-		//Product updateProduct = new Product(11, "(ICE)자몽허니블랙티", 0, null, null, 0, 0, 0, 0);
+		//Product updateProduct = new Product(11, "(ICE)자몽허니블랙티", 5700, null, "새콤한 자몽과 달달한 꿀이 깊고 그윽한 풍미의 스타벅스 티바나 블랙티의 조화", 0, 0, 0, 0);
 		//productDao.updateProduct(updateProduct);
 		/*
 		 * 상품한개삭제
