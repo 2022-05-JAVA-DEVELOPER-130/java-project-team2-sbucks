@@ -1,4 +1,4 @@
-package com.team2.sbucks.ui;
+package com.team2.sbucks.ui.memberPanel;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,9 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
-public class MainFrameHeeCheol extends JFrame {
+public class MySuperFrame extends JFrame {
 
 	private JPanel contentPane;
 
@@ -19,7 +18,7 @@ public class MainFrameHeeCheol extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainFrameHeeCheol frame = new MainFrameHeeCheol();
+					MySuperFrame frame = new MySuperFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,17 +30,16 @@ public class MainFrameHeeCheol extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainFrameHeeCheol() {
+	public MySuperFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 388, 539);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		ProductAllPanel productAllPanel = new ProductAllPanel();
-		contentPane.add(productAllPanel, BorderLayout.CENTER);
-
+		LoginPanel loginPanel = new LoginPanel();
+		contentPane.add(loginPanel, BorderLayout.CENTER);
 	}
 
 }
