@@ -64,6 +64,7 @@ public class ProductAllPanel extends JPanel {
 				/***********************************************************/
 				try {
 					
+					
 					Product findProduct = productService.selectByNo(product.getProduct_no());
 					productNameTF.setText(findProduct.getProduct_name());
 					
@@ -78,17 +79,15 @@ public class ProductAllPanel extends JPanel {
 		productitemPanel_1.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-<<<<<<< HEAD
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 			}
 		});
-		lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(HOT)아메리카노.jpg")));
-=======
+
 		lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team2-sbucks.git
+
 		lblNewLabel.setBounds(12, 10, 107, 98);
 		productitemPanel_1.add(lblNewLabel);
 		
@@ -116,16 +115,7 @@ public class ProductAllPanel extends JPanel {
 			productitemPanel.setLayout(null);
 			
 			JLabel lblNewLabel = new JLabel("");
-<<<<<<< HEAD
-			try {
-				lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(HOT)아메리카노.jpg")));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-=======
-			lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team2-sbucks.git
+	lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 			lblNewLabel.setBounds(12, 10, 107, 98);
 			productitemPanel.add(lblNewLabel);
 			
