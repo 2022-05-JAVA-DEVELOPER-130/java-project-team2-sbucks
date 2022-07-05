@@ -49,12 +49,16 @@ public class ProductAllPanel extends JPanel {
 		productitemPanel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("아메리카노");
-		lblNewLabel_1.setBounds(131, 10, 113, 15);
+		lblNewLabel_1.setBounds(131, 28, 113, 15);
 		productitemPanel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("<html>안녕<br>안녕</html>");
 		lblNewLabel_2.setBounds(131, 35, 126, 73);
 		productitemPanel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("전체상품");
+		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+		add(lblNewLabel_3, BorderLayout.NORTH);
 		/*********************************************************/
 	}//생성자끝
 	/***********************************************************/
