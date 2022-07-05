@@ -24,7 +24,6 @@ public class MainFame extends JFrame {
 	private JPanel panel_4;
 	private JPanel panel_5;
 	private JPanel panel_6;
-	private JPanel panel_7;
 	private JTable productTable;
 	private JTable productDetailTable;
 
@@ -170,9 +169,5 @@ public class MainFame extends JFrame {
 		panel_6 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_6, null);
 		panel_6.setLayout(null);
-		
-		panel_7 = new JPanel();
-		orderTabbedPane.addTab("New tab", null, panel_7, null);
-		panel_7.setLayout(null);
 	}
 }
