@@ -202,7 +202,7 @@ public class CartDao {
 	}
 
 	// 회원의 장바구니 전체 출력
-	public List<Cart> selectbyMemebrNo(int memberNo) throws Exception {
+	public List<Cart> selectbyMemberNo(int memberNo) throws Exception {
 		String selectMemberCartAll = "select * from cart c join product p on c.product_no=p.product_no where member_no=? ";
 		List<Cart> findCartList = new ArrayList<Cart>();
 		Connection con = dataSource.getConnection();
