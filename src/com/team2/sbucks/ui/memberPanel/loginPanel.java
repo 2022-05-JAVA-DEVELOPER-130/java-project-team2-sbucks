@@ -32,7 +32,7 @@ public class loginPanel extends JPanel {
 		
 		JButton sbucksLogo = new JButton("");
 		sbucksLogo.setBorderPainted(false);
-		sbucksLogo.setIcon(new ImageIcon("/Users/ddoyoon/eclipse/git-repositories/java-project-team2-sbucks/bin/images/스타벅스로고.png"));
+		sbucksLogo.setIcon(new ImageIcon("/Users/ddoyoon/Downloads/자산 2.png"));
 		sbucksLogo.setBounds(61, 62, 242, 111);
 		add(sbucksLogo);
 		
@@ -92,7 +92,7 @@ public class loginPanel extends JPanel {
 				
 			}
 		});
-		loginBtn.setIcon(new ImageIcon("/Users/ddoyoon/eclipse/git-repositories/java-project-team2-sbucks/bin/images/로그인버튼.png"));
+		loginBtn.setIcon(new ImageIcon(loginPanel.class.getResource("/images/로그인버튼.png")));
 		loginBtn.setBorderPainted(false);
 		loginBtn.setForeground(new Color(0, 128, 0));
 		loginBtn.setBackground(new Color(0, 100, 0));
