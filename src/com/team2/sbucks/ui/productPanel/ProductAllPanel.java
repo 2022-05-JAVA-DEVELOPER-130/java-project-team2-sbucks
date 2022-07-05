@@ -44,7 +44,7 @@ public class ProductAllPanel extends JPanel {
 		productitemPanel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/아메리카노.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 		lblNewLabel.setBounds(12, 10, 107, 98);
 		productitemPanel.add(lblNewLabel);
 		
@@ -71,7 +71,7 @@ public class ProductAllPanel extends JPanel {
 			productitemPanel.setLayout(null);
 			
 			JLabel lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/아메리카노.jpg")));
+			lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 			lblNewLabel.setBounds(12, 10, 107, 98);
 			productitemPanel.add(lblNewLabel);
 			
