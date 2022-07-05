@@ -11,13 +11,14 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 
+import com.team2.sbucks.dto.Member;
 import com.team2.sbucks.service.MemberService;
 
 import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class LoginPanel extends JPanel {
+public class loginPanel extends JPanel {
 	private JTextField id_TF;
 	private JTextField password_TF;
 	private JTextField loginExplain;
@@ -26,7 +27,7 @@ public class LoginPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public LoginPanel() {
+	public loginPanel() {
 		setLayout(null);
 		
 		JButton sbucksLogo = new JButton("");
@@ -71,7 +72,18 @@ public class LoginPanel extends JPanel {
 				try {
 					String id = id_TF.getText();
 					String password = password_TF.getText();
-					memberService.loginSuccess(id, password);
+					int result = memberService.loginSuccess(id, password);
+					if(result == 0) {
+						loginProccess(id);
+					}else if(result == 1) {
+						//아이디틀림
+						System.out.println("아이디를 다시 입력해주세요.");
+						id_TF.requestFocus();
+					}else if(result ==2) {
+						//비밀번호 틀림
+						System.out.println("비밀번호를 다시 입력해주세요.");
+						password_TF.requestFocus();
+					}
 					
 				}catch(Exception e1) {
 					
@@ -88,4 +100,22 @@ public class LoginPanel extends JPanel {
 		add(loginBtn);
 
 	}
+//생성자끝
+
+/**************로그인 성공시 호출할 메쏘드*******************/
+public void loginProccess(String id) throws Exception{
+	/*
+	 * 1.로그인멤버객체 저장
+	 * 2.MemberMainFrame타이틀변경
+	 * 3.로그인,회원가입 tab 불활성화
+	 * 4.로그아웃메뉴아이템 활성화
+	 * 5.회원리스트탭 활성화
+	 */
+	Member loginSuccessMember = memberService.findById(id);
+	Member loginMember = loginSuccessMember;
+	//setTitle(loginMember.getMember_id());
+	
+	
+}
+
 }

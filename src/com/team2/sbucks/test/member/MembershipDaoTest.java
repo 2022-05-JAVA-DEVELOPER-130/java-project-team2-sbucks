@@ -7,10 +7,12 @@ import java.util.List;
 
 import com.team2.sbucks.dao.member.MemberDao;
 import com.team2.sbucks.dto.Member;
+import com.team2.sbucks.service.MemberService;
 
 public class MembershipDaoTest {
 	public static void main(String[] args) throws Exception{
 		 MemberDao memberDao = new MemberDao();
+		 MemberService memberService = new MemberService();
 		 
 		 //Member findMember = memberDao.findById("guard1");
 		 //System.out.println(findMember);
@@ -39,5 +41,6 @@ public class MembershipDaoTest {
 		 
 		Member printInfo = memberDao.findInfo("guard1", "1111");
 		System.out.println(printInfo);
+		
 }
 }
