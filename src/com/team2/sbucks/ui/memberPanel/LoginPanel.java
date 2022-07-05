@@ -17,7 +17,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class loginPanel extends JPanel {
+public class LoginPanel extends JPanel {
 	private JTextField id_TF;
 	private JTextField password_TF;
 	private JTextField loginExplain;
@@ -26,7 +26,7 @@ public class loginPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public loginPanel() {
+	public LoginPanel() {
 		setLayout(null);
 		
 		JButton sbucksLogo = new JButton("");

@@ -18,6 +18,7 @@ import com.team2.sbucks.service.OrderDetailService;
 import com.team2.sbucks.service.OrderService;
 import com.team2.sbucks.service.ProductDetailService;
 import com.team2.sbucks.service.ProductService;
+import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
 public class MainFame extends JFrame {
 
@@ -26,15 +27,10 @@ public class MainFame extends JFrame {
 	private JPanel loginPanel;
 	private JPanel joinPanel;
 	private JPanel memberInfoPanel;
-	private JPanel productAllPanel;
-	private JPanel productOnePanel;
-	private JPanel productDetailAllPanel;
-	private JPanel productDetailOnePanel;
 	private JPanel panel_4;
 	private JPanel panel_5;
 	private JPanel panel_6;
-	private JTable productTable;
-	private JTable productDetailTable;
+	private ProductAllPanel productAllPanel;
 
 	/**
 	 * Launch the application.
@@ -95,69 +91,8 @@ public class MainFame extends JFrame {
 		productTabbedPane.setBounds(0, 0, 369, 522);
 		productPanel.add(productTabbedPane);
 		
-		productAllPanel = new JPanel();
-		productTabbedPane.addTab("전체상품", null, productAllPanel, null);
-		productAllPanel.setLayout(null);
-		
-		JScrollPane productScrollPane = new JScrollPane();
-		productScrollPane.setBounds(0, 0, 364, 188);
-		productAllPanel.add(productScrollPane);
-		
-		productTable = new JTable();
-		productTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-			},
-			new String[] {
-				"\uC0C1\uD488\uBC88\uD638", "\uC0C1\uD488\uC774\uB984", "\uC0C1\uD488\uAC00\uACA9", "\uC54C\uB7EC\uC9C0\uC815\uBCF4", "\uC0C1\uD488\uC124\uBA85"
-			}
-		));
-		productScrollPane.setViewportView(productTable);
-		
-		productOnePanel = new JPanel();
-		productTabbedPane.addTab("상품상세", null, productOnePanel, null);
-		productOnePanel.setLayout(null);
-		
-		productDetailAllPanel = new JPanel();
-		productTabbedPane.addTab("전체영양정보", null, productDetailAllPanel, null);
-		productDetailAllPanel.setLayout(null);
-		
-		JScrollPane productDetailScrollPane = new JScrollPane();
-		productDetailScrollPane.setBounds(0, 10, 364, 196);
-		productDetailAllPanel.add(productDetailScrollPane);
-		
-		productDetailTable = new JTable();
-		productDetailTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-			},
-			new String[] {
-				"\uC0C1\uD488\uBC88\uD638", "\uCE7C\uB85C\uB9AC", "\uCE74\uD398\uC778", "\uB098\uD2B8\uB968"
-			}
-		));
-		productDetailScrollPane.setViewportView(productDetailTable);
-		
-		productDetailOnePanel = new JPanel();
-		productTabbedPane.addTab("영양정보상세", null, productDetailOnePanel, null);
-		productDetailOnePanel.setLayout(null);
+		productAllPanel = new ProductAllPanel();
+		productTabbedPane.addTab("New tab", null, productAllPanel, null);
 		
 		JPanel orderPanel = new JPanel();
 		tabbedPane.addTab("주문", null, orderPanel, null);
@@ -178,6 +113,7 @@ public class MainFame extends JFrame {
 		panel_6 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_6, null);
 		panel_6.setLayout(null);
+		productAllPanel.productListDispaly();
 	}//생성자끝
 	
 	
