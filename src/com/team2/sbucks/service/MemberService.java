@@ -207,21 +207,22 @@ public class MemberService {
 	/*
 	 * 로그인성공
 	 */
-	public boolean loginSuccess(String member_id, String member_password) throws Exception {
-		boolean isSuccess = true;
+	public int loginSuccess(String member_id, String member_password) throws Exception {
+		int loginResult = -999;
 		if (memberDao.checkID(member_id) == true) {
 			if (loginDao.selectByID(member_id).getMember_password().equals(member_password)) {
 				System.out.println("로그인성공!");
+				loginResult = 0;
 			} else {
 				System.out.println("비밀번호가 틀렸습니다");
-				isSuccess = false;
+				loginResult = 2;
 			}
 		} else {
 			System.out.println("아이디가 틀렸습니다.");
-			isSuccess = false;
+			loginResult = 1;
 		}
 
-		return isSuccess;
+		return loginResult;
 	}
 
 }
