@@ -2,7 +2,7 @@ package com.team2.sbucks.김희철.dao;
 
 public class ProductDetailSQL {
 	public static final String PRODUCTDETAIL_INSERT
-	="insert into productDetail  values (?,?,?,?)";
+	="insert into productDetail values (?,?,?,?)";
 	public static final String PRODUCTDETAIL_UPDATE
 	="update productDetail set kal=?,caffeine=?,na=? where product_no=?";
 	public static final String PRODUCTDETAIL_DELETE

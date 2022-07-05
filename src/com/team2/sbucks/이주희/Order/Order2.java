@@ -1,4 +1,4 @@
-package com.team2.sbucks.dto;
+package com.team2.sbucks.이주희.Order;
 /*
  * 이름          널?       유형         
 ----------- -------- ---------- 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderList {
+public class Order2 {
 
 	private int order_no;
 	private Date order_date;
@@ -20,7 +20,7 @@ public class OrderList {
 	private int order_price;
 	private List<OrderDetail> orderDetail=new ArrayList<OrderDetail>();
 
-	public OrderList() {
+	public Order2() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -30,7 +30,7 @@ public class OrderList {
 	
 	
 
-	public OrderList(int order_no, Date order_date, int member_no, int order_price) {
+	public Order2(int order_no, Date order_date, int member_no, int order_price) {
 		super();
 		this.order_no = order_no;
 		this.order_date = order_date;
@@ -44,7 +44,7 @@ public class OrderList {
 
 
 
-	public OrderList(int order_no, Date order_date, int member_no, int order_price, List<OrderDetail> orderDetail) {
+	public Order2(int order_no, Date order_date, int member_no, int order_price, List<OrderDetail> orderDetail) {
 		super();
 		this.order_no = order_no;
 		this.order_date = order_date;

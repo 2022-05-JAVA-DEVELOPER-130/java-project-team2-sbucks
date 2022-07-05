@@ -198,30 +198,25 @@ public class MemberDao {
 		return findMember;
 	}
 	
-	public Member findEmail(String member_email) throws Exception{
+	public boolean checkEmail(String member_email) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDBYEMAIL);
-		Member findMember = null;
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_CHECKEMAIL);
 		pstmt.setString(1, member_email);
 		ResultSet rs = pstmt.executeQuery();
 		
-		if(rs.next()){
-			
-			findMember = new Member(rs.getString("member_email"));
-			
+		rs.next();
+		int emailCount = rs.getInt(1);
+		
+		if(emailCount ==1) {
+			return true;
+		}else {
+			return false;
 		}
-		rs.close();
-		pstmt.close();
-		con.close();
-		
-		
-		
-		return findMember;
 	}
 	
-	public boolean findPhone(String member_phone) throws Exception{
+	public boolean checkPhone(String member_phone) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_FINDPHONE);
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_CHECKPHONE);
 		
 		pstmt.setString(1, member_phone);
 		ResultSet rs = pstmt.executeQuery();
@@ -240,7 +235,7 @@ public class MemberDao {
 		
 	public boolean checkID(String member_id) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(MemberSQL.CHECK_ID);
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_CHECK_ID);
 		
 		pstmt.setString(1, member_id);
 		ResultSet rs = pstmt.executeQuery();
