@@ -16,7 +16,7 @@ public class CartServiceTest {
 		int syrup = 3;
 		// 2번 회원이 3번 상품
 		Cart newCart = new Cart(0, productService.selectByNo(3), memberNo, cart_qty, espresso, syrup);
-
+		
 		cartService.insertCart(newCart);
 
 		cartService.insertCart(3, memberNo, cart_qty, espresso, syrup);
@@ -34,9 +34,13 @@ public class CartServiceTest {
 
 		// 카트
 		System.out.println(cartService.printCart(memberNo));
-
+	
 		// 로그인한 멤버의 카트전체삭제
-		// cartService.deleteCart(1);
+		 cartService.deleteCart(3);
+		
+		//카트 아이템 한개 삭제 
+		int cart_no=5;
+		cartService.deleteCartItem(5);
 
 	}
 

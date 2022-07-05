@@ -17,7 +17,7 @@ public class CartService {
 		productDao = new ProductDao();
 	}
 
-	// 카트 담기(수량체크후 담기) - 인자 3가지 경우 
+	// 카트 담기(수량체크후 담기) - 인자 3가지 경우
 	public int insertCart(Cart cart) throws Exception {
 		int cart_no = cartDao.returnCartno(cart);
 
@@ -70,9 +70,14 @@ public class CartService {
 
 	// 카트 전체 삭제
 	public int deleteCart(int memberNo) throws Exception {
-		cartDao.deleteCart(memberNo);
-		return 0;
+		return cartDao.deleteAllCart(memberNo);
+		
 	}
+
+	// 카트 아이템 하나 삭제
+	public int deleteCartItem(int cart_no) throws Exception{
+			return cartDao.deleteCartItem(cart_no);
+		}
 
 	// 회원의 카트 전체 출력
 	public List<Cart> printCart(int memberNo) throws Exception {
@@ -80,6 +85,11 @@ public class CartService {
 		memberCartList = cartDao.selectbyMemberNo(memberNo);
 		return memberCartList;
 
+	}
+	
+	//카트 번호로 해당 카트 찾아서 출력
+	public Cart selectCart(int cartNo) throws Exception{
+		return cartDao.selectbyCartNo(cartNo);
 	}
 
 	// 카트 번호로 해당 카트 아이템 가격 출력

@@ -39,7 +39,7 @@ public class OrderService {
 	}
 
 	// 장바구니 전체 주문
-	public int createCartToOrder(int memberNo) throws Exception {
+	public int allCartToOrder(int memberNo) throws Exception {
 		List<Cart> cartlist = new ArrayList<Cart>();
 		cartlist = cartDao.selectbyMemberNo(memberNo);
 		List<OrderDetail> orderdetailList = new ArrayList<OrderDetail>();
@@ -52,7 +52,23 @@ public class OrderService {
 		}
 		OrderList order = new OrderList(0, null, memberNo, orderDao.calOrderdetail(orderdetailList), orderdetailList);
 		orderDao.create(order);
-		cartDao.deleteCart(memberNo);
+		cartDao.deleteAllCart(memberNo);
+		return 0;
+	}
+	
+	//카트 선택된 단품들 주문
+	public int cartitemToOrder(int memberNo,List<Cart> cartList) throws Exception{
+		List<OrderDetail> orderdetailList = new ArrayList<OrderDetail>();
+
+		for (Iterator iterator = cartList.iterator(); iterator.hasNext();) {
+			Cart cart = (Cart) iterator.next();
+			orderdetailList.add(new OrderDetail(0, 0, cart.getCart_qty(), 0, cart.getProduct(),
+					cart.getProduct_espresso(), cart.getProduct_syrup()));
+			cartDao.deleteCartItem(cart.getCart_no());
+		}
+		OrderList order = new OrderList(0, null, memberNo, orderDao.calOrderdetail(orderdetailList), orderdetailList);
+		orderDao.create(order);
+		
 		return 0;
 	}
 
