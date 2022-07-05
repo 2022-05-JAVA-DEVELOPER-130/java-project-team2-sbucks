@@ -45,7 +45,7 @@ public class MainFrameJiwon extends JFrame {
 		setContentPane(contentPane);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(tabbedPane, BorderLayout.NORTH);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
 		productDetailPanel = new ProductDetailPanel();
 		tabbedPane.addTab("New tab", null, productDetailPanel, null);

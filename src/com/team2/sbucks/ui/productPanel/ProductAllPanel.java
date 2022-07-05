@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 
 
 import com.team2.sbucks.dto.Product;
+import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.service.ProductService;
 
 import java.awt.event.ActionListener;
@@ -38,6 +39,9 @@ public class ProductAllPanel extends JPanel {
 	private JTextField productKalTF;
 	private JTextField productCaffineTF;
 	private JTextField productNaTF;
+	private ProductDetail productDetail;
+	private ProductDetailPanel productDetailPanel;
+	
 
 	/**
 	 * Create the panel.
@@ -61,17 +65,7 @@ public class ProductAllPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				/***********************************************************/
-				try {
-					
-					
-					Product findProduct = productService.selectByNo(product.getProduct_no());
-					productNameTF.setText(findProduct.getProduct_name());
-					
-				}catch (Exception e1) {
-					e1.printStackTrace();
-				}
-				/***********************************************************/
+				
 			}
 		});
 		productitemPanel_1.setPreferredSize(new Dimension(350, 130));
@@ -92,11 +86,18 @@ public class ProductAllPanel extends JPanel {
 		productitemPanel_1.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("(HOT)아메리카노");
-		lblNewLabel_1.setBounds(131, 28, 113, 15);
+		lblNewLabel_1.setBounds(131, 10, 113, 15);
 		productitemPanel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("<html>안녕<br>안녕</html>");
-		lblNewLabel_2.setBounds(131, 35, 126, 73);
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			
+			}
+		});
+		lblNewLabel_2.setBounds(120, 35, 218, 85);
 		productitemPanel_1.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("전체상품");
@@ -115,7 +116,7 @@ public class ProductAllPanel extends JPanel {
 			productitemPanel.setLayout(null);
 			
 			JLabel lblNewLabel = new JLabel("");
-	lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
+			lblNewLabel.setIcon(new ImageIcon(ProductAllPanel.class.getResource("/images/(HOT)아메리카노.jpg")));
 			lblNewLabel.setBounds(12, 10, 107, 98);
 			productitemPanel.add(lblNewLabel);
 			
