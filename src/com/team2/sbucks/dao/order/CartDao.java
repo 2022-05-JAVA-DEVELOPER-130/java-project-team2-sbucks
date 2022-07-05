@@ -41,7 +41,7 @@ public class CartDao {
 	}
 
 	// 회원의 카트에서 상품 전체 삭제 -- 선택 삭제/주문하려면 체크 칼럼 추가
-	public int deleteCart(int memberNo) throws Exception {
+	public int deleteAllCart(int memberNo) throws Exception {
 		String deleteCartSQL = "delete cart where member_no=?";
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(deleteCartSQL);
@@ -53,7 +53,23 @@ public class CartDao {
 		pstmt.close();
 		return rowCount;
 	}
-
+	
+	//카트 아이템 하나 삭제 
+	public int deleteCartItem(int cartNo) throws Exception{
+		String deleteCart="delete cart where cart_no=?";
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(deleteCart);
+		
+		pstmt.setInt(1, cartNo);
+		int rowCount=pstmt.executeUpdate();
+		
+		con.close();
+		pstmt.close();
+		
+		return rowCount;
+		
+	}
+	
 	// 상품이 회원 장바구니에 이미 존재하는지 확인
 	public boolean checkProductCount(int memberNo, int productNo, int product_espresso, int product_syrup)
 			throws Exception {
@@ -161,7 +177,7 @@ public class CartDao {
 
 	// 카트 번호로 카트 select
 	public Cart selectbyCartNo(int cartNo) throws Exception {
-		String selectByCartNo = "select from cart _c where cart_no=?";
+		String selectByCartNo = "select * from cart c join product p on p.product_no=c.product_no where cart_no=?";
 		Cart findCart = null;
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(selectByCartNo);

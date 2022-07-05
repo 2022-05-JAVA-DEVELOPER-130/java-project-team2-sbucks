@@ -1,6 +1,10 @@
 package com.team2.sbucks.test.order;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.team2.sbucks.dao.order.CartDao;
+import com.team2.sbucks.dto.Cart;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.CartService;
 import com.team2.sbucks.service.OrderService;
@@ -13,7 +17,7 @@ public class OrderServiceTest {
 		CartService cartService = new CartService();
 
 		CartDao cartDao = new CartDao();
-
+        
 		int memberNo = 10;
 		int espresso = 5;
 		int syrup = 8;
@@ -26,9 +30,17 @@ public class OrderServiceTest {
 
 		memberNo = 3;
 		// 주문 입력 2 카트 그대로 입력
-		orderService.createCartToOrder(memberNo);
-
-		System.out.println(cartDao.selectbyMemberNo(memberNo));
+		orderService.allCartToOrder(memberNo);
+		
+		
+		int cart_no=8;
+		List<Cart> cartList=new ArrayList<Cart>();
+		cartList.add(cartService.selectCart(cart_no));
+		cart_no=10;
+		cartList.add(cartService.selectCart(cart_no));
+		orderService.cartitemToOrder(2, cartList);
+		
+		
 		// 주문상태 변경
 		int order_detailno=25;
 		orderService.changeOrderStmt(25);
@@ -43,6 +55,7 @@ public class OrderServiceTest {
 		//주문삭제
 		int order_no=24;
 		orderService.deleteOrder(order_no);
+		
 	}
 
 }

@@ -28,7 +28,7 @@ public class CartDaoTest {
 
 		int memberNo = 3;
 
-		System.out.println(memberNo + "번 회원 카트 삭제:" + cartDao.deleteCart(memberNo));
+		System.out.println(memberNo + "번 회원 카트 삭제:" + cartDao.deleteAllCart(memberNo));
 
 		Cart checkCartItem = new Cart(0, productDao.selectByNo(3), 1, 4, 0, 0);
 		// boolean check=cartDao.checkProductCount(newCartItem);
