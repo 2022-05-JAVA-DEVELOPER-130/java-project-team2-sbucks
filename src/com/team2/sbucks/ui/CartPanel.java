@@ -6,6 +6,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+
+import com.team2.sbucks.service.CartService;
+
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -25,6 +28,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CartPanel extends JPanel {
 	private JTextField productnameTF;
@@ -33,10 +38,15 @@ public class CartPanel extends JPanel {
 	private JTextField priceTF;
 	private JTextField numTF;
 	private JTextField allpriceTF;
+	private CartService cartService;
+	private JPanel panel;
+	private JPanel panel_1;
+	private JButton productalldeleteBtn;
 	public CartPanel() {
+		cartService=new CartService();
 		setLayout(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setForeground(Color.WHITE);
 		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 370, 85);
@@ -49,7 +59,7 @@ public class CartPanel extends JPanel {
 		panel.add(lblNewLabel_3);
 		lblNewLabel_3.setForeground(Color.WHITE);
 		
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
 		panel_1.setBounds(0, 416, 370, 104);
 		add(panel_1);
@@ -107,8 +117,20 @@ public class CartPanel extends JPanel {
 		add(lblNewLabel_1);
 		
 		JButton productchoicedeleteBtn = new JButton("선택삭제");
+		productchoicedeleteBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		productchoicedeleteBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					int cart_no=1;
+					cartService.deleteCartItem(cart_no);
+				}catch(Exception e2){
+					
+				}
 			}
 		});
 		productchoicedeleteBtn.setContentAreaFilled(false);
@@ -116,10 +138,21 @@ public class CartPanel extends JPanel {
 		productchoicedeleteBtn.setBounds(218, 158, 65, 27);
 		add(productchoicedeleteBtn);
 		
-		JButton productalldeleteBtn = new JButton("전체삭제");
+		productalldeleteBtn = new JButton("전체삭제");
+		productalldeleteBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		productalldeleteBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					int member_no=1;
+					cartService.deleteCart(member_no);
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
 				
 				
 			}
@@ -173,7 +206,9 @@ public class CartPanel extends JPanel {
 		priceTF.setBounds(270, 328, 88, 21);
 		add(priceTF);
 		priceTF.setColumns(10);
-		
+		/*String price=Integer.toString(cartItemPrice(11))	;
+		priceTF.setText()
+		*/
 		JComboBox numchangBtn = new JComboBox();
 		numchangBtn.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		numchangBtn.setBounds(218, 327, 40, 23);

@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 public class MainFrameDonggu extends JFrame {
 
 	private JPanel contentPane;
+	private CartPanel cartPanel;
 
 	/**
 	 * Launch the application.
@@ -33,10 +34,17 @@ public class MainFrameDonggu extends JFrame {
 	 */
 	public MainFrameDonggu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 344, 641);
+		setBounds(100, 100, 419, 632);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(0, 0, 405, 590);
+		contentPane.add(tabbedPane);
+		
+		cartPanel = new CartPanel();
+		tabbedPane.addTab("New tab", null, cartPanel, null);
 	}
 }
