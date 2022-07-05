@@ -2,12 +2,12 @@ package com.team2.sbucks.ui.orderPanel;
 
 import javax.swing.JPanel;
 
-public class cartPanel extends JPanel {
+public class OrderPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public cartPanel() {
+	public OrderPanel() {
 
 	}
 

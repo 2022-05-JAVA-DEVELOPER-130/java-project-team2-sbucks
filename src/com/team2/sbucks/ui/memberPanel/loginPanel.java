@@ -24,8 +24,6 @@ public class loginPanel extends JPanel {
 	private JTextField loginExplain;
 	
 	private MemberService memberService;
-	/***********로그인한 회원*********/
-	private Member loginMember=null;
 	/**
 	 * Create the panel.
 	 */
@@ -67,7 +65,7 @@ public class loginPanel extends JPanel {
 		password_TF.setColumns(10);
 		password_TF.setBounds(155, 352, 149, 42);
 		add(password_TF);
-		JButton loginBtn = new JButton("");
+		JButton loginBtn = new JButton("로그인");
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -100,41 +98,24 @@ public class loginPanel extends JPanel {
 		loginBtn.setBackground(new Color(0, 100, 0));
 		loginBtn.setBounds(97, 451, 171, 29);
 		add(loginBtn);
-	}
-		
-	
-	/**************로그인 성공시 호출할 메쏘드*******************/
-		public void loginProccess(String id) throws Exception{
-			/*
-			 * 1.로그인멤버객체 저장
-			 * 2.MemberMainFrame타이틀변경
-			 * 3.로그인,회원가입 tab 불활성화
-			 * 4.로그아웃메뉴아이템 활성화
-			 * 5.회원리스트탭 활성화
-			 */
-			Member loginSuccessMember = memberService.findById(id);
-			loginMember = loginSuccessMember;
-			
-			//setTitle(loginMember.getMember_id());
-			
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	}
-//클래스끝
+//생성자끝
+
+/**************로그인 성공시 호출할 메쏘드*******************/
+public void loginProccess(String id) throws Exception{
+	/*
+	 * 1.로그인멤버객체 저장
+	 * 2.MemberMainFrame타이틀변경
+	 * 3.로그인,회원가입 tab 불활성화
+	 * 4.로그아웃메뉴아이템 활성화
+	 * 5.회원리스트탭 활성화
+	 */
+	Member loginSuccessMember = memberService.findById(id);
+	Member loginMember = loginSuccessMember;
+	//setTitle(loginMember.getMember_id());
+	
+	
+}
+
+}
