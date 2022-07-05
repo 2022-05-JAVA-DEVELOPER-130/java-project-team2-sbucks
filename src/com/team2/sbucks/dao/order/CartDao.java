@@ -187,8 +187,7 @@ public class CartDao {
 
 	// 카트 번호로 해당 카트 item 가격 출력
 	public int CartItemPrice(int cartNo) throws Exception {
-		String selectCartPrice = "select ( p.product_price * c.cart_qty)+((p.product_espressoprice * c.product_espresso) + (p.product_syrupprice * c.product_syrup)) \"총가격\"\n"
-				+ "from cart c\n" + "join product p\n" + "on c.product_no=p.product_no\n" + "where cart_no=?";
+		String selectCartPrice = "select  c.cart_qty * ( p.product_price +((p.product_espressoprice * c.product_espresso) + (p.product_syrupprice * c.product_syrup)))  from cart c join product p on c.product_no=p.product_no where cart_no=?";
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(selectCartPrice);
 		pstmt.setInt(1, cartNo);

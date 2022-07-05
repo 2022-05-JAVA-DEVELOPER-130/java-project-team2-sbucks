@@ -20,11 +20,14 @@ public class CartServiceTest {
 		cartService.insertCart(newCart);
 		
 		
-		//cartService.cartItemPrice(1);		
+		//카트 아이템 금액출력
+		System.out.println(cartService.cartItemPrice(3));		
 		
-		cartService.printCart(memberNo);
+		//카트 
+		System.out.println(cartService.printCart(memberNo));
 		
-		//cartService.deleteCart(0);
+		//로그인한 멤버의 카트전체삭제
+		cartService.deleteCart(1);
 		
 	}
 
