@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
 public class MainFrameHeeCheol extends JFrame {
 
@@ -37,6 +38,10 @@ public class MainFrameHeeCheol extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		ProductAllPanel productAllPanel = new ProductAllPanel();
+		contentPane.add(productAllPanel, BorderLayout.CENTER);
+
 	}
 
 }
