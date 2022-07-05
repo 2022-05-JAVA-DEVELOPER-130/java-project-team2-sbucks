@@ -14,10 +14,9 @@ import javax.swing.table.DefaultTableModel;
 public class MainFame extends JFrame {
 
 	private JPanel contentPane;
-	private JPanel panel;
-	private JPanel panel_1;
-	private JPanel panel_2;
-	private JPanel panel_3;
+	private JPanel loginPanel;
+	private JPanel joinPanel;
+	private JPanel memberInfoPanel;
 	private JPanel productAllPanel;
 	private JPanel productOnePanel;
 	private JPanel productDetailAllPanel;
@@ -68,21 +67,17 @@ public class MainFame extends JFrame {
 		memberTabbedPane.setBounds(0, 0, 369, 512);
 		memberPanel.add(memberTabbedPane);
 		
-		panel = new JPanel();
-		memberTabbedPane.addTab("New tab", null, panel, null);
-		panel.setLayout(null);
+		loginPanel = new JPanel();
+		memberTabbedPane.addTab("로그인", null, loginPanel, null);
+		loginPanel.setLayout(null);
 		
-		panel_1 = new JPanel();
-		memberTabbedPane.addTab("New tab", null, panel_1, null);
-		panel_1.setLayout(null);
+		joinPanel = new JPanel();
+		memberTabbedPane.addTab("회원가입", null, joinPanel, null);
+		joinPanel.setLayout(null);
 		
-		panel_2 = new JPanel();
-		memberTabbedPane.addTab("New tab", null, panel_2, null);
-		panel_2.setLayout(null);
-		
-		panel_3 = new JPanel();
-		memberTabbedPane.addTab("New tab", null, panel_3, null);
-		panel_3.setLayout(null);
+		memberInfoPanel = new JPanel();
+		memberTabbedPane.addTab("회원정보수정", null, memberInfoPanel, null);
+		memberInfoPanel.setLayout(null);
 		
 		JPanel productPanel = new JPanel();
 		tabbedPane.addTab("상품", null, productPanel, null);
