@@ -67,15 +67,15 @@ public class ProductDetailPanel extends JPanel {
 		lblNewLabel_6.setBounds(12, 247, 85, 30);
 		add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("New label");
+		JLabel lblNewLabel_7 = new JLabel("칼로리");
 		lblNewLabel_7.setBounds(43, 319, 57, 15);
 		add(lblNewLabel_7);
 		
-		JLabel lblNewLabel_8 = new JLabel("New label");
+		JLabel lblNewLabel_8 = new JLabel("카페인");
 		lblNewLabel_8.setBounds(43, 362, 57, 15);
 		add(lblNewLabel_8);
 		
-		JLabel lblNewLabel_9 = new JLabel("New label");
+		JLabel lblNewLabel_9 = new JLabel("나트륨");
 		lblNewLabel_9.setBounds(43, 407, 57, 15);
 		add(lblNewLabel_9);
 		
@@ -99,7 +99,7 @@ public class ProductDetailPanel extends JPanel {
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(202, 474, 97, 23);
+		btnNewButton_1.setBounds(192, 474, 97, 23);
 		add(btnNewButton_1);
 
 	}
