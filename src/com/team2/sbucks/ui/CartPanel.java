@@ -26,14 +26,14 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class cartPanel1 extends JPanel {
+public class CartPanel extends JPanel {
 	private JTextField productnameTF;
 	private JTextField shotnumTF;
 	private JTextField syrupTF;
 	private JTextField priceTF;
 	private JTextField numTF;
 	private JTextField allpriceTF;
-	public cartPanel1() {
+	public CartPanel() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
