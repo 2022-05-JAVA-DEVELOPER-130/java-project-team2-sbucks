@@ -22,7 +22,7 @@ public class CartDaoTest {
 
 		// System.out.println("카트에 입력:"+cartDao.addCart(newCartItem));
 
-		System.out.println(cartDao.selectbyMemebrNo(1));
+		System.out.println(cartDao.selectbyMemberNo(1));
 
 		System.out.println(cartDao.CartItemPrice(10));
 

@@ -103,7 +103,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart2 [cart_no=" + cart_no + ", product=" + product + ", member_no=" + member_no + ", cart_qty="
+		return "Cart [cart_no=" + cart_no + ", product=" + product + ", member_no=" + member_no + ", cart_qty="
 				+ cart_qty + ", product_espresso=" + product_espresso + ", product_syrup=" + product_syrup + "]\n";
 	}
 	
