@@ -19,6 +19,7 @@ import com.team2.sbucks.service.OrderService;
 import com.team2.sbucks.service.ProductDetailService;
 import com.team2.sbucks.service.ProductService;
 import com.team2.sbucks.ui.productPanel.ProductAllPanel;
+import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 
 public class MainFrameJiwon extends JFrame {
 
@@ -31,6 +32,7 @@ public class MainFrameJiwon extends JFrame {
 	private JPanel panel_5;
 	private JPanel panel_6;
 	private ProductAllPanel productAllPanel;
+	private Product
 
 	/**
 	 * Launch the application.
@@ -50,6 +52,7 @@ public class MainFrameJiwon extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
 	public MainFrameJiwon() {
 		setTitle("sbucks");
@@ -94,6 +97,9 @@ public class MainFrameJiwon extends JFrame {
 		productAllPanel = new ProductAllPanel();
 		productTabbedPane.addTab("New tab", null, productAllPanel, null);
 		
+		ProductDetailPanel productDetailPanel = new ProductDetailPanel();
+		productTabbedPane.addTab("New tab", null, productDetailPanel, null);
+		
 		JPanel orderPanel = new JPanel();
 		tabbedPane.addTab("주문", null, orderPanel, null);
 		orderPanel.setLayout(null);
@@ -113,11 +119,13 @@ public class MainFrameJiwon extends JFrame {
 		panel_6 = new JPanel();
 		orderTabbedPane.addTab("New tab", null, panel_6, null);
 		panel_6.setLayout(null);
-		productAllPanel.productListDispaly();
+		
+		try {
+			productAllPanel.productListDispaly();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}//생성자끝
-	
-	
-	
-	
-	
 }//클래스끝
