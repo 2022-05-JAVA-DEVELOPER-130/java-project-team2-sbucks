@@ -65,7 +65,7 @@ public class loginPanel extends JPanel {
 		password_TF.setColumns(10);
 		password_TF.setBounds(155, 352, 149, 42);
 		add(password_TF);
-		JButton loginBtn = new JButton("로그인");
+		JButton loginBtn = new JButton("");
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
