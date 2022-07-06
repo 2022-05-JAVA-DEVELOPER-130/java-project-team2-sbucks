@@ -36,26 +36,26 @@ public class LoginPanel extends JPanel {
 		sbucksLogo.setContentAreaFilled(false);
 		sbucksLogo.setFocusPainted(false);
 		sbucksLogo.setBorder(null);
-		sbucksLogo.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/스타벅스로고큰ver.png")));
-		sbucksLogo.setBounds(59, 67, 242, 94);
+		sbucksLogo.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/스타벅스로고큰ver.png")));
+		sbucksLogo.setBounds(59, 74, 242, 94);
 		add(sbucksLogo);
 
 		JLabel loginTitle_LB = new JLabel("로그인");
 		loginTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
-		loginTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 25));
+		loginTitle_LB.setFont(new Font("KoPubWorld돋움체 Bold", Font.BOLD, 25));
 		loginTitle_LB.setBounds(110, 22, 140, 46);
 		add(loginTitle_LB);
 
 		JLabel idLB = new JLabel("아이디");
 		idLB.setHorizontalAlignment(SwingConstants.LEFT);
-		idLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 17));
-		idLB.setBounds(40, 246, 61, 16);
+		idLB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 17));
+		idLB.setBounds(57, 247, 61, 16);
 		add(idLB);
 
 		JLabel passwordLB = new JLabel("패스워드");
-		passwordLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 17));
+		passwordLB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 17));
 		passwordLB.setHorizontalAlignment(SwingConstants.LEFT);
-		passwordLB.setBounds(40, 342, 61, 16);
+		passwordLB.setBounds(57, 340, 98, 16);
 		add(passwordLB);
 
 		id_TF = new JTextField();
@@ -101,14 +101,14 @@ public class LoginPanel extends JPanel {
 				}
 			}
 		});
-		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인버튼.png")));
+		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인버튼.png")));
 		loginBtn.setBounds(106, 435, 150, 29);
 		add(loginBtn);
 
 		JLabel loginExplain_LB = new JLabel("회원 서비스 이용을 위해 로그인 해주세요.");
 		loginExplain_LB.setHorizontalAlignment(SwingConstants.CENTER);
-		loginExplain_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		loginExplain_LB.setBounds(50, 178, 261, 16);
+		loginExplain_LB.setFont(new Font("KoPubWorld돋움체 Light", Font.PLAIN, 13));
+		loginExplain_LB.setBounds(50, 185, 261, 16);
 		add(loginExplain_LB);
 
 		idFalse_LB = new JLabel("");

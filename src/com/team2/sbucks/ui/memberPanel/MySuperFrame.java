@@ -52,7 +52,6 @@ public class MySuperFrame extends JFrame {
 		
 		LoginPanel loginPanel = new LoginPanel();
 		memberTabbedPane.addTab("New tab", null, loginPanel, null);
-		loginPanel.setLayout(new BorderLayout(0, 0));
 		
 		JoinPanel joinPanel = new JoinPanel();
 		memberTabbedPane.addTab("New tab", null, joinPanel, null);
