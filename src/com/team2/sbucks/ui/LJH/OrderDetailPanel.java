@@ -143,7 +143,7 @@ public class OrderDetailPanel extends JPanel {
 		OrderList orderList = orderService.printOrder(memberNo,orderNo);
 		List<OrderDetail> orderDetail = orderList.getOrderDetail();
 
-		orderDetailPanel.removeAll();
+		orderDetailBasicPanel.removeAll();
 
 		for (int i = 0; i < orderDetail.size(); i++) {
 			OrderDetail order = orderDetail.get(i);

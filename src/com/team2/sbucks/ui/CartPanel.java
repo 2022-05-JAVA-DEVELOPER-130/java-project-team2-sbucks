@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.CartService;
 import com.team2.sbucks.ui.productPanel.ProductAllPanel;
+import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
@@ -50,6 +51,8 @@ public class CartPanel extends JPanel {
 	private JTextField espressonumTF;
 	private JTextField productnameTF;
 	private JTextField productnumTF;
+	private MainFrame mainFrame;
+	private ProductAllPanel productAllPanel; 
 	
 	public CartPanel() {
 		cartService=new CartService();
@@ -75,7 +78,7 @@ public class CartPanel extends JPanel {
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBounds(0, 660, 370, 104);
+		panel_1.setBounds(0, 393, 370, 371);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -197,7 +200,7 @@ public class CartPanel extends JPanel {
 		
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(0, 186, 370, 451);
+		panel_4.setBounds(0, 186, 370, 197);
 		add(panel_4);
 		panel_4.setLayout(null);
 		
@@ -213,8 +216,8 @@ public class CartPanel extends JPanel {
 		producPN_1.add(pricechoiceCB);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
-		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\ITWILL\\Desktop\\아이스아메.PNG"));
-		lblNewLabel_2_1.setBounds(18, 35, 88, 97);
+		lblNewLabel_2_1.setIcon(new ImageIcon(CartPanel.class.getResource("/images/(HOT)아메리카노.jpg")));
+		lblNewLabel_2_1.setBounds(8, 45, 107, 97);
 		producPN_1.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_5_2_1 = new JLabel("espresso");
@@ -243,6 +246,7 @@ public class CartPanel extends JPanel {
 		
 		productpriceTF = new JTextField();
 		productpriceTF.setEnabled(false);
+		productpriceTF.setEditable(false);
 		productpriceTF.setColumns(10);
 		productpriceTF.setBounds(270, 150, 88, 21);
 		
@@ -250,25 +254,29 @@ public class CartPanel extends JPanel {
 		
 		syrupnumTF = new JTextField();
 		syrupnumTF.setEnabled(false);
+		syrupnumTF.setEditable(false);
 		syrupnumTF.setColumns(10);
 		syrupnumTF.setBounds(270, 92, 88, 21);
 		producPN_1.add(syrupnumTF);
 		
 		espressonumTF = new JTextField();
+		espressonumTF.setEditable(false);
 		espressonumTF.setEnabled(false);
 		espressonumTF.setColumns(10);
 		espressonumTF.setBounds(270, 60, 88, 21);
 		producPN_1.add(espressonumTF);
 		
 		productnameTF = new JTextField();
-		productnameTF.setFont(new Font("굴림", Font.PLAIN, 20));
 		productnameTF.setEditable(false);
+		productnameTF.setEnabled(false);
+		productnameTF.setFont(new Font("굴림", Font.PLAIN, 20));
 		productnameTF.setColumns(10);
 		productnameTF.setBounds(121, 21, 238, 23);
 		producPN_1.add(productnameTF);
 		
 		productnumTF = new JTextField();
 		productnumTF.setEnabled(false);
+		productnumTF.setEditable(false);
 		productnumTF.setColumns(10);
 		productnumTF.setBounds(270, 123, 88, 21);
 		producPN_1.add(productnumTF);
@@ -290,6 +298,12 @@ public class CartPanel extends JPanel {
 		});
 		btnNewButton.setBounds(10, 95, 36, 23);
 		add(btnNewButton);
+	}//생성자끝
+	
+	public void setFrame(MainFrame mainFrame) {
+		this.mainFrame=mainFrame;
 	}
-}
+
+	
+}//클래스 끝
 

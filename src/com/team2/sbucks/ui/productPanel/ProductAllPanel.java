@@ -17,7 +17,8 @@ import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.service.ProductDetailService;
 import com.team2.sbucks.service.ProductService;
-import com.team2.sbucks.ui.MainFrameJiwon;
+import com.team2.sbucks.ui.MainFrame;
+
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,7 +49,7 @@ public class ProductAllPanel extends JPanel {
 	private JLabel lblNewLabel_5;
 	private JLabel lblNewLabel_6;
 	
-	private MainFrameJiwon mainFrame;
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -136,9 +137,7 @@ public class ProductAllPanel extends JPanel {
 					
 					
 					try {
-						System.out.println(productService.selectByNo(product.getProduct_no()));
-						System.out.println(productDetailService.selectByNo(product.getProduct_no()));
-						System.out.println();
+						
 						/********************************************************/
 						ProductDetail selectedProductDetail=productDetailService.selectByNo(product.getProduct_no());
 						Product selectedProduct=productService.selectByNo(product.getProduct_no());
@@ -147,7 +146,7 @@ public class ProductAllPanel extends JPanel {
 						mainFrame.selectedProductDetail=selectedProductDetail;
 						/*******************************************************/
 						
-						mainFrame.tabbedPane.setSelectedIndex(0);
+						mainFrame.productTabbedPane.setSelectedIndex(1);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -178,10 +177,10 @@ public class ProductAllPanel extends JPanel {
 			
 		}
 		
-	}
-	public void setFrame(MainFrameJiwon mainFrame) {
+	}//생성자끝
+	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame=mainFrame;
 		
 	}
 
-}
+}//클래스끝

@@ -8,6 +8,7 @@ import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.CartService;
 import com.team2.sbucks.service.OrderService;
 import com.team2.sbucks.service.ProductService;
+import com.team2.sbucks.ui.MainFrame;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -32,6 +33,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class OrderPanel extends JPanel {
 	private OrderService orderService;
@@ -40,7 +43,7 @@ public class OrderPanel extends JPanel {
 	Product product;
 	int memberNo=1;
 	int product_no=3;
-	private OrderListTestFrame mainFrame;
+	private MainFrame mainFrame;
 	private JButton orderBtn;
 	private JButton cartJoinBtn;
 	private JLabel coffeeLB;
@@ -54,6 +57,7 @@ public class OrderPanel extends JPanel {
 	private JLabel item_nameLB;
 	private JLabel totalPriceLB;
 	private JLabel item_PriceLB;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -77,6 +81,15 @@ public class OrderPanel extends JPanel {
 		countLB = new JLabel("수량");
 		
 		coffeeCB = new JComboBox();
+		coffeeCB.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				
+				int coffeCount=(Integer)countCB.getSelectedItem();
+				int syrupCount=(Integer)sypUpCB.getSelectedItem();
+				int shopCount=(Integer)coffeeCB.getSelectedItem();
+				System.out.println(coffeCount);
+			}
+		});
 		coffeeCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		sypUpCB = new JComboBox();
@@ -267,7 +280,7 @@ public class OrderPanel extends JPanel {
 	}
 	
 //생성자끝
-	public void setFrame(OrderListTestFrame mainFrame) {
+	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame=mainFrame;
 		
 	}

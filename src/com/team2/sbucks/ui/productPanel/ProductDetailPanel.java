@@ -13,7 +13,8 @@ import javax.swing.SwingConstants;
 
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
-import com.team2.sbucks.ui.MainFrameJiwon;
+import com.team2.sbucks.ui.MainFrame;
+
 
 public class ProductDetailPanel extends JPanel {
 	private JTextField productNameTF;
@@ -25,7 +26,7 @@ public class ProductDetailPanel extends JPanel {
 	private Product product;
 	private ProductDetail productDetial;
 	
-	private MainFrameJiwon mainFrame;
+	private MainFrame mainFrame;
 	private JLabel lblNewLabel_4;
 	
 	/**
@@ -44,7 +45,7 @@ public class ProductDetailPanel extends JPanel {
 					productNaTF.setText(mainFrame.selectedProductDetail.getNa()+"");
 					lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/"+mainFrame.selectedProduct.getProduct_name()+".jpg")));
 					
-					productNameTF.setEnabled(false);
+					
 				}
 				
 					
@@ -144,8 +145,8 @@ public class ProductDetailPanel extends JPanel {
 
 	}//생성자끝
 
-	public void setFrame(MainFrameJiwon mainFrameJiwon) {
-		this.mainFrame=mainFrameJiwon;
+	public void setFrame(MainFrame mainFrame) {
+		this.mainFrame=mainFrame;
 	}
 
 	
