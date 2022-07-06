@@ -8,14 +8,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
+import com.team2.sbucks.dto.Product;
+import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
 public class MainFrameJiwon extends JFrame {
 
-	private JPanel contentPane;
-	private ProductAllPanel productAllPanel;
-	private ProductDetailPanel productDetailPanel;
-	
+	public JPanel contentPane;
+	public ProductAllPanel productAllPanel;
+	public ProductDetailPanel productDetailPanel;
+	public JTabbedPane tabbedPane;
+	public Product selectedProduct;
+	public ProductDetail selectedProductDetail;
 
 	/**
 	 * Launch the application.
@@ -44,7 +48,7 @@ public class MainFrameJiwon extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
 		productDetailPanel = new ProductDetailPanel();
@@ -52,7 +56,10 @@ public class MainFrameJiwon extends JFrame {
 		
 		productAllPanel = new ProductAllPanel();
 		tabbedPane.addTab("New tab", null, productAllPanel, null);
-		
+		/*************프레임의객체의주소를 패널에set ************/
+		productAllPanel.setFrame(this);
+		productDetailPanel.setFrame(this);
+		/****************************************************/
 	}
 		
 

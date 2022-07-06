@@ -15,7 +15,9 @@ import javax.swing.SwingConstants;
 
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
+import com.team2.sbucks.service.ProductDetailService;
 import com.team2.sbucks.service.ProductService;
+import com.team2.sbucks.ui.MainFrameJiwon;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -26,11 +28,13 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class ProductAllPanel extends JPanel {
 	private JPanel productListBasicpanel;
 	private JPanel productitemPanel_1;
     private ProductService productService;
+    private ProductDetailService productDetailService;
     private Product product;
 	private JTextField productNameTF;
 	private JTextField productPriceTF;
@@ -45,7 +49,7 @@ public class ProductAllPanel extends JPanel {
 	private JLabel lblNewLabel_5;
 	private JLabel lblNewLabel_6;
 	
-
+	private MainFrameJiwon mainFrame;
 
 	/**
 	 * Create the panel.
@@ -69,6 +73,7 @@ public class ProductAllPanel extends JPanel {
 		productitemPanel_1.setLayout(null);
 		
 		lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_6.addMouseListener(new MouseAdapter() {
 			
 			@Override
@@ -90,13 +95,7 @@ public class ProductAllPanel extends JPanel {
 		lblNewLabel_4 = new JLabel("<html>안녕<br>안녕</html>");
 		lblNewLabel_4.setBounds(208, 40, 22, 30);
 		lblNewLabel_4.setFont(new Font("맑은 고딕", Font.PLAIN, 11));
-		lblNewLabel_4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-			
-			}
-		});
+		
 		productitemPanel_1.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_3 = new JLabel("전체상품");
@@ -116,6 +115,9 @@ public class ProductAllPanel extends JPanel {
 	public void productListDispaly() throws Exception{
 		java.util.List<Product>  productList=productService.selectAll();
 		
+		ProductService productService= new ProductService();
+		ProductDetailService productDetailService=new ProductDetailService();
+		
 		productListBasicpanel.removeAll();
 		for(int i=0;i<productList.size();i++) {
 			
@@ -127,15 +129,21 @@ public class ProductAllPanel extends JPanel {
 			productitemPanel_1.setLayout(null);
 			
 			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			lblNewLabel.addMouseListener(new MouseAdapter() {
 				
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-					ProductService productService= new ProductService();
+					
 					try {
 						System.out.println(productService.selectByNo(product.getProduct_no()));
+						System.out.println(productDetailService.selectByNo(product.getProduct_no()));
+						System.out.println();
 						
+						
+						mainFrame.selectedProduct=product;
+						mainFrame.tabbedPane.setSelectedIndex(0);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -163,6 +171,10 @@ public class ProductAllPanel extends JPanel {
 			JLabel lblNewLabel_3 = new JLabel("전체상품");
 			lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 16));
 		}
+		
+	}
+	public void setFrame(MainFrameJiwon mainFrame) {
+		this.mainFrame=mainFrame;
 		
 	}
 
