@@ -277,6 +277,7 @@ public class JoinPanel extends JPanel {
 				String ber = joinPhone_TF.getText();
 				String phoneNum = (String)phoneCB.getSelectedItem();
 				String phoneNumber = phoneNum+ber;
+				String exphoneNum=phoneNum+"-"+ber;
 				phoneNumber = joinPhone_TF.getText();
 				/****************************************/
 				
@@ -305,7 +306,7 @@ public class JoinPanel extends JPanel {
 				/*****번호처리문제******/
 				//Member newMember = new Member(, id, phoneNumber, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
 				//memberService.insertMember(newMember);
-				Member newMember = new Member(0,id, phoneNumber, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
+				Member newMember = new Member(0,id, exphoneNum, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
 				Login newLogin = new Login(id, password, 1);
 				boolean insertSuccess = memberService.addMember(newMember);
 				if(insertSuccess==true) {
