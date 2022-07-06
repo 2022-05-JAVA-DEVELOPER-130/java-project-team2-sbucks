@@ -1,4 +1,4 @@
-package com.team2.sbucks.ui;
+package com.team2.sbucks.ui.LJH;
 
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -8,8 +8,6 @@ import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.CartService;
 import com.team2.sbucks.service.OrderService;
 import com.team2.sbucks.service.ProductService;
-import com.team2.sbucks.ui.LJH.OrderListPanel;
-import com.team2.sbucks.ui.LJH.OrderListTestFrame;
 
 import javax.swing.JLabel;
 import java.awt.Font;

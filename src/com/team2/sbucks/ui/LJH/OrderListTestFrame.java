@@ -12,7 +12,6 @@ import com.team2.sbucks.dto.OrderList;
 import com.team2.sbucks.dto.Product;
 
 import javax.swing.JTabbedPane;
-import com.team2.sbucks.ui.OrderPanel;
 
 public class OrderListTestFrame extends JFrame {
 

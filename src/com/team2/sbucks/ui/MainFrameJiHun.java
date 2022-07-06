@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.team2.sbucks.ui.LJH.OrderPanel;
+
 public class MainFrameJiHun extends JFrame {
 
 	private JPanel contentPane;
