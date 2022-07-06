@@ -118,11 +118,11 @@ public class OrderPanel extends JPanel {
 				System.out.println(coffeCount);
 			}
 		});
-		coffeeCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		coffeeCB.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		sypUpCB = new JComboBox();
 		sypUpCB.setBounds(222, 238, 32, 28);
-		sypUpCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		sypUpCB.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		countCB = new JComboBox();
 		countCB.setBounds(222, 298, 32, 28);
