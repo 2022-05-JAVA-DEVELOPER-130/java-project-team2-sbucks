@@ -78,7 +78,7 @@ public class CartPanel extends JPanel {
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBounds(0, 393, 370, 371);
+
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -128,7 +128,7 @@ public class CartPanel extends JPanel {
 		
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setBackground(Color.LIGHT_GRAY);
-		panel_2_1.setBounds(0, 647, 370, 3);
+		panel_2_1.setBounds(0, 399, 370, 3);
 		add(panel_2_1);
 		
 		JLabel lblNewLabel = new JLabel("음료/푸드");
@@ -200,7 +200,7 @@ public class CartPanel extends JPanel {
 		
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(0, 186, 370, 197);
+
 		add(panel_4);
 		panel_4.setLayout(null);
 		
