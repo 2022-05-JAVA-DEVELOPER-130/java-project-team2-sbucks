@@ -20,7 +20,12 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import com.team2.sbucks.dto.Product;
+import com.team2.sbucks.dto.ProductDetail;
+import com.team2.sbucks.service.ProductDetailService;
+import com.team2.sbucks.service.ProductService;
 import com.team2.sbucks.ui.MainFrame;
+import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 
 import java.awt.Dimension;
@@ -30,6 +35,9 @@ import javax.swing.JComboBox;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ActionEvent;
 
 public class CartPanel extends JPanel {
 	private JTextField textField;
@@ -39,7 +47,7 @@ public class CartPanel extends JPanel {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	private MainFrame mainFrame;
+	
 	private JPanel panel_3;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel;
@@ -50,11 +58,34 @@ public class CartPanel extends JPanel {
 	private JButton orderBtn;
 	private JCheckBox pricechoiceCB;
 	private JComboBox espressonumCB_1_2;
+    private ProductService productService;
+	private ProductDetailService productDetailService;
+	private Product product;
+	private ProductDetail productDetail;
+	private ProductAllPanel productAllPanel;
+	
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
 	 */
 	public CartPanel() {
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				if(mainFrame.selectedProduct!=null) {
+					textField_2.setText(mainFrame.selectedProduct.getProduct_name());
+					
+					
+				}
+				
+					
+				
+			}
+			
+			
+			
+		});
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
@@ -70,11 +101,9 @@ public class CartPanel extends JPanel {
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		
 		btnNewButton = new JButton("");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-					
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(CartPanel.class.getResource("/images/새로고침.PNG")));
@@ -93,23 +122,23 @@ public class CartPanel extends JPanel {
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-					.addGap(97)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-					.addComponent(productchoicedeleteBtn)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(productalldeleteBtn, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-					.addGap(33))
-				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(7)
 					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 338, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(48, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+							.addComponent(productchoicedeleteBtn)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(productalldeleteBtn, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
+					.addGap(33))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
@@ -219,10 +248,9 @@ public class CartPanel extends JPanel {
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("굴림", Font.PLAIN, 20));
-		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("New label");
+		JLabel lblNewLabel_2_1 = new JLabel("");
 		lblNewLabel_2_1.setIcon(new ImageIcon(CartPanel.class.getResource("/images/아이스아메.PNG")));
 		
 		JLabel lblNewLabel_5_2_1 = new JLabel("espresso");
@@ -244,19 +272,15 @@ public class CartPanel extends JPanel {
 		espressonumCB_1_2 = new JComboBox();
 		
 		textField_3 = new JTextField();
-		textField_3.setEnabled(false);
 		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
-		textField_4.setEnabled(false);
 		textField_4.setColumns(10);
 		
 		textField_5 = new JTextField();
-		textField_5.setEnabled(false);
 		textField_5.setColumns(10);
 		
 		textField_6 = new JTextField();
-		textField_6.setEnabled(false);
 		textField_6.setColumns(10);
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(
