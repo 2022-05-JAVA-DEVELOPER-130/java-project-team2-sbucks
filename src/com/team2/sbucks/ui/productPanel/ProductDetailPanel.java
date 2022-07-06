@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.ui.MainFrame;
+import javax.swing.JButton;
 
 
 public class ProductDetailPanel extends JPanel {
@@ -137,6 +138,14 @@ public class ProductDetailPanel extends JPanel {
 		lblNewLabel_4.setBounds(71, 10, 213, 151);
 		add(lblNewLabel_4);
 		
+		JButton orderBtn = new JButton("주문하기");
+		orderBtn.setBounds(71, 514, 95, 23);
+		add(orderBtn);
+		
+		JButton cartJoinBtn = new JButton("담기");
+		cartJoinBtn.setBounds(204, 514, 95, 23);
+		add(cartJoinBtn);
+		
 		
 		
 		
@@ -148,6 +157,4 @@ public class ProductDetailPanel extends JPanel {
 	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame=mainFrame;
 	}
-
-	
 }//클래스 끝
