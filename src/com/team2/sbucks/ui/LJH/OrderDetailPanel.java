@@ -7,6 +7,7 @@ import com.team2.sbucks.dto.OrderDetail;
 import com.team2.sbucks.dto.OrderList;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.OrderService;
+import com.team2.sbucks.ui.MainFrame;
 
 import java.awt.BorderLayout;
 
@@ -46,7 +47,7 @@ public class OrderDetailPanel extends JPanel {
 	private JLabel od_syrupLB_1;
 	private JLabel od_STMTLB_1;
 	private JLabel od_qtyLB_1;
-	private OrderListTestFrame mainFrame;
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -215,7 +216,7 @@ public class OrderDetailPanel extends JPanel {
 	}
 
 	/**********************************/
-	public void setFrame(OrderListTestFrame mainFrame) {
+	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		
 		

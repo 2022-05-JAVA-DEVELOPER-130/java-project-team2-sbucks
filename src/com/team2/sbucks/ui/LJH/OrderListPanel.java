@@ -7,6 +7,7 @@ import javax.swing.SwingConstants;
 
 import com.team2.sbucks.dto.OrderList;
 import com.team2.sbucks.service.OrderService;
+import com.team2.sbucks.ui.MainFrame;
 import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
 import javax.swing.JScrollPane;
@@ -36,7 +37,7 @@ public class OrderListPanel extends JPanel {
 	private JScrollPane scrollPane;
 	
 	/******************/
-	private OrderListTestFrame mainFrame;
+	private MainFrame mainFrame;
 	
 	/***************/
 
@@ -169,7 +170,7 @@ public class OrderListPanel extends JPanel {
 		
 	}
 		/**********************************/
-		public void setFrame(OrderListTestFrame mainFrame) {
+		public void setFrame(MainFrame mainFrame) {
 			this.mainFrame=mainFrame;
 			
 			try {

@@ -29,9 +29,11 @@ public class MainFrame extends JFrame {
 	public ProductDetailPanel ProductDetailPanel;
 	public Product selectedProduct;
 	public ProductDetail selectedProductDetail;
-	private OrderListPanel orderListPanel;
-	private OrderDetailPanel orderDetailPanel;
-	private OrderPanel orderPanel;
+	public OrderListPanel orderListPanel;
+	public OrderDetailPanel orderDetailPanel;
+	public OrderPanel orderPanel;
+	public int memberNo=2;
+	public int orderNo;
 
 	/**
 	 * Launch the application.
@@ -100,7 +102,9 @@ public class MainFrame extends JFrame {
 		/*************프레임의객체의주소를 패널에set ************/
 		ProductAllPanel.setFrame(this);
 		ProductDetailPanel.setFrame(this);
-		
+		orderDetailPanel.setFrame(this);
+		orderListPanel.setFrame(this);
+		orderPanel.setFrame(this);
 		/****************************************************/
 	}
 
