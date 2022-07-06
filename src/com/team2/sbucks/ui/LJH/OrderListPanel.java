@@ -126,7 +126,7 @@ public class OrderListPanel extends JPanel {
 						 */
 						
 						mainFrame.orderNo=order.getOrder_no();
-						mainFrame.tabbedPane.setSelectedIndex(1);
+						mainFrame.OrderTabbedPane.setSelectedIndex(1);
 						mainFrame.orderDetailPanel.orderDetailDisplay(order.getMember_no(), order.getOrder_no());
 						
 						
