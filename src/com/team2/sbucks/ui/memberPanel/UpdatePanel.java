@@ -213,8 +213,8 @@ public class UpdatePanel extends JPanel {
 						return;
 					}
 					Member loginMember = new Member(0,id, phoneNumber, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
-					int check = memberService.updateMember(loginMember);
-					if(check==1) {
+					boolean check = memberService.updateMemberByID(loginMember);
+					if(check==true) {
 					JOptionPane.showMessageDialog(null, "회원정보 변경이 완료되었습니다.");
 					} else {
 						JOptionPane.showMessageDialog(null, "회원정보 변경이 실패했습니다.");

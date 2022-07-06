@@ -18,7 +18,7 @@ public class MemberSQL {
 				= "insert into membership values(membership_member_no_seq.nextval,?,?,?,?,?,?,?,?)";
 	
 	public static final String MEMBER_UPDATE
-				= "update membership set member_phone=?,member_email = ?, member_nickname=?, "
+				= "update membership set member_nickname=?, "
 						+ "member_loc = ?, member_pagree=?, member_eagree=? where member_id =?";
 	
 	public static final String MEMBER_CHECK_ID

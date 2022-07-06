@@ -22,7 +22,7 @@ public class LoginService {
 		boolean check = false;
 		
 		Login findMember = loginDao.selectByID(id);
-		if(findMember == null) {
+		if(findMember!= null) {
 			loginDao.updatePassword(newPassword, findMember.getMember_id());
 			check = true;
 		}else {

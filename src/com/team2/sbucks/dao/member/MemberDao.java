@@ -50,13 +50,11 @@ public class MemberDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_UPDATE);
 
-		pstmt.setString(1, updateMember.getMember_phone());
-		pstmt.setString(2, updateMember.getMember_email());
-		pstmt.setString(3, updateMember.getMemeber_nickname());
-		pstmt.setString(4, updateMember.getMember_loc());
-		pstmt.setInt(5, updateMember.getMember_pagree());
-		pstmt.setInt(6, updateMember.getMember_eagree());
-		pstmt.setString(7, updateMember.getMember_id());
+		pstmt.setString(1, updateMember.getMemeber_nickname());
+		pstmt.setString(2, updateMember.getMember_loc());
+		pstmt.setInt(3, updateMember.getMember_pagree());
+		pstmt.setInt(4, updateMember.getMember_eagree());
+		pstmt.setString(5, updateMember.getMember_id());
 
 		int updateCount = pstmt.executeUpdate();
 
