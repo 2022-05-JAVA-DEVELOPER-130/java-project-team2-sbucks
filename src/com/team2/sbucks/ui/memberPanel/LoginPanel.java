@@ -138,13 +138,13 @@ public class LoginPanel extends JPanel {
 		idFalse_LB = new JLabel("");
 		idFalse_LB.setForeground(new Color(255, 255, 255));
 		idFalse_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
-		idFalse_LB.setBounds(40, 289, 117, 16);
+		idFalse_LB.setBounds(49, 288, 117, 16);
 		add(idFalse_LB);
 
 		passwordFalse_LB = new JLabel("");
 		passwordFalse_LB.setForeground(new Color(255, 255, 255));
 		passwordFalse_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
-		passwordFalse_LB.setBounds(40, 380, 117, 16);
+		passwordFalse_LB.setBounds(47, 378, 117, 16);
 		add(passwordFalse_LB);
 		
 		JLabel searchIDPassword_LB = new JLabel("아이디   |   비밀번호 찾기");
@@ -157,7 +157,7 @@ public class LoginPanel extends JPanel {
 		});
 		searchIDPassword_LB.setForeground(new Color(192, 192, 192));
 		searchIDPassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
-		searchIDPassword_LB.setBounds(175, 384, 123, 16);
+		searchIDPassword_LB.setBounds(175, 392, 123, 16);
 		add(searchIDPassword_LB);
 
 		/***************************

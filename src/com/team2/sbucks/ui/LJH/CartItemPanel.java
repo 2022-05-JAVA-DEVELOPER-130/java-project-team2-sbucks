@@ -62,6 +62,7 @@ public class CartItemPanel extends JPanel {
 	private JLabel cartCountLB;
 	private JButton deleteAllBtn;
 	private JButton deleteSelectBtn;
+	private JButton cartIcon_Btn;
 
 	/**
 	 * Create the panel.
@@ -77,15 +78,26 @@ public class CartItemPanel extends JPanel {
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(0, 0, 450, 66);
 		add(panel);
-		panel.setLayout(new BorderLayout(0, 0));
+		panel.setLayout(null);
+		
+		cartIcon_Btn = new JButton("");
+		cartIcon_Btn.setBorderPainted(false);
+		cartIcon_Btn.setContentAreaFilled(false);
+		cartIcon_Btn.setFocusPainted(false);
+		cartIcon_Btn.setBorder(null);
+		cartIcon_Btn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/장바구니1-3.png")));
+		cartIcon_Btn.setBounds(73, -5, 117, 44);
+		panel.add(cartIcon_Btn);
 
 		lblNewLabel = new JLabel("장바구니");
+		lblNewLabel.setBounds(0, 0, 108, 37);
 		lblNewLabel.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 31));
 		panel.add(lblNewLabel);
 
 		panel_1 = new JPanel();
+		panel_1.setBounds(0, 37, 450, 29);
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel.add(panel_1, BorderLayout.SOUTH);
+		panel.add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 
 		deleteAllBtn = new JButton("");
