@@ -33,6 +33,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class OrderPanel extends JPanel {
 	private OrderService orderService;
@@ -63,6 +64,7 @@ public class OrderPanel extends JPanel {
 		orderService=new OrderService();
 		cartService=new CartService();
 		
+		
 		try {
 			product=productService.selectByNo(product_no);
 		}catch (Exception e) {
@@ -88,18 +90,30 @@ public class OrderPanel extends JPanel {
 		
 		
 		cartJoinBtn = new JButton("담기");
-		cartJoinBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		cartJoinBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				try {
+					System.out.println("장바구니");
+					
 					product=productService.selectByNo(product_no);
-					int qty=(int)countCB.getSelectedItem();
-					int syrup=(int)sypUpCB.getSelectedItem();
-					int espresso=(int)coffeeCB.getSelectedItem();
-					product.setProduct_espresso(espresso);
-					product.setProduct_syrup(syrup);
+					String qty=(String) countCB.getSelectedItem();
+					int iqty=Integer.parseInt(qty);
+					System.out.println("중간");
+					
+					String syrup=(String)sypUpCB.getSelectedItem();
+					int isyrup=Integer.parseInt(syrup);
+					
+					String espresso=(String)coffeeCB.getSelectedItem();
+					int iespresso=Integer.parseInt(espresso);
 					
 					
-					cartService.insertCart(product,memberNo,qty);//카트 수량체크 후 담기 메소드. 매개변수 어디서 끌고오는가
+					product.setProduct_espresso(iespresso);
+					product.setProduct_syrup(isyrup);
+					
+					
+					
+					cartService.insertCart(product,memberNo,iqty);
 					System.out.println("담겼음");
 				
 					
@@ -107,25 +121,42 @@ public class OrderPanel extends JPanel {
 
 				}
 				
+				
 			}
 		});
 		
+		
 		orderBtn = new JButton("주문하기");
-		orderBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		orderBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				try {
+					System.out.println("주문");
+					
 					product=productService.selectByNo(product_no);
-					int qty=(int)countCB.getSelectedItem();
-					int syrup=(int)sypUpCB.getSelectedItem();
-					int espresso=(int)coffeeCB.getSelectedItem();
-					product.setProduct_espresso(espresso);
-					product.setProduct_syrup(syrup);
-					orderService.createOneOrder(memberNo, product, qty);
+					String qty=(String) countCB.getSelectedItem();
+					int iqty=Integer.parseInt(qty);
+					System.out.println("중간");
+					
+					String syrup=(String)sypUpCB.getSelectedItem();
+					int isyrup=Integer.parseInt(syrup);
+					
+					String espresso=(String)coffeeCB.getSelectedItem();
+					int iespresso=Integer.parseInt(espresso);
+					
+					
+					product.setProduct_espresso(iespresso);
+					product.setProduct_syrup(isyrup);
+					
+					orderService.createOneOrder(memberNo, product, iqty);
+					
+					System.out.println("주문완료");
 				} catch (Exception e2) {
-
+					e2.printStackTrace();
 				}
 			}
 		});
+		
 		
 		item_imgLB = new JLabel("상품이미지");
 		item_imgLB.setIcon(new ImageIcon(
@@ -136,18 +167,19 @@ public class OrderPanel extends JPanel {
 		item_nameLB = new JLabel(product.getProduct_name());
 		
 		totalPriceLB = new JLabel("총가격");
-		int qty=(int)countCB.getSelectedItem();
+		/*int qty=(int)countCB.getSelectedItem();
 		int syrup=(int)sypUpCB.getSelectedItem();
 		int espresso=(int)coffeeCB.getSelectedItem();
-		
+		*/
 		item_PriceLB = new JLabel("원");
+		/*
 		item_PriceLB.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				item_PriceLB.setText(qty*(product.getProduct_price()+(product.getProduct_espressoprice()*syrup)+(product.getProduct_syrupprice()*espresso))+"원");
 			}
 		});
-		
+		*/
 		o_CancelBtn = new JButton("취소");
 		o_CancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

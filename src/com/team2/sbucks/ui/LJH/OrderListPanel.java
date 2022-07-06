@@ -116,6 +116,7 @@ public class OrderListPanel extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					try {
+						System.out.println("주문완료");
 						System.out.println(orderService.printOrder(order.getMember_no(), order.getOrder_no()));
 						
 						/******************

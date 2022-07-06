@@ -26,6 +26,7 @@ public class OrderListTestFrame extends JFrame {
 	public int orderNo;
 	public JTabbedPane tabbedPane;
 	public OrderDetailPanel orderDetailPanel;
+	public OrderPanel orderPanel;
 
 	
 	/**
@@ -62,12 +63,16 @@ public class OrderListTestFrame extends JFrame {
 		tabbedPane.addTab("New tab", null, orderListPanel, null);
 		orderDetailPanel = new OrderDetailPanel();
 		tabbedPane.addTab("New tab", null, orderDetailPanel, null);
-		
+		orderPanel = new OrderPanel();
+		tabbedPane.addTab("New tab", null, orderPanel, null);
 		/************************************프레임 객체의주소를 패널에 set**********/
 		orderListPanel.setFrame(this);
 		
 		
 		orderDetailPanel.setFrame(this);
+		
+		
+		orderPanel.setFrame(this);
 		
 	}
 
