@@ -201,9 +201,9 @@ public class MemberService {
 	/*
 	 * 회원번호로삭제
 	 */
-	public int deleteMember(int member_no) throws Exception {
+	public int deleteMember(int member_id) throws Exception {
 
-		return memberDao.deleteMember(member_no);
+		return memberDao.deleteMember(member_id);
 
 	}
 	

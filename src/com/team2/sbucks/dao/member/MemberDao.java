@@ -87,12 +87,12 @@ public class MemberDao {
 	}
 	
 	
-	public int deleteMember(int member_no) throws Exception {
+	public int deleteMember(int member_id) throws Exception {
 
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_DELETE);
 
-		pstmt.setInt(1, member_no);
+		pstmt.setInt(1, member_id);
 
 		int deleteCount = pstmt.executeUpdate();
 

@@ -29,7 +29,7 @@ public class MemberSQL {
 							+ "member_loc = ?, member_pagree=?, member_eagree=? where member_id=? ";
 	
 	public static final String MEMBER_DELETE
-				="delete from membership where member_no =?";
+				="delete from membership where member_id =?";
 	
 	public static final String MEMBERDELETE_BY_ID
 				="delete from membership where member_id =?";

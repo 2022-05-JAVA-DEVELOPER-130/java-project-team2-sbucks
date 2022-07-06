@@ -23,6 +23,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.DefaultComboBoxModel;
 
 public class UpdatePanel extends JPanel {
@@ -167,13 +170,13 @@ public class UpdatePanel extends JPanel {
 		updatePagree_CB = new JCheckBox("핸드폰 정보제공 동의");
 		updatePagree_CB.setEnabled(false);
 		updatePagree_CB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updatePagree_CB.setBounds(20, 445, 148, 23);
+		updatePagree_CB.setBounds(25, 445, 148, 23);
 		add(updatePagree_CB);
 		
 		updateEagree_CB = new JCheckBox("지역 정보제공 동의");
 		updateEagree_CB.setEnabled(false);
 		updateEagree_CB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateEagree_CB.setBounds(203, 445, 146, 23);
+		updateEagree_CB.setBounds(198, 445, 146, 23);
 		add(updateEagree_CB);
 		
 		
@@ -217,11 +220,11 @@ public class UpdatePanel extends JPanel {
 					if(check==true) {
 					JOptionPane.showMessageDialog(null, "회원정보 변경이 완료되었습니다.");
 					} else {
-						JOptionPane.showMessageDialog(null, "회원정보 변경이 실패했습니다.");
+					JOptionPane.showMessageDialog(null, "회원정보 변경이 실패했습니다.");
 					}
 					
 				}catch(Exception e1) {
-					
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -229,6 +232,17 @@ public class UpdatePanel extends JPanel {
 		add(update_Btn);
 		
 		JButton out_Btn = new JButton("탈퇴");
+		out_Btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String id = updateID_TF.getText();
+					//int check = memberService.deleteMember(id);
+				}catch(Exception e1) {
+					
+				}
+				
+			}
+		});
 		out_Btn.setBounds(65, 466, 97, 23);
 		add(out_Btn);
 		
@@ -277,6 +291,7 @@ public class UpdatePanel extends JPanel {
 				String id = updateID_TF.getText();
 				String password = originalPassword_TF.getText();
 				Member loginMember = memberService.findInfo(id, password);
+				String birth = updateBirth_TF.getText();
 				
 				if(loginMember!=null) {
 					
@@ -285,7 +300,13 @@ public class UpdatePanel extends JPanel {
 					updatePassword_TF.setEnabled(true);
 					updatePassword_TF.setEnabled(true);
 					updatePhone_TF.setText(loginMember.getMember_phone());
-					updateBirth_TF.setText(loginMember.getMember_birthday().toLocaleString().substring(0,10));
+					
+					SimpleDateFormat sdf = new SimpleDateFormat();
+					sdf.applyPattern("yyyy-MM-dd");
+					//Date birthday = sdf.parse(birth);
+					updateBirth_TF.setText(sdf.format(loginMember.getMember_birthday()));
+					
+					
 					updateEmail_TF.setText(loginMember.getMember_email());
 					updateLoc_TF.setText(loginMember.getMember_loc());
 					updateNickname_TF.setText(loginMember.getMemeber_nickname());
@@ -301,7 +322,6 @@ public class UpdatePanel extends JPanel {
 					}
 			} else {
 				JOptionPane.showMessageDialog(null, "다시 입력해주세요");
-				updateID_TF.requestFocus();
 			}
 				}catch(Exception e1) {
 					
