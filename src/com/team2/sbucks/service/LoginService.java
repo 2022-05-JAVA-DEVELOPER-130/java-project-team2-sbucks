@@ -18,12 +18,12 @@ public class LoginService {
 	/*
 	 * 비밀번호 확인 후 맞으면 비밀번호 변경
 	 */
-	public boolean CheckUpdatePassword (String newPassword, Login updateMember) throws Exception{
+	public boolean CheckUpdatePassword (String newPassword, String id) throws Exception{
 		boolean check = false;
 		
-		Login findMember = loginDao.selectByID(updateMember.getMember_id());
+		Login findMember = loginDao.selectByID(id);
 		if(findMember == null) {
-			loginDao.updatePassword(newPassword, updateMember.getMember_password());
+			loginDao.updatePassword(newPassword, findMember.getMember_id());
 			check = true;
 		}else {
 			check = false;

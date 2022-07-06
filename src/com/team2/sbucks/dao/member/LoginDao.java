@@ -62,13 +62,13 @@ package com.team2.sbucks.dao.member;
 			return rowCount;
 		}
 		
-		public int updatePassword (String newPassword, String oldPassword) throws Exception{
+		public int updatePassword (String newPassword, String id) throws Exception{
 			
 			Connection con = dataSource.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(LoginSQL.UPDATE_PASSWORD);
 			
 			pstmt.setString(1, newPassword);
-			pstmt.setString(2, oldPassword);
+			pstmt.setString(2, id);
 			
 			int updateCount = pstmt.executeUpdate();
 			

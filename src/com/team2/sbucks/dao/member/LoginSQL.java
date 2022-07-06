@@ -13,7 +13,7 @@ public class LoginSQL {
 						= "insert into login values (?,?,?)";
 	
 	public static final String UPDATE_PASSWORD
-						= "update login set member_password =? where member_password =?";
+						= "update login set member_password =? where member_id =?";
 	
 	public static final String UPDATE_LOGIN="update login set member_id=member_id,member_password=?,login=? where member_id=?";
 	

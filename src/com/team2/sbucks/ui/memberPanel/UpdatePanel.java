@@ -234,10 +234,14 @@ public class UpdatePanel extends JPanel {
 		updatePassword_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String oldPassword = originalPassword_TF.getText();
+					String id = updateID_TF.getText();
 					String newPassword = updatePassword_TF.getText();
-					
-					
+					boolean isSuccess = loginService.CheckUpdatePassword(newPassword, id);
+					if(isSuccess) {
+						JOptionPane.showMessageDialog(null, "비밀번호가 변경되었습니다.");
+					}else {
+						JOptionPane.showMessageDialog(null, "다시 입력해주세요.");
+					}
 					/*
 				    if() {
 				    	loginService.updatePassword(newPassword, oldPassword);
