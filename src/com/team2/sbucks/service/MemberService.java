@@ -199,11 +199,18 @@ public class MemberService {
 	}
 
 	/*
-	 * 회원번호로삭제
+	 * 회원아이디로삭제
 	 */
-	public int deleteMember(int member_id) throws Exception {
-
-		return memberDao.deleteMember(member_id);
+	public boolean deleteMember(String member_id) throws Exception {
+		boolean isSuccess = false;
+		Member findMember = memberDao.findById(member_id);
+		if(findMember !=null) {
+			memberDao.deleteMember(member_id);
+			isSuccess = true;
+		}else {
+			isSuccess = false;
+		}
+		return isSuccess;
 
 	}
 	

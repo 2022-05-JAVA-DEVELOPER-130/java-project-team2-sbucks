@@ -236,8 +236,28 @@ public class UpdatePanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					String id = updateID_TF.getText();
-					//int check = memberService.deleteMember(id);
-				}catch(Exception e1) {
+					
+					int var =JOptionPane.showConfirmDialog(null, "탈퇴하면 되돌릴 수 없는데 계속 진행할까요?","탈퇴",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+					
+					if(var==0) {
+						memberService.deleteMember(id);
+						JOptionPane.showConfirmDialog(null, "탈퇴가 성공적으로 이루어졌습니다!");
+						updateID_TF.setText("");
+						originalPassword_TF.setText("");
+						updatePhone_TF.setText("");
+						updateBirth_TF.setText("");
+						updateEmail_TF.setText("");
+						updateNickname_TF.setText("");
+						updateLoc_TF.setText("");
+						updatePagree_CB.setEnabled(false);
+						updateEagree_CB.setEnabled(false);
+						
+						//이렇게 하는 것보다 탈퇴되자마자 홈으로 돌아가게 만드는 것이 좋을 듯하다.
+							
+						}else {
+							JOptionPane.getRootFrame().dispose();
+						}
+					} catch(Exception e1) {
 					
 				}
 				
