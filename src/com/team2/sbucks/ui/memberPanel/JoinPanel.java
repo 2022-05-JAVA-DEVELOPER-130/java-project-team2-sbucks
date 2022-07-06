@@ -302,7 +302,7 @@ public class JoinPanel extends JPanel {
 				/*****번호처리문제******/
 				//Member newMember = new Member(, id, phoneNumber, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
 				//memberService.insertMember(newMember);
-				Member newMember = new Member(20,id, phoneNumber, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
+				Member newMember = new Member(0,id, phoneNumber, birth, email, nickName, loc, pAgreeStr, eAgreeStr);
 				Login newLogin = new Login(id, password, 1);
 				boolean insertSuccess = memberService.addMember(newMember);
 				if(insertSuccess==true) {
@@ -316,10 +316,10 @@ public class JoinPanel extends JPanel {
 				
 				/*
 				 int insertSuccess = memberService.insertMember(newMember);
-				 if(insertSuccess==0){
+				 if(insertSuccess!=1){
 				JOptionPane.showMessageDialog(null, "회원가입에 실패셨습니다.");
 				 }else{
-				 JOptionPane.showMessageDialog(null, "회원가입에 실패셨습니다.");
+				 JOptionPane.showMessageDialog(null, "회원가입에 성공하셨습니다.");
 				 }
 				 */
 				}catch(Exception e1) {
