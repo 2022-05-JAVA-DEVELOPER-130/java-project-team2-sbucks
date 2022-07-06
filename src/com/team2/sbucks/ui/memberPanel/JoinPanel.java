@@ -73,37 +73,37 @@ public class JoinPanel extends JPanel {
 		sbucksLogo.setFocusPainted(false);
 		sbucksLogo.setBorder(null);
 		sbucksLogo.setIcon(new ImageIcon(JoinPanel.class.getResource("/images/스타벅스로고.png")));
-		sbucksLogo.setBounds(58, 44, 242, 94);
+		sbucksLogo.setBounds(56, 2, 242, 94);
 		add(sbucksLogo);
 		
 		JLabel joinID_LB = new JLabel("아이디");
-		joinID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinID_LB.setBounds(22, 156, 57, 15);
+		joinID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinID_LB.setBounds(31, 156, 57, 15);
 		add(joinID_LB);
 		
 		JLabel joinPassword_LB = new JLabel("비밀번호");
-		joinPassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinPassword_LB.setBounds(22, 194, 57, 15);
+		joinPassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinPassword_LB.setBounds(31, 194, 57, 15);
 		add(joinPassword_LB);
 		
 		JLabel joinPhone_LB = new JLabel("핸드폰");
-		joinPhone_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinPhone_LB.setBounds(22, 261, 57, 15);
+		joinPhone_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinPhone_LB.setBounds(31, 261, 57, 15);
 		add(joinPhone_LB);
 		
 		JLabel joinBirth_LB = new JLabel("생일");
-		joinBirth_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinBirth_LB.setBounds(22, 298, 57, 15);
+		joinBirth_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinBirth_LB.setBounds(31, 298, 57, 15);
 		add(joinBirth_LB);
 		
 		JLabel joinEmail_LB = new JLabel("이메일");
-		joinEmail_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinEmail_LB.setBounds(22, 331, 57, 15);
+		joinEmail_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinEmail_LB.setBounds(31, 331, 57, 15);
 		add(joinEmail_LB);
 		
 		JLabel joinLoc_LB = new JLabel("지역");
-		joinLoc_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinLoc_LB.setBounds(22, 396, 57, 15);
+		joinLoc_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinLoc_LB.setBounds(31, 396, 57, 15);
 		add(joinLoc_LB);
 		
 		JCheckBox joinPagree_CB = new JCheckBox("핸드폰 정보제공 동의");
@@ -159,8 +159,8 @@ public class JoinPanel extends JPanel {
 		add(joinNickname_TF);
 		
 		JLabel joinNickname_LB = new JLabel("닉네임");
-		joinNickname_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinNickname_LB.setBounds(22, 363, 57, 15);
+		joinNickname_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinNickname_LB.setBounds(31, 363, 57, 15);
 		add(joinNickname_LB);
 		
 		JButton IDduplicate_Btn = new JButton("아이디 중복확인");
@@ -188,8 +188,8 @@ public class JoinPanel extends JPanel {
 		add(IDduplicate_Btn);
 		
 		JLabel joinCpassword_LB = new JLabel("비밀번호확인");
-		joinCpassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
-		joinCpassword_LB.setBounds(22, 225, 97, 15);
+		joinCpassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
+		joinCpassword_LB.setBounds(31, 225, 97, 15);
 		add(joinCpassword_LB);
 		
 		joinPassword_TF = new JPasswordField();
@@ -206,8 +206,8 @@ public class JoinPanel extends JPanel {
 		
 		JLabel joinTitle_LB = new JLabel("회원가입");
 		joinTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
-		joinTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 25));
-		joinTitle_LB.setBounds(109, 8, 140, 46);
+		joinTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 20));
+		joinTitle_LB.setBounds(105, 95, 140, 46);
 		add(joinTitle_LB);
 		
 		JButton joinCancelBtn = new JButton("");

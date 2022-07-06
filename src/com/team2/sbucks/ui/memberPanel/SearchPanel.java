@@ -44,7 +44,7 @@ public class SearchPanel extends JPanel {
 			}
 		});
 		sbucksLogo.setIcon(new ImageIcon(SearchPanel.class.getResource("/images/스타벅스로고큰ver.png")));
-		sbucksLogo.setBounds(73, 5, 215, 201);
+		sbucksLogo.setBounds(73, -23, 215, 167);
 		sbucksLogo.setBorderPainted(false);
 		sbucksLogo.setContentAreaFilled(false);
 		sbucksLogo.setFocusPainted(false);
@@ -53,8 +53,8 @@ public class SearchPanel extends JPanel {
 		
 		JLabel SearchTitle_LB = new JLabel("아이디/비밀번호 찾기");
 		SearchTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
-		SearchTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 25));
-		SearchTitle_LB.setBounds(56, 7, 257, 46);
+		SearchTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 20));
+		SearchTitle_LB.setBounds(46, 124, 257, 46);
 		add(SearchTitle_LB);
 		
 		JLabel searchID_LB = new JLabel("아이디찾기");

@@ -40,7 +40,7 @@ public class LoginPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public LoginPanel() {
-		setBackground(new Color(0, 128, 0));
+		setBackground(new Color(0, 111, 63));
 		setLayout(null);
 
 		JButton sbucksLogo = new JButton("");
@@ -50,38 +50,40 @@ public class LoginPanel extends JPanel {
 		sbucksLogo.setFocusPainted(false);
 		sbucksLogo.setBorder(null);
 		sbucksLogo.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/스타벅스로고큰ver.png")));
-		sbucksLogo.setBounds(62, 56, 242, 94);
+		sbucksLogo.setBounds(59, 23, 251, 105);
 		add(sbucksLogo);
 
 		JLabel loginTitle_LB = new JLabel("로그인");
 		loginTitle_LB.setForeground(new Color(255, 255, 255));
 		loginTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
-		loginTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 25));
-		loginTitle_LB.setBounds(114, 7, 140, 46);
+		loginTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 20));
+		loginTitle_LB.setBounds(108, 123, 140, 46);
 		add(loginTitle_LB);
 
 		JLabel idLB = new JLabel("아이디");
 		idLB.setForeground(new Color(255, 255, 255));
 		idLB.setHorizontalAlignment(SwingConstants.LEFT);
 		idLB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 17));
-		idLB.setBounds(57, 248, 61, 16);
+		idLB.setBounds(48, 248, 61, 16);
 		add(idLB);
 
 		JLabel passwordLB = new JLabel("패스워드");
 		passwordLB.setForeground(new Color(255, 255, 255));
 		passwordLB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 17));
 		passwordLB.setHorizontalAlignment(SwingConstants.LEFT);
-		passwordLB.setBounds(57, 341, 98, 16);
+		passwordLB.setBounds(48, 341, 98, 16);
 		add(passwordLB);
 
 		id_TF = new JTextField();
-		id_TF.setBounds(151, 238, 150, 36);
+		id_TF.setBackground(new Color(245, 245, 245));
+		id_TF.setBounds(135, 239, 150, 36);
 		add(id_TF);
 		id_TF.setColumns(10);
 
 		password_TF = new JTextField();
+		password_TF.setBackground(new Color(245, 245, 245));
 		password_TF.setColumns(10);
-		password_TF.setBounds(150, 333, 150, 36);
+		password_TF.setBounds(134, 334, 150, 36);
 		add(password_TF);
 
 		JButton loginBtn = new JButton("");
@@ -122,15 +124,15 @@ public class LoginPanel extends JPanel {
 				}
 			}
 		});
-		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인버튼_2-1.png")));
-		loginBtn.setBounds(106, 436, 150, 29);
+		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인흰ver.png")));
+		loginBtn.setBounds(103, 438, 150, 29);
 		add(loginBtn);
 
 		JLabel loginExplain_LB = new JLabel("회원 서비스 이용을 위해 로그인 해주세요.");
-		loginExplain_LB.setForeground(new Color(255, 255, 255));
+		loginExplain_LB.setForeground(new Color(220, 220, 220));
 		loginExplain_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		loginExplain_LB.setFont(new Font("KoPubWorld돋움체 Light", Font.PLAIN, 13));
-		loginExplain_LB.setBounds(50, 186, 261, 16);
+		loginExplain_LB.setBounds(48, 175, 261, 16);
 		add(loginExplain_LB);
 
 		idFalse_LB = new JLabel("");
@@ -155,7 +157,7 @@ public class LoginPanel extends JPanel {
 		});
 		searchIDPassword_LB.setForeground(new Color(192, 192, 192));
 		searchIDPassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
-		searchIDPassword_LB.setBounds(191, 384, 123, 16);
+		searchIDPassword_LB.setBounds(175, 384, 123, 16);
 		add(searchIDPassword_LB);
 
 		/***************************

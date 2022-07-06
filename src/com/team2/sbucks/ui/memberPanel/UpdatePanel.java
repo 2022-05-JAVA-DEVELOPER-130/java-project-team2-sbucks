@@ -62,9 +62,9 @@ public class UpdatePanel extends JPanel {
 		setLayout(null);
 		
 		JLabel updateTitle_LB = new JLabel("회원정보");
-		updateTitle_LB.setBounds(87, 11, 188, 40);
+		updateTitle_LB.setBounds(81, 100, 188, 40);
 		updateTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
-		updateTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 25));
+		updateTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 20));
 		add(updateTitle_LB);
 		
 		JButton sbucksLogo = new JButton("");
@@ -73,7 +73,7 @@ public class UpdatePanel extends JPanel {
 		sbucksLogo.setContentAreaFilled(false);
 		sbucksLogo.setBorderPainted(false);
 		sbucksLogo.setBorder(null);
-		sbucksLogo.setBounds(61, 46, 242, 94);
+		sbucksLogo.setBounds(57, 5, 242, 94);
 		add(sbucksLogo);
 		
 		JLabel updateID_LB = new JLabel("아이디");
