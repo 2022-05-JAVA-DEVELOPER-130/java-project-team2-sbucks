@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JTextField;
 
+import com.team2.sbucks.dao.product.ProductDetailDao;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.ui.MainFrameJiwon;
@@ -43,6 +44,8 @@ public class ProductDetailPanel extends JPanel {
 					productPriceTF.setText(mainFrame.selectedProduct.getProduct_price()+"");
 					productAllergyTF.setText(mainFrame.selectedProduct.getProduct_allergy());
 					
+					//productKalTF.setText(mainFrame.selectedProductDetail.getNa()+"");
+					
 					
 					
 					JLabel lblNewLabel_4 = new JLabel("");
@@ -53,7 +56,15 @@ public class ProductDetailPanel extends JPanel {
 					
 					
 				}
+				if(mainFrame.selectedProductDetail!=null) {
+					productKalTF.setText(productKalTF+"");
+					productCaffineTF.setText(mainFrame.selectedProductDetail.getCaffeine()+"");
+					productNaTF.setText(mainFrame.selectedProductDetail.getNa()+"");
+				}
 			}
+			
+			
+			
 		});
 		setLayout(null);
 		
@@ -147,7 +158,6 @@ public class ProductDetailPanel extends JPanel {
 
 	public void setFrame(MainFrameJiwon mainFrameJiwon) {
 		this.mainFrame=mainFrameJiwon;
-		
 	}
 
 	

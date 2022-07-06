@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import com.team2.sbucks.ui.productPanel.ProductAllPanel;
+import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 
 public class MainFrameHeeCheol extends JFrame {
 
@@ -41,6 +42,9 @@ public class MainFrameHeeCheol extends JFrame {
 		
 		ProductAllPanel productAllPanel = new ProductAllPanel();
 		contentPane.add(productAllPanel, BorderLayout.CENTER);
+		
+		ProductDetailPanel productDetailPanel = new ProductDetailPanel();
+		contentPane.add(productDetailPanel, BorderLayout.NORTH);
 
 	}
 
