@@ -30,11 +30,15 @@ public class LoginPanel extends JPanel {
 	private JLabel idFalse_LB;
 	private JLabel passwordFalse_LB;
 	private MainFrame mainFrame;
+	
+	/*****************로그인한 회원**************/
+	private Member loginMember = null;
 
 	/**
 	 * Create the panel.
 	 */
 	public LoginPanel() {
+		setBackground(new Color(0, 128, 0));
 		setLayout(null);
 
 		JButton sbucksLogo = new JButton("");
@@ -48,18 +52,21 @@ public class LoginPanel extends JPanel {
 		add(sbucksLogo);
 
 		JLabel loginTitle_LB = new JLabel("로그인");
+		loginTitle_LB.setForeground(new Color(255, 255, 255));
 		loginTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		loginTitle_LB.setFont(new Font("KoPubWorld돋움체 Bold", Font.BOLD, 25));
 		loginTitle_LB.setBounds(110, 22, 140, 46);
 		add(loginTitle_LB);
 
 		JLabel idLB = new JLabel("아이디");
+		idLB.setForeground(new Color(255, 255, 255));
 		idLB.setHorizontalAlignment(SwingConstants.LEFT);
 		idLB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 17));
 		idLB.setBounds(57, 247, 61, 16);
 		add(idLB);
 
 		JLabel passwordLB = new JLabel("패스워드");
+		passwordLB.setForeground(new Color(255, 255, 255));
 		passwordLB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 17));
 		passwordLB.setHorizontalAlignment(SwingConstants.LEFT);
 		passwordLB.setBounds(57, 340, 98, 16);
@@ -110,11 +117,12 @@ public class LoginPanel extends JPanel {
 				}
 			}
 		});
-		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인버튼.png")));
+		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인버튼_2-1.png")));
 		loginBtn.setBounds(106, 435, 150, 29);
 		add(loginBtn);
 
 		JLabel loginExplain_LB = new JLabel("회원 서비스 이용을 위해 로그인 해주세요.");
+		loginExplain_LB.setForeground(new Color(255, 255, 255));
 		loginExplain_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		loginExplain_LB.setFont(new Font("KoPubWorld돋움체 Light", Font.PLAIN, 13));
 		loginExplain_LB.setBounds(50, 185, 261, 16);
@@ -142,6 +150,12 @@ public class LoginPanel extends JPanel {
 	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 	}	
+	
+	public void loginProccess(String id) throws Exception{
+		Member loginSuccessMember = memberService.findById(id);
+		loginMember = loginSuccessMember;
 		
+		
+	}
 	
 }// 생성자 끝

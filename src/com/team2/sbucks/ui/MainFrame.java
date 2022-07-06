@@ -22,6 +22,7 @@ import com.team2.sbucks.ui.memberPanel.UpdatePanel;
 import com.team2.sbucks.ui.LJH.CartItemPanel;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import com.team2.sbucks.ui.memberPanel.SearchPanel;
 
 public class MainFrame extends JFrame {
 
@@ -137,6 +138,9 @@ public class MainFrame extends JFrame {
 		orderPanel.setFrame(this);
 		
 		joinPanel.setFrame(this);
+		
+		SearchPanel searchPanel = new SearchPanel();
+		MemberTabbedPane.addTab("아이디/비밀번호 찾기", null, searchPanel, null);
 		cartItemPanel.setFrame(this);
 		
 		

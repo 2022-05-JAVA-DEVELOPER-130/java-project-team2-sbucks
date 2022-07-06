@@ -55,6 +55,7 @@ public class JoinPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public JoinPanel() {
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		JButton sbucksLogo = new JButton("");
@@ -114,31 +115,43 @@ public class JoinPanel extends JPanel {
 		add(joinEagree_CB);
 		
 		joinID_TF = new JTextField();
+		joinID_TF.setBackground(new Color(245, 245, 245));
+		joinID_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinID_TF.setBounds(103, 145, 143, 21);
 		add(joinID_TF);
 		joinID_TF.setColumns(10);
 		
 		joinPhone_TF = new JTextField();
+		joinPhone_TF.setBackground(new Color(245, 245, 245));
+		joinPhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinPhone_TF.setColumns(10);
 		joinPhone_TF.setBounds(172, 250, 74, 21);
 		add(joinPhone_TF);
 		
 		joinBirth_TF = new JTextField();
+		joinBirth_TF.setBackground(new Color(245, 245, 245));
+		joinBirth_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinBirth_TF.setColumns(10);
 		joinBirth_TF.setBounds(103, 287, 143, 21);
 		add(joinBirth_TF);
 		
 		joinEmail_TF = new JTextField();
+		joinEmail_TF.setBackground(new Color(245, 245, 245));
+		joinEmail_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinEmail_TF.setColumns(10);
 		joinEmail_TF.setBounds(103, 320, 143, 21);
 		add(joinEmail_TF);
 		
 		joinLoc_TF = new JTextField();
+		joinLoc_TF.setBackground(new Color(245, 245, 245));
+		joinLoc_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinLoc_TF.setColumns(10);
 		joinLoc_TF.setBounds(104, 385, 142, 21);
 		add(joinLoc_TF);
 		
 		joinNickname_TF = new JTextField();
+		joinNickname_TF.setBackground(new Color(245, 245, 245));
+		joinNickname_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinNickname_TF.setColumns(10);
 		joinNickname_TF.setBounds(104, 350, 142, 21);
 		add(joinNickname_TF);
@@ -178,10 +191,14 @@ public class JoinPanel extends JPanel {
 		add(joinCpassword_LB);
 		
 		joinPassword_TF = new JPasswordField();
+		joinPassword_TF.setBackground(new Color(245, 245, 245));
+		joinPassword_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinPassword_TF.setBounds(103, 183, 143, 21);
 		add(joinPassword_TF);
 		
 		joinCpassword_TF = new JPasswordField();
+		joinCpassword_TF.setBackground(new Color(245, 245, 245));
+		joinCpassword_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		joinCpassword_TF.setBounds(103, 214, 143, 21);
 		add(joinCpassword_TF);
 		
@@ -244,10 +261,11 @@ public class JoinPanel extends JPanel {
 				/********핸드폰 중복확인************/
 				String ber = joinPhone_TF.getText();
 				String phoneNum = (String)phoneCB.getSelectedItem();
-				String phoneNumber = phoneNum+ber;
+				String phoneNumber = phoneNum+"-"+ber;
+				String exphoneNum = phoneNumber;
 				
 				try {
-					boolean check = memberService.duplicatePhone(phoneNumber);
+					boolean check = memberService.duplicatePhone(exphoneNum);
 				if(check==true) {
 					JOptionPane.showMessageDialog(null, "본인인증이 완료되었습니다.");
 					joinBirth_TF.requestFocus();

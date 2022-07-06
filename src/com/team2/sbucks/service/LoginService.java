@@ -1,16 +1,20 @@
 package com.team2.sbucks.service;
 
 import com.team2.sbucks.dao.member.LoginDao;
+
 import com.team2.sbucks.dao.member.MemberDao;
 import com.team2.sbucks.dto.Login;
+import com.team2.sbucks.dto.Member;
 
 public class LoginService {
 	private LoginDao loginDao;
 	private MemberDao memberDao;
+	private MemberService memberService;
 	
 	public LoginService() {
 		loginDao = new LoginDao();
 		memberDao = new MemberDao();
+		
 	}
 	
 
@@ -50,6 +54,15 @@ public class LoginService {
 	 */
 	public int updateLogin(Login updateLogin) throws Exception {
 		return loginDao.updateLogin(updateLogin);
+	}
+	
+	/*
+	 * 이메일, 아이디로 비밀번호 찾기
+	 */
+	
+	public Login searchPassword(String id, String email) throws Exception{
+		
+		return loginDao.findPassword(id, email);
 	}
 	
 }

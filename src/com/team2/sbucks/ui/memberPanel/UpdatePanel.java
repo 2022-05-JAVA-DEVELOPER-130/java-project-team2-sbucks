@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class UpdatePanel extends JPanel {
 	private JTextField updateID_TF;
@@ -57,10 +58,11 @@ public class UpdatePanel extends JPanel {
 	 * Create the panel.
 	 */
 	public UpdatePanel() {
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		JLabel updateTitle_LB = new JLabel("회원정보 수정");
-		updateTitle_LB.setBounds(115, 12, 139, 40);
+		updateTitle_LB.setBounds(87, 11, 188, 40);
 		updateTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		updateTitle_LB.setFont(new Font("KoPubWorld돋움체 Bold", Font.BOLD, 25));
 		add(updateTitle_LB);
@@ -80,7 +82,8 @@ public class UpdatePanel extends JPanel {
 		add(updateID_LB);
 		
 		updateID_TF = new JTextField();
-		updateID_TF.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 12));
+		updateID_TF.setBackground(new Color(245, 245, 245));
+		updateID_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateID_TF.setColumns(10);
 		updateID_TF.setBounds(101, 155, 143, 21);
 		add(updateID_TF);
@@ -91,6 +94,8 @@ public class UpdatePanel extends JPanel {
 		add(originalPassword_LB);
 		
 		originalPassword_TF = new JPasswordField();
+		originalPassword_TF.setBackground(new Color(245, 245, 245));
+		originalPassword_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		originalPassword_TF.setBounds(101, 196, 143, 21);
 		add(originalPassword_TF);
 		
@@ -100,6 +105,8 @@ public class UpdatePanel extends JPanel {
 		add(updatePassword_LB);
 		
 		updatePassword_TF = new JPasswordField();
+		updatePassword_TF.setBackground(new Color(245, 245, 245));
+		updatePassword_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updatePassword_TF.setEnabled(false);
 		updatePassword_TF.setBounds(101, 235, 143, 21);
 		add(updatePassword_TF);
@@ -113,7 +120,8 @@ public class UpdatePanel extends JPanel {
 		
 		
 		updatePhone_TF = new JTextField();
-		updatePhone_TF.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 12));
+		updatePhone_TF.setBackground(new Color(245, 245, 245));
+		updatePhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updatePhone_TF.setEditable(false);
 		updatePhone_TF.setColumns(10);
 		updatePhone_TF.setBounds(170, 280, 74, 21);
@@ -125,7 +133,8 @@ public class UpdatePanel extends JPanel {
 		add(updateBirth_LB);
 		
 		updateBirth_TF = new JTextField();
-		updateBirth_TF.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 12));
+		updateBirth_TF.setBackground(new Color(245, 245, 245));
+		updateBirth_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateBirth_TF.setEditable(false);
 		updateBirth_TF.setColumns(10);
 		updateBirth_TF.setBounds(101, 317, 143, 21);
@@ -137,7 +146,8 @@ public class UpdatePanel extends JPanel {
 		add(updateEmail_LB);
 		
 		updateEmail_TF = new JTextField();
-		updateEmail_TF.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 12));
+		updateEmail_TF.setBackground(new Color(245, 245, 245));
+		updateEmail_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateEmail_TF.setEditable(false);
 		updateEmail_TF.setColumns(10);
 		updateEmail_TF.setBounds(101, 350, 143, 21);
@@ -149,7 +159,8 @@ public class UpdatePanel extends JPanel {
 		add(updateNickname_LB);
 		
 		updateNickname_TF = new JTextField();
-		updateNickname_TF.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 12));
+		updateNickname_TF.setBackground(new Color(245, 245, 245));
+		updateNickname_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateNickname_TF.setEnabled(false);
 		updateNickname_TF.setColumns(10);
 		updateNickname_TF.setBounds(102, 380, 142, 21);
@@ -161,7 +172,8 @@ public class UpdatePanel extends JPanel {
 		add(updateLoc_LB);
 		
 		updateLoc_TF = new JTextField();
-		updateLoc_TF.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 12));
+		updateLoc_TF.setBackground(new Color(245, 245, 245));
+		updateLoc_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateLoc_TF.setEnabled(false);
 		updateLoc_TF.setColumns(10);
 		updateLoc_TF.setBounds(102, 415, 142, 21);
@@ -228,7 +240,7 @@ public class UpdatePanel extends JPanel {
 				}
 			}
 		});
-		update_Btn.setBounds(203, 466, 97, 23);
+		update_Btn.setBounds(202, 473, 97, 23);
 		add(update_Btn);
 		
 		JButton out_Btn = new JButton("탈퇴");
@@ -263,7 +275,7 @@ public class UpdatePanel extends JPanel {
 				
 			}
 		});
-		out_Btn.setBounds(65, 466, 97, 23);
+		out_Btn.setBounds(64, 473, 97, 23);
 		add(out_Btn);
 		
 		JButton updatePassword_Btn = new JButton("변경");
