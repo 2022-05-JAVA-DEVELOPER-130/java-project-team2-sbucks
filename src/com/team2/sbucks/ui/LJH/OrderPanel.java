@@ -32,6 +32,7 @@ import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.MouseMotionAdapter;
+import java.text.DecimalFormat;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.ItemListener;
@@ -61,6 +62,8 @@ public class OrderPanel extends JPanel {
 	private JLabel item_PriceLB;
 	private JLabel priceLB;
 
+	
+	
 	
 	/**
 	 * Create the panel.
@@ -110,20 +113,32 @@ public class OrderPanel extends JPanel {
 		coffeeCB.setBounds(222, 172, 32, 32);
 		coffeeCB.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				
-				int coffeCount=(Integer)countCB.getSelectedItem();
-				int syrupCount=(Integer)sypUpCB.getSelectedItem();
-				int shopCount=(Integer)coffeeCB.getSelectedItem();
-				System.out.println(coffeCount);
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					displayPrice();
+				}
 			}
 		});
 		coffeeCB.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		sypUpCB = new JComboBox();
+		sypUpCB.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					displayPrice();
+				}
+			}
+		});
 		sypUpCB.setBounds(222, 238, 32, 28);
 		sypUpCB.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		countCB = new JComboBox();
+		countCB.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					displayPrice();
+				}
+			}
+		});
 		countCB.setBounds(222, 298, 32, 28);
 		countCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
@@ -259,7 +274,21 @@ public class OrderPanel extends JPanel {
 		add(item_PriceLB);
 
 	}
-	
+	public void displayPrice() {
+		int coffeCount=Integer.parseInt((String)coffeeCB.getSelectedItem());
+		int syrupCount=Integer.parseInt((String)sypUpCB.getSelectedItem());
+		int shotCount=Integer.parseInt((String)countCB.getSelectedItem());
+		/*
+		System.out.println(coffeCount);
+		System.out.println(syrupCount);
+		System.out.println(shotCount);
+		*/					
+		int totPrice=(product.getProduct_price()*shotCount)+(product.getProduct_syrupprice()*syrupCount)+(product.getProduct_espressoprice()*coffeCount);
+		DecimalFormat df=new DecimalFormat("#,###,###");;
+		String  strPrice=df.format(totPrice);
+		priceLB.setText(strPrice);
+		
+	}
 //생성자끝
 	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame=mainFrame;
