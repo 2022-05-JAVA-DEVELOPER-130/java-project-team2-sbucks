@@ -145,7 +145,7 @@ public class ProductAllPanel extends JPanel {
 						
 						mainFrame.selectedProduct=selectedProduct;
 						mainFrame.selectedProductDetail=selectedProductDetail;
-						/*********************************************************/
+						
 						mainFrame.tabbedPane.setSelectedIndex(0);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
