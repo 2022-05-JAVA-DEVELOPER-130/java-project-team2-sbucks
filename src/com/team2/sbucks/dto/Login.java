@@ -8,7 +8,6 @@ public class Login {
 	private Member member;
 	
 	
-	
 	public Member getMember() {
 		return member;
 	}
@@ -34,7 +33,10 @@ public class Login {
 		this.login = login;
 	}
 
-
+	public Login(int login) {
+		super();
+		this.login = login;
+	}
 
 
 	public String getMember_id() {

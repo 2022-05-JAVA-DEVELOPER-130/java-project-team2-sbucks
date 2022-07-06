@@ -3,7 +3,9 @@ package com.team2.sbucks.ui.memberPanel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.team2.sbucks.dto.Login;
 import com.team2.sbucks.dto.Member;
+import com.team2.sbucks.service.LoginService;
 import com.team2.sbucks.service.MemberService;
 
 import java.awt.Font;
@@ -18,7 +20,10 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 public class LoginPanel extends JPanel {
+	/**********멤버서비스 객체선언*************/
 	private MemberService memberService;
+	private LoginService loginService;
+	/*******************************************/
 	private JTextField password_TF;
 	private JTextField id_TF;
 	private JLabel idFalse_LB;
@@ -79,19 +84,21 @@ public class LoginPanel extends JPanel {
 				try {
 					String id = id_TF.getText();
 					String password = password_TF.getText();
-					int result = memberService.loginSuccess(id, password);
-					if (result == 0) {
+					int loginResult = memberService.loginSuccess(id, password);
+					if (loginResult == 1) {
 						JOptionPane.showMessageDialog(null, "로그인에 성공하셨습니다.");
+						Login update = new Login(id, password, 1);
+						loginService.updateLogin(update);
 						id_TF.setText("");
 						password_TF.setText("");
 						idFalse_LB.setVisible(false);
 						passwordFalse_LB.setVisible(false);
 						
-					} else if (result == 1) {
+					} else if (loginResult == 0) {
 						idFalse_LB.setText("아이디가 틀렸습니다.");
 						id_TF.requestFocus();
 						id_TF.setText("");
-					} else if (result == 2) {
+					} else if (loginResult == 2) {
 						passwordFalse_LB.setText("비밀번호가 틀렸습니다.");
 						password_TF.requestFocus();
 						password_TF.setText("");
@@ -127,6 +134,7 @@ public class LoginPanel extends JPanel {
 		 * 객체생성
 		 ***************************/
 		memberService = new MemberService();
+		loginService = new LoginService();
 
 	}
 }// 생성자 끝

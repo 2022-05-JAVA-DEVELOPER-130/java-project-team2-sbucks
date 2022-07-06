@@ -18,20 +18,23 @@ public class LoginService {
 	/*
 	 * 비밀번호 확인 후 맞으면 비밀번호 변경
 	 */
-	public boolean CheckUpdatePassword (String newPassword, String oldPassword) throws Exception{
-		boolean isSuccess = false;
+	public boolean CheckUpdatePassword (String newPassword, Login updateMember) throws Exception{
+		boolean check = false;
 		
-		if(loginDao.checkPassword(oldPassword)==true) {
-			
-			loginDao.updatePassword(newPassword, oldPassword);
-			isSuccess = true;
-			
+		Login findMember = loginDao.selectByID(updateMember.getMember_id());
+		if(findMember == null) {
+			loginDao.updatePassword(newPassword, updateMember.getMember_password());
+			check = true;
 		}else {
-			isSuccess = false;
-			System.out.println("비밀번호가 틀렸습니다. 다시 입력해주세요");
+			check = false;
 		}
 		
-		return isSuccess;
+		
+	    return check;
+	}
+	
+	public int updatePassword(String newPassword, String oldPassword) throws Exception{
+		return loginDao.updatePassword(newPassword, oldPassword);
 	}
 	
 	/*
@@ -40,6 +43,13 @@ public class LoginService {
 	public int insertLogin(Login newLogin) throws Exception{
 		
 		return loginDao.insertLogin(newLogin);
+	}
+	
+	/*
+	 * 회원가입 성공시 로그인 상태 업데이트
+	 */
+	public int updateLogin(Login updateLogin) throws Exception {
+		return loginDao.updateLogin(updateLogin);
 	}
 	
 }

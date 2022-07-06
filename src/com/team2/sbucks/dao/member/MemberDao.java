@@ -67,10 +67,10 @@ public class MemberDao {
 	}
 	
 	
-	public int updateByNo(Member updateByNoMember) throws Exception {
+	public int updateByID(Member updateByNoMember) throws Exception {
 
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_NO_UPDATE);
+		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_ID_UPDATE);
 
 		pstmt.setString(1, updateByNoMember.getMember_phone());
 		pstmt.setString(2, updateByNoMember.getMember_email());
@@ -78,7 +78,7 @@ public class MemberDao {
 		pstmt.setString(4, updateByNoMember.getMember_loc());
 		pstmt.setInt(5, updateByNoMember.getMember_pagree());
 		pstmt.setInt(6, updateByNoMember.getMember_eagree());
-		pstmt.setInt(7, updateByNoMember.getMember_no());
+		pstmt.setString(7, updateByNoMember.getMember_id());
 
 		int updateByNoCount = pstmt.executeUpdate();
 

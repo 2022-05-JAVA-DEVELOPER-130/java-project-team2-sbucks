@@ -24,9 +24,9 @@ public class MemberSQL {
 	public static final String MEMBER_CHECK_ID
 				="select count(*) from membership where member_id=?";
 	
-	public static final String MEMBER_NO_UPDATE
+	public static final String MEMBER_ID_UPDATE
 					= "update membership set member_phone=?,member_email = ?, member_nickname=?, "
-							+ "member_loc = ?, member_pagree=?, member_eagree=? where member_no=? ";
+							+ "member_loc = ?, member_pagree=?, member_eagree=? where member_id=? ";
 	
 	public static final String MEMBER_DELETE
 				="delete from membership where member_no =?";

@@ -209,14 +209,15 @@ public class JoinPanel extends JPanel {
 		Passwordduplicate_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**********비밀번호 일치 확인***********/
-				String password = joinPassword_TF.getText();
-				String Cpassword = joinCpassword_TF.getText();
 				try {
-					if(password.equals(Cpassword)) {
+					String password = joinPassword_TF.getText();
+					String Cpassword = joinCpassword_TF.getText();
+					boolean isSuccess = memberService.checkPassword(password, Cpassword);
+					if(isSuccess ==true) {
 						JOptionPane.showMessageDialog(null, "비밀번호가 일치합니다.");
 						joinPhone_TF.requestFocus();
-					}else if(password.equals(Cpassword)==false) {
-						JOptionPane.showInternalMessageDialog(null, "비밀번호가 일치하지 않습니다.");
+					}else {
+						JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.");
 						joinCpassword_TF.requestFocus();
 						
 					}

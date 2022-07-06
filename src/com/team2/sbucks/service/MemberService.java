@@ -84,7 +84,7 @@ public class MemberService {
 	/*
 	 * 비밀번호 확인
 	 */
-
+	/*
 	public boolean checkPassword(String id, String password) throws Exception {
 		boolean check = false;
 		if (loginDao.selectByID(id).getMember_password().equals(password)) {
@@ -98,6 +98,18 @@ public class MemberService {
 
 		return check;
 	}
+	*/
+	
+	public boolean checkPassword(String password, String checkPassword) throws Exception{
+		boolean check = false;
+		if(password.equals(checkPassword)) {
+			check = true;
+		} else {
+			check = false;
+		}
+		return false;
+	}
+	
 
 	/*
 	 * 아이디확인
@@ -139,6 +151,35 @@ public class MemberService {
 		return memberDao.updateMember(updateMember);
 
 	}
+	
+	/*
+	public boolean addMember(Member newMember) throws Exception {
+		boolean isSuccess = false;
+
+		Member findMember = memberDao.findById(newMember.getMember_id());
+		if (findMember == null) {
+			memberDao.insertMember(newMember);
+			isSuccess = true;
+		} else {
+			isSuccess = false;
+		}
+		return isSuccess;
+	}
+	*/
+	
+	public boolean updateMemberByID(Member updateMember) throws Exception {
+		
+		boolean check = false;
+		Member findMember = memberDao.findById(updateMember.getMember_id());
+		if(findMember!=null) {
+			memberDao.updateMember(updateMember);
+			check=true;
+		}else {
+			check = false;
+		}
+		
+		return check;
+	}
 
 	/*
 	 * 회원전체검색
@@ -152,9 +193,9 @@ public class MemberService {
 	 * 회원번호로수정
 	 */
 
-	public int updateByNo(Member updateByNoMember) throws Exception {
+	public int updateByID(Member updateByNoMember) throws Exception {
 
-		return memberDao.updateByNo(updateByNoMember);
+		return memberDao.updateByID(updateByNoMember);
 	}
 
 	/*
@@ -216,15 +257,15 @@ public class MemberService {
 		int loginResult = -999;
 		if (memberDao.checkID(member_id) == true) {
 			if (loginDao.selectByID(member_id).getMember_password().equals(member_password)) {
-				System.out.println("로그인성공!");
-				loginResult = 0;
+				//System.out.println("로그인성공!");
+				loginResult = 1;
 			} else {
-				System.out.println("비밀번호가 틀렸습니다");
+				//System.out.println("비밀번호가 틀렸습니다");
 				loginResult = 2;
 			}
 		} else {
-			System.out.println("아이디가 틀렸습니다.");
-			loginResult = 1;
+			//System.out.println("아이디가 틀렸습니다.");
+			loginResult = 0;
 		}
 
 		return loginResult;
