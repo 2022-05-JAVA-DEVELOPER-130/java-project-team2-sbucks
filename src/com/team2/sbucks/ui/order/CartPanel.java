@@ -21,10 +21,15 @@ import java.awt.GridBagConstraints;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.team2.sbucks.ui.MainFrame;
+import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 
 import java.awt.Dimension;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CartPanel extends JPanel {
 	private JTextField textField;
@@ -35,6 +40,16 @@ public class CartPanel extends JPanel {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private MainFrame mainFrame;
+	private JPanel panel_3;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JButton productchoicedeleteBtn;
+	private JButton productalldeleteBtn;
+	private JLabel lblNewLabel_2;
+	private JButton orderBtn;
+	private JCheckBox pricechoiceCB;
+	private JComboBox espressonumCB_1_2;
 
 	/**
 	 * Create the panel.
@@ -47,64 +62,72 @@ public class CartPanel extends JPanel {
 		panel.setBackground(Color.WHITE);
 		add(panel, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel_3 = new JLabel("장바구니");
-		lblNewLabel_3.setForeground(Color.BLACK);
-		lblNewLabel_3.setFont(new Font("굴림", Font.PLAIN, 30));
+		lblNewLabel_2 = new JLabel("장바구니");
+		lblNewLabel_2.setForeground(Color.BLACK);
+		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.PLAIN, 30));
 		
-		JLabel lblNewLabel = new JLabel("음료/푸드");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 18));
+		lblNewLabel = new JLabel("음료/푸드");
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		
-		JButton btnNewButton = new JButton("");
+		btnNewButton = new JButton("");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+					
+			}
+		});
 		btnNewButton.setIcon(new ImageIcon(CartPanel.class.getResource("/images/새로고침.PNG")));
 		
-		JLabel lblNewLabel_1 = new JLabel("주문 메뉴");
-		lblNewLabel_1.setFont(new Font("궁서", Font.PLAIN, 15));
+		lblNewLabel_1 = new JLabel("주문 메뉴");
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		
-		JButton productchoicedeleteBtn = new JButton("선택삭제");
-		productchoicedeleteBtn.setFont(new Font("굴림", Font.PLAIN, 8));
+		productchoicedeleteBtn = new JButton("선택삭제");
+		productchoicedeleteBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 10));
 		productchoicedeleteBtn.setContentAreaFilled(false);
 		
-		JButton productalldeleteBtn = new JButton("전체삭제");
-		productalldeleteBtn.setFont(new Font("굴림", Font.PLAIN, 8));
+		productalldeleteBtn = new JButton("전체삭제");
+		productalldeleteBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 10));
 		productalldeleteBtn.setContentAreaFilled(false);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(7)
-							.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 386, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-							.addGap(97)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap()
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addGap(97)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-					.addComponent(productchoicedeleteBtn, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+					.addComponent(productchoicedeleteBtn)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(productalldeleteBtn, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addGap(35))
+					.addComponent(productalldeleteBtn, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
+					.addGap(33))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(7)
+					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 338, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(48, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(btnNewButton)
 							.addGap(13)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
 							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-								.addComponent(productchoicedeleteBtn, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-								.addComponent(productalldeleteBtn, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+								.addComponent(productalldeleteBtn, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+								.addComponent(productchoicedeleteBtn, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))))
 					.addGap(7))
 		);
 		panel.setLayout(gl_panel);
@@ -114,7 +137,7 @@ public class CartPanel extends JPanel {
 		add(panel_1, BorderLayout.SOUTH);
 		
 		JLabel lblNewLabel_4 = new JLabel("총");
-		lblNewLabel_4.setFont(new Font("굴림", Font.PLAIN, 18));
+		lblNewLabel_4.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		
 		textField = new JTextField();
 		textField.setOpaque(false);
@@ -122,19 +145,20 @@ public class CartPanel extends JPanel {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("개");
-		lblNewLabel_4_1.setFont(new Font("굴림", Font.PLAIN, 18));
+		lblNewLabel_4_1.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("굴림", Font.PLAIN, 22));
 		textField_1.setColumns(10);
 		textField_1.setBackground(Color.LIGHT_GRAY);
 		
-		JButton orderBtn = new JButton("");
+		orderBtn = new JButton("");
 		orderBtn.setIcon(new ImageIcon(CartPanel.class.getResource("/images/주문하기.PNG")));
 		orderBtn.setForeground(Color.WHITE);
 		orderBtn.setBackground(Color.GREEN);
 		
 		JLabel lblNewLabel_6 = new JLabel("결제금액");
+		lblNewLabel_6.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -188,10 +212,10 @@ public class CartPanel extends JPanel {
 		scrollPane.setViewportView(panel_2);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_3 = new JPanel();
+		panel_3 = new JPanel();
 		panel_2.add(panel_3, BorderLayout.NORTH);
 		
-		JCheckBox pricechoiceCB = new JCheckBox("");
+		pricechoiceCB = new JCheckBox("");
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("굴림", Font.PLAIN, 20));
@@ -202,18 +226,22 @@ public class CartPanel extends JPanel {
 		lblNewLabel_2_1.setIcon(new ImageIcon(CartPanel.class.getResource("/images/아이스아메.PNG")));
 		
 		JLabel lblNewLabel_5_2_1 = new JLabel("espresso");
+		lblNewLabel_5_2_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		
 		JLabel lblNewLabel_5_1_2_1 = new JLabel("syrup");
+		lblNewLabel_5_1_2_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		
 		JLabel lblNewLabel_5_1_1_1_1_1 = new JLabel("quantity");
+		lblNewLabel_5_1_1_1_1_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		
 		JLabel lblNewLabel_5_1_1_1_2 = new JLabel("price");
+		lblNewLabel_5_1_1_1_2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		
 		JComboBox espressonumCB_1 = new JComboBox();
 		
 		JComboBox espressonumCB_1_1 = new JComboBox();
 		
-		JComboBox espressonumCB_1_2 = new JComboBox();
+		espressonumCB_1_2 = new JComboBox();
 		
 		textField_3 = new JTextField();
 		textField_3.setEnabled(false);
@@ -234,56 +262,57 @@ public class CartPanel extends JPanel {
 		gl_panel_3.setHorizontalGroup(
 			gl_panel_3.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_3.createSequentialGroup()
-					.addContainerGap()
+					.addGap(23)
 					.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
-						.addComponent(pricechoiceCB)
 						.addGroup(gl_panel_3.createSequentialGroup()
-							.addGap(7)
+							.addComponent(pricechoiceCB)
+							.addContainerGap())
+						.addGroup(gl_panel_3.createSequentialGroup()
 							.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
+							.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_panel_3.createSequentialGroup()
-									.addGap(10)
+									.addComponent(lblNewLabel_5_1_1_1_2, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+									.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
+									.addGap(13))
+								.addGroup(gl_panel_3.createSequentialGroup()
 									.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_panel_3.createSequentialGroup()
-											.addComponent(lblNewLabel_5_1_1_1_2, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-											.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
-											.addGap(13))
+											.addComponent(lblNewLabel_5_1_2_1, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(espressonumCB_1_1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
 										.addGroup(gl_panel_3.createSequentialGroup()
-											.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_panel_3.createSequentialGroup()
-													.addComponent(lblNewLabel_5_1_2_1, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-													.addGap(18)
-													.addComponent(espressonumCB_1_1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.UNRELATED)
-													.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
-												.addGroup(gl_panel_3.createSequentialGroup()
-													.addComponent(lblNewLabel_5_2_1, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-													.addGap(18)
-													.addComponent(espressonumCB_1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.UNRELATED)
-													.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
-												.addGroup(gl_panel_3.createSequentialGroup()
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addComponent(lblNewLabel_5_1_1_1_1_1, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-													.addGap(18)
-													.addComponent(espressonumCB_1_2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.UNRELATED)
-													.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)))
-											.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)))))))
-					.addContainerGap(24, Short.MAX_VALUE))
+											.addComponent(lblNewLabel_5_2_1, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(espressonumCB_1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_panel_3.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(lblNewLabel_5_1_1_1_1_1, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(espressonumCB_1_2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)))
+									.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
+								.addGroup(gl_panel_3.createSequentialGroup()
+									.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+									.addGap(1)))
+							.addContainerGap(24, Short.MAX_VALUE))))
 		);
 		gl_panel_3.setVerticalGroup(
 			gl_panel_3.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel_3.createSequentialGroup()
 					.addComponent(pricechoiceCB)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_3.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGap(10)
 							.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblNewLabel_5_2_1)
 								.addComponent(espressonumCB_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -297,13 +326,16 @@ public class CartPanel extends JPanel {
 							.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
 								.addComponent(espressonumCB_1_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_5_1_1_1_1_1)))
-						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_5_1_1_1_2)
-						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
+								.addComponent(lblNewLabel_5_1_1_1_1_1))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblNewLabel_5_1_1_1_2)
+								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addContainerGap())
+						.addGroup(gl_panel_3.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())))
 		);
 		panel_3.setLayout(gl_panel_3);
 

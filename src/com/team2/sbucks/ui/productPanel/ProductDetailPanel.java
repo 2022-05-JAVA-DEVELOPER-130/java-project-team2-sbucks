@@ -15,6 +15,10 @@ import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.ui.MainFrame;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class ProductDetailPanel extends JPanel {
@@ -60,73 +64,73 @@ public class ProductDetailPanel extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("상품이름");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel.setBounds(43, 213, 57, 15);
+		lblNewLabel.setBounds(42, 196, 57, 15);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("상품상세");
 		lblNewLabel_1.setForeground(new Color(0, 100, 0));
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(42, 171, 115, 15);
+		lblNewLabel_1.setBounds(42, 156, 115, 15);
 		add(lblNewLabel_1);
 		
 		productNameTF = new JTextField();
-		productNameTF.setBounds(157, 212, 154, 21);
+		productNameTF.setBounds(157, 195, 154, 21);
 		add(productNameTF);
 		productNameTF.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("상품가격");
 		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_2.setBounds(43, 258, 57, 15);
+		lblNewLabel_2.setBounds(42, 226, 57, 15);
 		add(lblNewLabel_2);
 		
 		productPriceTF = new JTextField();
-		productPriceTF.setBounds(157, 257, 154, 21);
+		productPriceTF.setBounds(157, 226, 154, 21);
 		add(productPriceTF);
 		productPriceTF.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("알러지정보");
 		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(44, 301, 84, 15);
+		lblNewLabel_3.setBounds(42, 258, 84, 15);
 		add(lblNewLabel_3);
 		
 		productAllergyTF = new JTextField();
-		productAllergyTF.setBounds(157, 300, 154, 21);
+		productAllergyTF.setBounds(157, 257, 154, 21);
 		add(productAllergyTF);
 		productAllergyTF.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("영양정보");
 		lblNewLabel_6.setForeground(new Color(0, 100, 0));
 		lblNewLabel_6.setFont(new Font("맑은 고딕", Font.BOLD, 16));
-		lblNewLabel_6.setBounds(43, 337, 85, 30);
+		lblNewLabel_6.setBounds(42, 309, 85, 30);
 		add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("칼로리");
 		lblNewLabel_7.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_7.setBounds(43, 387, 57, 15);
+		lblNewLabel_7.setBounds(42, 349, 57, 15);
 		add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("카페인");
 		lblNewLabel_8.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_8.setBounds(43, 430, 57, 15);
+		lblNewLabel_8.setBounds(42, 382, 57, 15);
 		add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("나트륨");
 		lblNewLabel_9.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_9.setBounds(43, 468, 57, 15);
+		lblNewLabel_9.setBounds(42, 418, 57, 15);
 		add(lblNewLabel_9);
 		
 		productKalTF = new JTextField();
-		productKalTF.setBounds(157, 386, 154, 21);
+		productKalTF.setBounds(157, 348, 154, 21);
 		add(productKalTF);
 		productKalTF.setColumns(10);
 		
 		productCaffineTF = new JTextField();
-		productCaffineTF.setBounds(157, 429, 154, 21);
+		productCaffineTF.setBounds(157, 381, 154, 21);
 		add(productCaffineTF);
 		productCaffineTF.setColumns(10);
 		
 		productNaTF = new JTextField();
-		productNaTF.setBounds(157, 467, 154, 21);
+		productNaTF.setBounds(157, 417, 154, 21);
 		add(productNaTF);
 		productNaTF.setColumns(10);
 		
@@ -139,12 +143,19 @@ public class ProductDetailPanel extends JPanel {
 		add(lblNewLabel_4);
 		
 		JButton orderBtn = new JButton("주문하기");
-		orderBtn.setBounds(71, 514, 95, 23);
+		orderBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		orderBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				mainFrame.tabbedPane.setSelectedIndex(2);
+				mainFrame.OrderTabbedPane.setSelectedIndex(2);
+			}
+		});
+		orderBtn.setBounds(87, 463, 197, 23);
 		add(orderBtn);
-		
-		JButton cartJoinBtn = new JButton("담기");
-		cartJoinBtn.setBounds(204, 514, 95, 23);
-		add(cartJoinBtn);
 		
 		
 		
