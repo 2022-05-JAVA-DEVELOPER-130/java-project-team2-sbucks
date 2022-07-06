@@ -17,6 +17,8 @@ import com.team2.sbucks.ui.MainFrame;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class ProductDetailPanel extends JPanel {
@@ -141,6 +143,10 @@ public class ProductDetailPanel extends JPanel {
 		add(lblNewLabel_4);
 		
 		JButton orderBtn = new JButton("주문하기");
+		orderBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		orderBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
