@@ -27,12 +27,12 @@ public class OrderDetailPanel extends JPanel {
 	private OrderService orderService;
 	private JPanel orderDetailBasicPanel;
 	private JPanel orderDetailPanel;
-	private int memberNo;
+	/*private int memberNo;
 	private int orderNo;
-
-
 	
 	
+	
+	*/
 	private JLabel lblNewLabel;
 	private JButton returnOrderListBtn;
 	private JPanel panel;
@@ -42,7 +42,6 @@ public class OrderDetailPanel extends JPanel {
 	private JLabel od_addELB_1;
 	private JLabel od_addSLB_1;
 	private JLabel od_PriceLB_1;
-	private JLabel odstmtLB_1;
 	private JLabel od_espressoLB_1;
 	private JLabel od_syrupLB_1;
 	private JLabel od_STMTLB_1;
@@ -53,6 +52,7 @@ public class OrderDetailPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public OrderDetailPanel() {
+		orderService=new OrderService();
 		setLayout(new BorderLayout(0, 0));
 
 		panel = new JPanel();
@@ -78,9 +78,11 @@ public class OrderDetailPanel extends JPanel {
 		panel.add(returnOrderListBtn, BorderLayout.EAST);
 
 		scrollPane = new JScrollPane();
+		
 		add(scrollPane, BorderLayout.CENTER);
 
 		orderDetailBasicPanel = new JPanel();
+		
 		
 		
 		
@@ -94,12 +96,12 @@ public class OrderDetailPanel extends JPanel {
 		orderDetailPanel.setPreferredSize(new Dimension(400, 150));
 		orderDetailBasicPanel.add(orderDetailPanel);
 		orderDetailPanel.setLayout(null);
-
+		
 		od_p_imgLB_1 = new JLabel("이미지");
 		od_p_imgLB_1.setBounds(27, 18, 98, 101);
 		orderDetailPanel.add(od_p_imgLB_1);
 
-		od_p_nameLB_1 = new JLabel("상품 이름");
+		od_p_nameLB_1 = new JLabel("상품 이름입니다~~~~~");
 		od_p_nameLB_1.setBounds(158, 10, 152, 15);
 		orderDetailPanel.add(od_p_nameLB_1);
 
@@ -115,10 +117,6 @@ public class OrderDetailPanel extends JPanel {
 		od_PriceLB_1.setBounds(158, 104, 98, 15);
 		orderDetailPanel.add(od_PriceLB_1);
 
-		odstmtLB_1 = new JLabel("주문상태 :");
-		odstmtLB_1.setBounds(268, 104, 57, 15);
-		orderDetailPanel.add(odstmtLB_1);
-
 		od_espressoLB_1 = new JLabel("0");
 		od_espressoLB_1.setBounds(226, 53, 23, 15);
 		orderDetailPanel.add(od_espressoLB_1);
@@ -127,26 +125,21 @@ public class OrderDetailPanel extends JPanel {
 		od_syrupLB_1.setBounds(355, 53, 57, 15);
 		orderDetailPanel.add(od_syrupLB_1);
 
-		od_STMTLB_1 = new JLabel("\"\"");
-		od_STMTLB_1.setBounds(337, 104, 57, 15);
+		od_STMTLB_1 = new JLabel("주문상태");
+		od_STMTLB_1.setBounds(268, 104, 99, 15);
 		orderDetailPanel.add(od_STMTLB_1);
 
 		od_qtyLB_1 = new JLabel("수량");
 		od_qtyLB_1.setBounds(322, 10, 57, 15);
 		orderDetailPanel.add(od_qtyLB_1);
 		
-		try {
-			System.out.println("번호");
-			orderDetailDisplay(10,48);
-		} catch (Exception e1) {
-			// TODO: handle exception
-			e1.printStackTrace();
-	}
+		
 
 
 	} // 생성자 끝
 
 	public void orderDetailDisplay(int memberNo,int orderNo) throws Exception {
+		System.out.println("실행!!!!!!!!!!!!");
 		OrderList orderList = orderService.printOrder(memberNo,orderNo);
 		List<OrderDetail> orderDetail = orderList.getOrderDetail();
 
@@ -155,19 +148,20 @@ public class OrderDetailPanel extends JPanel {
 		for (int i = 0; i < orderDetail.size(); i++) {
 			OrderDetail order = orderDetail.get(i);
 			Product product = order.getProduct();
+			
 			orderDetailPanel = new JPanel();
 			orderDetailPanel.setPreferredSize(new Dimension(400, 150));
 			orderDetailBasicPanel.add(orderDetailPanel);
 			orderDetailPanel.setLayout(null);
-
+			
 			JLabel od_p_imgLB = new JLabel("이미지");
 			od_p_imgLB.setIcon(
 					new ImageIcon(OrderDetailPanel.class.getResource("/images/" + product.getProduct_name() + ".jpg")));
-			od_p_imgLB.setBounds(48, 53, 57, 15);
+			od_p_imgLB.setBounds(27, 18, 98, 101);
 			orderDetailPanel.add(od_p_imgLB);
 
 			JLabel od_p_nameLB = new JLabel(product.getProduct_name());
-			od_p_nameLB.setBounds(158, 10, 57, 15);
+			od_p_nameLB.setBounds(158, 10, 152, 15);
 			orderDetailPanel.add(od_p_nameLB);
 
 			JLabel od_addELB = new JLabel("추가 샷 :");
@@ -189,10 +183,7 @@ public class OrderDetailPanel extends JPanel {
 			od_qtyLB.setBounds(322, 10, 57, 15);
 			orderDetailPanel.add(od_qtyLB);
 
-			JLabel odstmtLB = new JLabel("주문상태 :");
-			odstmtLB.setBounds(268, 104, 57, 15);
-			orderDetailPanel.add(odstmtLB);
-
+		
 			JLabel od_espressoLB = new JLabel(order.getProduct_espresso() + "");
 			od_espressoLB.setBounds(226, 53, 23, 15);
 			orderDetailPanel.add(od_espressoLB);
@@ -214,8 +205,9 @@ public class OrderDetailPanel extends JPanel {
 			default:
 				break;
 			}
+			
 			JLabel od_STMTLB = new JLabel(stmt);
-			od_STMTLB.setBounds(337, 104, 57, 15);
+			od_STMTLB.setBounds(268, 104, 99, 15);
 			orderDetailPanel.add(od_STMTLB);
 
 		}

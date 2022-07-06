@@ -19,14 +19,14 @@ public class OrderListTestFrame extends JFrame {
 	public JPanel contentPane;
 	public OrderListPanel orderListPanel;
 	
-	public Product selectProduct;
+	public Product product;
 	public OrderList orderList;
 	public OrderDetail orderDetail;
 	public int memberNo=2;
 	public int orderNo;
 	public JTabbedPane tabbedPane;
-	private OrderDetailPanel orderDetailPanel;
-	private OrderPanel orderPanel;
+	public OrderDetailPanel orderDetailPanel;
+
 	
 	/**
 	 * Launch the application.
@@ -68,9 +68,6 @@ public class OrderListTestFrame extends JFrame {
 		
 		
 		orderDetailPanel.setFrame(this);
-		
-		orderPanel = new OrderPanel();
-		tabbedPane.addTab("New tab", null, orderPanel, null);
 		
 	}
 

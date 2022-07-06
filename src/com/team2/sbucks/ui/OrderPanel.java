@@ -8,6 +8,8 @@ import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.CartService;
 import com.team2.sbucks.service.OrderService;
 import com.team2.sbucks.service.ProductService;
+import com.team2.sbucks.ui.LJH.OrderListPanel;
+import com.team2.sbucks.ui.LJH.OrderListTestFrame;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -26,45 +28,81 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class OrderPanel extends JPanel {
 	private OrderService orderService;
 	private CartService cartService;
 	private ProductService productService;
 	Product product;
-	
+	int memberNo=1;
 	int product_no=3;
+	private OrderListTestFrame mainFrame;
+	private JButton orderBtn;
+	private JButton cartJoinBtn;
+	private JLabel coffeeLB;
+	private JComboBox coffeeCB;
+	private JLabel sypUpLB;
+	private JComboBox sypUpCB;
+	private JLabel countLB;
+	private JComboBox countCB;
+	private JLabel item_imgLB;
+	private JButton o_CancelBtn;
+	private JLabel item_nameLB;
+	private JLabel totalPriceLB;
+	private JLabel item_PriceLB;
 	/**
 	 * Create the panel.
 	 */
-	public OrderPanel() {
+	public OrderPanel()  {
+		productService=new ProductService();
+		orderService=new OrderService();
+		cartService=new CartService();
 		
-		JLabel coffeeLB = new JLabel("에스프레소");
+		try {
+			product=productService.selectByNo(product_no);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		
-		JLabel sypUpLB = new JLabel("시럽");
 		
-		JLabel countLB = new JLabel("수량");
+		coffeeLB = new JLabel("에스프레소");
 		
-		JComboBox coffeeCB = new JComboBox();
+		sypUpLB = new JLabel("시럽");
+		
+		countLB = new JLabel("수량");
+		
+		coffeeCB = new JComboBox();
 		coffeeCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
-		JComboBox sypUpCB = new JComboBox();
+		sypUpCB = new JComboBox();
 		sypUpCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
-		JComboBox countCB = new JComboBox();
+		countCB = new JComboBox();
 		countCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
 		
 		
-		JButton cartJoinBtn = new JButton("담기");
+		cartJoinBtn = new JButton("담기");
 		cartJoinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Product newProduct=new Product();
-					//Product product = productService.selectByNo(product_no);
-					cartService.insertCart(null);//카트 수량체크 후 담기 메소드. 매개변수 어디서 끌고오는가
+					product=productService.selectByNo(product_no);
+					int qty=(int)countCB.getSelectedItem();
+					int syrup=(int)sypUpCB.getSelectedItem();
+					int espresso=(int)coffeeCB.getSelectedItem();
+					product.setProduct_espresso(espresso);
+					product.setProduct_syrup(syrup);
+					
+					
+					cartService.insertCart(product,memberNo,qty);//카트 수량체크 후 담기 메소드. 매개변수 어디서 끌고오는가
+					System.out.println("담겼음");
+				
+					
 				} catch (Exception e2) {
 
 				}
@@ -72,29 +110,51 @@ public class OrderPanel extends JPanel {
 			}
 		});
 		
-		JButton orderBtn = new JButton("주문하기");
+		orderBtn = new JButton("주문하기");
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Product product = productService.selectByNo(1);
-					
-					orderService.createOneOrder(1, product, 1);
+					product=productService.selectByNo(product_no);
+					int qty=(int)countCB.getSelectedItem();
+					int syrup=(int)sypUpCB.getSelectedItem();
+					int espresso=(int)coffeeCB.getSelectedItem();
+					product.setProduct_espresso(espresso);
+					product.setProduct_syrup(syrup);
+					orderService.createOneOrder(memberNo, product, qty);
 				} catch (Exception e2) {
 
 				}
 			}
 		});
 		
-		JLabel item_imgLB = new JLabel("상품이미지");
+		item_imgLB = new JLabel("상품이미지");
+		item_imgLB.setIcon(new ImageIcon(
+				OrderListPanel.class.getResource("/images/" +product.getProduct_name() + ".jpg")));
+
 		
 		
-		JLabel item_nameLB = new JLabel("상품이름");
+		item_nameLB = new JLabel(product.getProduct_name());
 		
-		JLabel totalPriceLB = new JLabel("총가격");
+		totalPriceLB = new JLabel("총가격");
+		int qty=(int)countCB.getSelectedItem();
+		int syrup=(int)sypUpCB.getSelectedItem();
+		int espresso=(int)coffeeCB.getSelectedItem();
 		
-		JLabel item_PriceLB = new JLabel("Price원");
+		item_PriceLB = new JLabel("원");
+		item_PriceLB.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				item_PriceLB.setText(qty*(product.getProduct_price()+(product.getProduct_espressoprice()*syrup)+(product.getProduct_syrupprice()*espresso))+"원");
+			}
+		});
 		
-		JButton o_CancelBtn = new JButton("취소");
+		o_CancelBtn = new JButton("취소");
+		o_CancelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainFrame.tabbedPane.setSelectedIndex(0);
+				
+			}
+		});
 		
 		
 		
@@ -177,7 +237,10 @@ public class OrderPanel extends JPanel {
 	}
 	
 //생성자끝
-	
+	public void setFrame(OrderListTestFrame mainFrame) {
+		this.mainFrame=mainFrame;
+		
+	}
 
 	
 }
