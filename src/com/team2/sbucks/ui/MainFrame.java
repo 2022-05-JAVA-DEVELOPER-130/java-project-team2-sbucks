@@ -1,6 +1,7 @@
 package com.team2.sbucks.ui;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

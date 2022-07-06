@@ -124,8 +124,8 @@ public class LoginPanel extends JPanel {
 				}
 			}
 		});
-		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/로그인흰ver.png")));
-		loginBtn.setBounds(103, 438, 150, 29);
+		loginBtn.setIcon(new ImageIcon(LoginPanel.class.getResource("/images/loginwhite.png")));
+		loginBtn.setBounds(59, 438, 226, 29);
 		add(loginBtn);
 
 		JLabel loginExplain_LB = new JLabel("회원 서비스 이용을 위해 로그인 해주세요.");
