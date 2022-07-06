@@ -68,7 +68,7 @@ public class OrderDetailPanel extends JPanel {
 		returnOrderListBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mainFrame.tabbedPane.setSelectedIndex(0);
+					mainFrame.OrderTabbedPane.setSelectedIndex(0);
 
 				} catch (Exception e2) {
 					// TODO: handle exception
