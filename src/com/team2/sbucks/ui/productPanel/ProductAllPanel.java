@@ -139,10 +139,13 @@ public class ProductAllPanel extends JPanel {
 						System.out.println(productService.selectByNo(product.getProduct_no()));
 						System.out.println(productDetailService.selectByNo(product.getProduct_no()));
 						System.out.println();
+						/********************************************************/
+						ProductDetail selectedProductDetail=productDetailService.selectByNo(product.getProduct_no());
+						Product selectedProduct=productService.selectByNo(product.getProduct_no());
 						
-
-						
-						mainFrame.selectedProduct=product;
+						mainFrame.selectedProduct=selectedProduct;
+						mainFrame.selectedProductDetail=selectedProductDetail;
+						/*********************************************************/
 						mainFrame.tabbedPane.setSelectedIndex(0);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block

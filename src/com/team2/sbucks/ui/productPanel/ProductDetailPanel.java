@@ -1,24 +1,19 @@
 package com.team2.sbucks.ui.productPanel;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-import com.team2.sbucks.dao.product.ProductDetailDao;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.ui.MainFrameJiwon;
-
-import javax.swing.JButton;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import java.awt.Color;
 
 public class ProductDetailPanel extends JPanel {
 	private JTextField productNameTF;
@@ -31,6 +26,7 @@ public class ProductDetailPanel extends JPanel {
 	private ProductDetail productDetial;
 	
 	private MainFrameJiwon mainFrame;
+	private JLabel lblNewLabel_4;
 	
 	/**
 	 * Create the panel.
@@ -39,19 +35,20 @@ public class ProductDetailPanel extends JPanel {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
-				if(mainFrame.selectedProduct!=null ) {
+				if(mainFrame.selectedProduct!=null  && mainFrame.selectedProductDetail!=null) {
 					productNameTF.setText(mainFrame.selectedProduct.getProduct_name());
 					productPriceTF.setText(mainFrame.selectedProduct.getProduct_price()+"");
 					productAllergyTF.setText(mainFrame.selectedProduct.getProduct_allergy());
-					
-					
-					
-				}
-				if(mainFrame.selectedProductDetail!=null) {
-					productKalTF.setText(productKalTF+"");
+					productKalTF.setText(mainFrame.selectedProductDetail.getKal()+"");
 					productCaffineTF.setText(mainFrame.selectedProductDetail.getCaffeine()+"");
 					productNaTF.setText(mainFrame.selectedProductDetail.getNa()+"");
+					lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/"+mainFrame.selectedProduct.getProduct_name()+".jpg")));
+					
+					productNameTF.setEnabled(false);
 				}
+				
+					
+				
 			}
 			
 			
@@ -133,7 +130,7 @@ public class ProductDetailPanel extends JPanel {
 		
 		
 		
-		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 		lblNewLabel_4.setBounds(71, 10, 213, 151);
