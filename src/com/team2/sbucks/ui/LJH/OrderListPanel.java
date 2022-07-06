@@ -82,7 +82,7 @@ public class OrderListPanel extends JPanel {
 			orderListBasicPanel.add(orderListPanel);
 			orderListPanel.setLayout(null);
 			
-			JLabel
+			JLabel lblNe
 			
 			
 		}

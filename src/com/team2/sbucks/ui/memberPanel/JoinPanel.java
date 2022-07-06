@@ -215,7 +215,7 @@ public class JoinPanel extends JPanel {
 					if(password.equals(Cpassword)) {
 						JOptionPane.showMessageDialog(null, "비밀번호가 일치합니다.");
 						joinPhone_TF.requestFocus();
-					}else {
+					}else if(password.equals(Cpassword)==false) {
 						JOptionPane.showInternalMessageDialog(null, "비밀번호가 일치하지 않습니다.");
 						joinCpassword_TF.requestFocus();
 						
