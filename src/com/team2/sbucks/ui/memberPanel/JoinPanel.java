@@ -39,7 +39,6 @@ public class JoinPanel extends JPanel {
 	private JTextField joinNickname_TF;
 	private JPasswordField joinPassword_TF;
 	private JPasswordField joinCpassword_TF;
-	private MainFrame mainFrame;
 	
 	/**********멤버서비스 객체선언*************/
 	private MemberService memberService;
@@ -50,6 +49,9 @@ public class JoinPanel extends JPanel {
 	
 	/*********회원가입한 회원*****************/
 	private Member newMember = null;
+	
+	/*********메인프레임*************/
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -215,7 +217,7 @@ public class JoinPanel extends JPanel {
 		joinCancelBtn.setBorder(null);
 		joinCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//취소버튼을 누르면 다시 로그인페이지로 가게끔 만들기
+				mainFrame.MemberTabbedPane.setSelectedIndex(0);
 			}
 		});
 		joinCancelBtn.setIcon(new ImageIcon(JoinPanel.class.getResource("/images/취소.png")));
@@ -330,6 +332,7 @@ public class JoinPanel extends JPanel {
 				if(insertSuccess==true) {
 					JOptionPane.showMessageDialog(null, "회원가입에 성공하셨습니다.");
 					loginService.insertLogin(newLogin);
+					mainFrame.MemberTabbedPane.setSelectedIndex(4);
 					
 					
 				}else {

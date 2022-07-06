@@ -88,11 +88,11 @@ public class MainFrame extends JFrame {
 		MemberTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		MemberPanel.add(MemberTabbedPane);
 		
+		LoginPanel loginPanel_1 = new LoginPanel();
+		MemberTabbedPane.addTab("로그인", null, loginPanel_1, null);
+		
 		joinPanel = new JoinPanel();
 		MemberTabbedPane.addTab("회원가입", null, joinPanel, null);
-		
-		LoginPanel loginPanel = new LoginPanel();
-		MemberTabbedPane.addTab("로그인", null, loginPanel, null);
 		
 		UpdatePanel updatePanel = new UpdatePanel();
 		MemberTabbedPane.addTab("회원정보", null, updatePanel, null);

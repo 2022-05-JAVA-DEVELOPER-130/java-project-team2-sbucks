@@ -1,6 +1,7 @@
 package com.team2.sbucks.ui.LJH;
 
 import javax.swing.JPanel;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;

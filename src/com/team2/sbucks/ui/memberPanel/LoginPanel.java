@@ -109,10 +109,13 @@ public class LoginPanel extends JPanel {
 						idFalse_LB.setText("아이디가 틀렸습니다.");
 						id_TF.requestFocus();
 						id_TF.setText("");
+						mainFrame.MemberTabbedPane.setEnabledAt(2, true);
 					} else if (loginResult == 2) {
 						passwordFalse_LB.setText("비밀번호가 틀렸습니다.");
 						password_TF.requestFocus();
 						password_TF.setText("");
+						idFalse_LB.setVisible(false);
+						mainFrame.MemberTabbedPane.setEnabledAt(2, false);
 					} 
 				} catch (Exception e1) {
 					e1.printStackTrace();
@@ -131,13 +134,13 @@ public class LoginPanel extends JPanel {
 		add(loginExplain_LB);
 
 		idFalse_LB = new JLabel("");
-		idFalse_LB.setForeground(new Color(0, 128, 0));
+		idFalse_LB.setForeground(new Color(255, 255, 255));
 		idFalse_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
 		idFalse_LB.setBounds(40, 289, 117, 16);
 		add(idFalse_LB);
 
 		passwordFalse_LB = new JLabel("");
-		passwordFalse_LB.setForeground(new Color(0, 128, 0));
+		passwordFalse_LB.setForeground(new Color(255, 255, 255));
 		passwordFalse_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
 		passwordFalse_LB.setBounds(40, 380, 117, 16);
 		add(passwordFalse_LB);
@@ -146,8 +149,8 @@ public class LoginPanel extends JPanel {
 		searchIDPassword_LB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				//누르면 아이디/비밀번호패널로 이동
+				//왜 안될까?
+				//mainFrame.MemberTabbedPane.setSelectedIndex(1);
 			}
 		});
 		searchIDPassword_LB.setForeground(new Color(192, 192, 192));
