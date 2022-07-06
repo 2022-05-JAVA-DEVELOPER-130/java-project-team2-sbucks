@@ -21,7 +21,7 @@ public class OrderListTestFrame extends JFrame {
 	public Product product;
 	public OrderList orderList;
 	public OrderDetail orderDetail;
-	public int memberNo=2;
+	public int memberNo=3;
 	public int orderNo;
 	public JTabbedPane tabbedPane;
 	public OrderDetailPanel orderDetailPanel;

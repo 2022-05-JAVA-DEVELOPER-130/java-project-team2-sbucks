@@ -11,15 +11,16 @@ import com.team2.sbucks.dto.Cart;
 import com.team2.sbucks.dto.Product;
 
 import javax.swing.JTabbedPane;
+import javax.swing.JScrollPane;
 
 public class CartTestFrame extends JFrame {
 	public Product product;
 	public Cart cart;
-	public int memberNo=1;
+	public int memberNo=3;
 	public int cartNo;
-	private CartItemPanel cartItemPanel;
 	private JTabbedPane tabbedPane;
 	private JPanel contentPane;
+	public CartItemPanel cartItemPanel;
 	
 
 	/**
@@ -50,10 +51,12 @@ public class CartTestFrame extends JFrame {
 		setContentPane(contentPane);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(tabbedPane, BorderLayout.NORTH);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
 		cartItemPanel = new CartItemPanel();
 		tabbedPane.addTab("New tab", null, cartItemPanel, null);
+		
+		cartItemPanel.setFrame(this);
 	}
 
 }

@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.awt.event.ItemEvent;
 
@@ -28,18 +29,21 @@ public class CartItemPanel extends JPanel {
 	private CartService cartService;
 	private OrderService orderService;
 
-	int memberNo = 1;
+	int memberNo = 3;
 	int cartNo = 0;
 	private JPanel cartItemBasicPanel;
 	private JPanel cartItem_panel;
-	List<Cart> cartLastList;
+	private List<Cart> cartLastList;
+	
+	private List<JPanel> panelList;
+	private List<Integer> cartNoList;
 
 	private CartTestFrame mainFrame;
 	private JPanel panel;
 	private JLabel lblNewLabel;
 	private JPanel panel_1;
 	private JButton selectOrderBtn;
-	private JButton AllOrderBtn;
+	private JButton allOrderBtn;
 	private JLabel c_imgLB_1;
 	private JLabel c_itemNameLB_1;
 	private JCheckBox cartCHB_1;
@@ -49,9 +53,11 @@ public class CartItemPanel extends JPanel {
 	private JLabel c_priceLB;
 	private JLabel c_addshotLB;
 	private JLabel c_addsyrupLB;
-	private JPanel cartCountPanel_1;
-	private JLabel cartCountLB_1;
 	private JScrollPane scrollPane;
+	private JPanel panel_2;
+	private JLabel cartCountLB;
+	private JButton deleteAllBtn;
+	private JButton deleteSelectBtn;
 
 	/**
 	 * Create the panel.
@@ -75,34 +81,43 @@ public class CartItemPanel extends JPanel {
 		panel.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 
-		selectOrderBtn = new JButton("선택 주문");
-		selectOrderBtn.addActionListener(new ActionListener() {
+		deleteAllBtn = new JButton("전체 비우기");
+		deleteAllBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					orderService.cartitemToOrder(memberNo, cartLastList);
+					cartService.deleteCart(memberNo);
+					System.out.println("다시 부르기");
+					cartListDisplay(memberNo);
 
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
-
 			}
 		});
-		panel_1.add(selectOrderBtn, BorderLayout.EAST);
+		panel_1.add(deleteAllBtn, BorderLayout.EAST);
 
-		AllOrderBtn = new JButton("전체 주문");
-		AllOrderBtn.addActionListener(new ActionListener() {
+		deleteSelectBtn = new JButton("선택 삭제");
+		deleteSelectBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					orderService.allCartToOrder(memberNo);
-					System.out.println("주문완료");
-				} catch (Exception e1) {
-					e1.printStackTrace();
+					for (int i=0;i<panelList.size();i++) {
+						//panelList.get(i).
+						if(cartCHB_1.isSelected()) {
+							cartLastList.add(cartService.selectCart(cartNoList.get(i)));
+						}
+						
+					}
+					for (int i = 0; i < cartLastList.size(); i++) {
+						int cartNo=cartLastList.get(i).getCart_no();
+						cartService.deleteCartItem(cartNo);
+					}
+					cartListDisplay(memberNo);
+				} catch (Exception e2) {
 					// TODO: handle exception
 				}
-
 			}
 		});
-		panel_1.add(AllOrderBtn, BorderLayout.CENTER);
+		panel_1.add(deleteSelectBtn, BorderLayout.WEST);
 
 		scrollPane = new JScrollPane();
 		add(scrollPane, BorderLayout.CENTER);
@@ -121,7 +136,7 @@ public class CartItemPanel extends JPanel {
 		cartItem_panel.add(c_imgLB_1);
 
 		c_itemNameLB_1 = new JLabel("상품이름");
-		c_itemNameLB_1.setBounds(194, 20, 57, 15);
+		c_itemNameLB_1.setBounds(194, 20, 136, 15);
 		cartItem_panel.add(c_itemNameLB_1);
 
 		cartCHB_1 = new JCheckBox("");
@@ -168,13 +183,44 @@ public class CartItemPanel extends JPanel {
 		c_addsyrupLB.setBounds(194, 75, 57, 15);
 		cartItem_panel.add(c_addsyrupLB);
 
-		cartCountPanel_1 = new JPanel();
-		add(cartCountPanel_1, BorderLayout.SOUTH);
-		cartCountPanel_1.setLayout(new BorderLayout(0, 0));
+		panel_2 = new JPanel();
+		add(panel_2, BorderLayout.SOUTH);
+		panel_2.setLayout(new BorderLayout(0, 0));
 
-		cartCountLB_1 = new JLabel("총 장바구니 아이템 수");
-		cartCountLB_1.setFont(new Font("굴림", Font.PLAIN, 19));
-		cartCountPanel_1.add(cartCountLB_1, BorderLayout.NORTH);
+		cartCountLB = new JLabel("총 몇개");
+		panel_2.add(cartCountLB, BorderLayout.WEST);
+
+		selectOrderBtn = new JButton("선택 주문");
+		panel_2.add(selectOrderBtn, BorderLayout.EAST);
+
+		allOrderBtn = new JButton("전체 주문");
+		panel_2.add(allOrderBtn, BorderLayout.CENTER);
+		allOrderBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					orderService.allCartToOrder(memberNo);
+					System.out.println("주문완료");
+					cartListDisplay(memberNo);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+					// TODO: handle exception
+				}
+
+			}
+		});
+
+		selectOrderBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					orderService.cartitemToOrder(memberNo, cartLastList);
+					cartListDisplay(memberNo);
+
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+
+			}
+		});
 
 	}// 생성자 끝
 
@@ -183,13 +229,16 @@ public class CartItemPanel extends JPanel {
 		cartList = cartService.printCart(memberNo);
 
 		cartItemBasicPanel.removeAll();
-		cartItem_panel = new JPanel();
-		cartItem_panel.setPreferredSize(new Dimension(400, 180));
-		cartItemBasicPanel.add(cartItem_panel);
-		cartItem_panel.setLayout(null);
 
 		for (int i = 0; i < cartList.size(); i++) {
 			Cart cart = cartList.get(i);
+			cartItem_panel = new JPanel();
+
+
+			cartItem_panel.setPreferredSize(new Dimension(400, 180));
+			cartItemBasicPanel.add(cartItem_panel);
+
+			cartItem_panel.setLayout(null);
 
 			JLabel c_imgLB = new JLabel("이미지");
 			c_imgLB.setIcon(new ImageIcon(
@@ -198,12 +247,12 @@ public class CartItemPanel extends JPanel {
 			cartItem_panel.add(c_imgLB);
 
 			JLabel c_itemNameLB = new JLabel(cart.getProduct().getProduct_name());
-			c_itemNameLB.setBounds(194, 20, 57, 15);
+			c_itemNameLB.setBounds(194, 20, 136, 15);
 			cartItem_panel.add(c_itemNameLB);
 
-			JCheckBox cartCHB = new JCheckBox("");
-			cartCHB.setBounds(52, 12, 115, 23);
-			cartItem_panel.add(cartCHB);
+			JCheckBox cartCHB_1 = new JCheckBox("");
+			cartCHB_1.setBounds(52, 12, 115, 23);
+			cartItem_panel.add(cartCHB_1);
 
 			JComboBox comboBox = new JComboBox();
 
@@ -234,28 +283,34 @@ public class CartItemPanel extends JPanel {
 			c_addsyrupLB.setBounds(194, 75, 57, 15);
 			cartItem_panel.add(c_addsyrupLB);
 
-			JLabel lblNewLabel_4 = new JLabel(cart.getProduct_espresso() + "");
-			lblNewLabel_4.setBounds(194, 48, 57, 15);
-			cartItem_panel.add(lblNewLabel_4);
+			JLabel c_espressoLB1 = new JLabel(cart.getProduct_espresso() + "");
+			c_espressoLB1.setBounds(270, 41, 57, 15);
+			cartItem_panel.add(c_espressoLB1);
 
-			JLabel lblNewLabel_5 = new JLabel(cart.getProduct_syrup() + "");
-			lblNewLabel_5.setBounds(194, 73, 57, 15);
-			cartItem_panel.add(lblNewLabel_5);
+			JLabel c_syrupLB = new JLabel(cart.getProduct_syrup() + "");
+			c_syrupLB.setBounds(270, 75, 57, 15);
+			cartItem_panel.add(c_syrupLB);
 
-			JLabel lblNewLabel_6 = new JLabel(cart.getCart_qty() * (cart.getProduct().getProduct_price()
+			JLabel c_priceLB = new JLabel(cart.getCart_qty() * (cart.getProduct().getProduct_price()
 					+ (cart.getProduct_espresso() * cart.getProduct().getProduct_espressoprice())
 					+ cart.getProduct_syrup() * cart.getProduct().getProduct_syrupprice()) + "원");
-			lblNewLabel_6.setBounds(194, 155, 57, 15);
-			cartItem_panel.add(lblNewLabel_6);
+			c_priceLB.setBounds(194, 155, 57, 15);
+			cartItem_panel.add(c_priceLB);
+			
+			//panelList.add(cartItem_panel);
+			//cartNoList.add(cart.getCart_no());
 		}
 
-		JPanel cartCountPanel = new JPanel();
+		cartCountLB = new JLabel("총 " + cartList.size() + " 개");
+		panel_2.add(cartCountLB, BorderLayout.WEST);
+
+		/*JPanel cartCountPanel = new JPanel();
 		add(cartCountPanel, BorderLayout.SOUTH);
 		cartCountPanel.setLayout(new BorderLayout(0, 0));
-
+		
 		JLabel cartCountLB = new JLabel("총" + cartList.size() + "수");
 		cartCountLB.setFont(new Font("굴림", Font.PLAIN, 19));
-		cartCountPanel.add(cartCountLB, BorderLayout.NORTH);
+		cartCountPanel.add(cartCountLB, BorderLayout.NORTH);*/
 
 	}
 
