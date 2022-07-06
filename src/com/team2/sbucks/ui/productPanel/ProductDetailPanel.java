@@ -132,13 +132,13 @@ public class ProductDetailPanel extends JPanel {
 		productNaTF.setColumns(10);
 		
 		
-		/*
+		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 		lblNewLabel_4.setBounds(71, 10, 213, 151);
 		add(lblNewLabel_4);
-		*/
+		
 		
 		
 		
