@@ -2,12 +2,17 @@ package com.team2.sbucks.ui;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
+import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.service.CartService;
+import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
@@ -30,21 +35,29 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JScrollPane;
 
 public class CartPanel extends JPanel {
-	private JTextField productnameTF;
-	private JTextField shotnumTF;
-	private JTextField syrupTF;
-	private JTextField priceTF;
-	private JTextField numTF;
+	private JTextField allnumTF;
 	private JTextField allpriceTF;
 	private CartService cartService;
 	private JPanel panel;
 	private JPanel panel_1;
 	private JButton productalldeleteBtn;
+	private Product product; 
+	private JTextField productpriceTF;
+	private JTextField syrupnumTF;
+	private JTextField espressonumTF;
+	private JTextField productnameTF;
+	private JTextField productnumTF;
 	public CartPanel() {
 		cartService=new CartService();
 		setLayout(null);
+		
+		
+		
+		
+		
 		
 		panel = new JPanel();
 		panel.setForeground(Color.WHITE);
@@ -61,7 +74,7 @@ public class CartPanel extends JPanel {
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBounds(0, 416, 370, 104);
+		panel_1.setBounds(0, 660, 370, 104);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -70,12 +83,12 @@ public class CartPanel extends JPanel {
 		lblNewLabel_4.setBounds(12, 27, 18, 23);
 		panel_1.add(lblNewLabel_4);
 		
-		numTF = new JTextField();
-		numTF.setOpaque(false);
-		numTF.setFont(new Font("굴림", Font.PLAIN, 18));
-		numTF.setBounds(34, 29, 25, 21);
-		panel_1.add(numTF);
-		numTF.setColumns(10);
+		allnumTF = new JTextField();
+		allnumTF.setOpaque(false);
+		allnumTF.setFont(new Font("굴림", Font.PLAIN, 18));
+		allnumTF.setBounds(34, 29, 25, 21);
+		panel_1.add(allnumTF);
+		allnumTF.setColumns(10);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("개");
 		lblNewLabel_4_1.setFont(new Font("굴림", Font.PLAIN, 18));
@@ -90,11 +103,19 @@ public class CartPanel extends JPanel {
 		allpriceTF.setColumns(10);
 		
 		JButton orderBtn = new JButton("");
+		orderBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		orderBtn.setIcon(new ImageIcon("C:\\Users\\ITWILL\\Desktop\\주문하기.PNG"));
 		orderBtn.setForeground(Color.WHITE);
 		orderBtn.setBackground(Color.GREEN);
 		orderBtn.setBounds(120, 71, 117, 23);
 		panel_1.add(orderBtn);
+		
+		JLabel lblNewLabel_6 = new JLabel("결제금액");
+		lblNewLabel_6.setBounds(154, 32, 57, 15);
+		panel_1.add(lblNewLabel_6);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.LIGHT_GRAY);
@@ -103,7 +124,7 @@ public class CartPanel extends JPanel {
 		
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setBackground(Color.LIGHT_GRAY);
-		panel_2_1.setBounds(0, 360, 370, 3);
+		panel_2_1.setBounds(0, 647, 370, 3);
 		add(panel_2_1);
 		
 		JLabel lblNewLabel = new JLabel("음료/푸드");
@@ -166,58 +187,97 @@ public class CartPanel extends JPanel {
 		panel_3.setBackground(Color.LIGHT_GRAY);
 		panel_3.setBounds(281, 156, 2, 26);
 		add(panel_3);
-		
-		JCheckBox pricechoiceCB = new JCheckBox("");
-		pricechoiceCB.setBounds(8, 188, 21, 23);
-		add(pricechoiceCB);
-		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\ITWILL\\Desktop\\아이스아메.PNG"));
-		lblNewLabel_2.setBounds(18, 217, 88, 97);
-		add(lblNewLabel_2);
-		
-		productnameTF = new JTextField();
-		productnameTF.setEnabled(false);
-		productnameTF.setBounds(118, 217, 206, 21);
-		add(productnameTF);
-		productnameTF.setColumns(10);
-		
-		shotnumTF = new JTextField();
-		shotnumTF.setEnabled(false);
-		shotnumTF.setBounds(118, 248, 67, 21);
-		add(shotnumTF);
-		shotnumTF.setColumns(10);
-		
-		syrupTF = new JTextField();
-		syrupTF.setEnabled(false);
-		syrupTF.setColumns(10);
-		syrupTF.setBounds(118, 279, 67, 21);
-		add(syrupTF);
-		
-		JButton optionchangeBtn = new JButton("옵션 변경");
-		optionchangeBtn.setForeground(Color.ORANGE);
-		optionchangeBtn.setBorderPainted(false);
-		optionchangeBtn.setFont(new Font("굴림", Font.PLAIN, 9));
-		optionchangeBtn.setBounds(105, 310, 80, 14);
-		add(optionchangeBtn);
-		
-		priceTF = new JTextField();
-		priceTF.setEnabled(false);
-		priceTF.setBounds(270, 328, 88, 21);
-		add(priceTF);
-		priceTF.setColumns(10);
 		try {
 			String price = Integer.toString(cartService.cartItemPrice(11));
-			priceTF.setText(price);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		
 		
-		JComboBox numchangBtn = new JComboBox();
-		numchangBtn.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
-		numchangBtn.setBounds(218, 327, 40, 23);
-		add(numchangBtn);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(0, 186, 370, 451);
+		add(panel_4);
+		panel_4.setLayout(null);
+		
+		
+		
+		JPanel producPN_1 = new JPanel();
+		producPN_1.setLayout(null);
+		producPN_1.setBounds(0, 10, 370, 181);
+		panel_4.add(producPN_1);
+		
+		JCheckBox pricechoiceCB = new JCheckBox("");
+		pricechoiceCB.setBounds(8, 6, 21, 23);
+		producPN_1.add(pricechoiceCB);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("New label");
+		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\ITWILL\\Desktop\\아이스아메.PNG"));
+		lblNewLabel_2_1.setBounds(18, 35, 88, 97);
+		producPN_1.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_5_2_1 = new JLabel("espresso");
+		lblNewLabel_5_2_1.setBounds(125, 63, 58, 15);
+		producPN_1.add(lblNewLabel_5_2_1);
+		
+		JLabel lblNewLabel_5_1_2_1 = new JLabel("syrup");
+		lblNewLabel_5_1_2_1.setBounds(127, 94, 58, 15);
+		producPN_1.add(lblNewLabel_5_1_2_1);
+		
+		JLabel lblNewLabel_5_1_1_1_2 = new JLabel("price");
+		lblNewLabel_5_1_1_1_2.setBounds(129, 156, 58, 15);
+		producPN_1.add(lblNewLabel_5_1_1_1_2);
+		
+		JComboBox espressonumCB_1 = new JComboBox();
+		espressonumCB_1.setBounds(218, 59, 40, 23);
+		producPN_1.add(espressonumCB_1);
+		
+		JComboBox syrupnumCB_1 = new JComboBox();
+		syrupnumCB_1.setBounds(219, 90, 40, 23);
+		producPN_1.add(syrupnumCB_1);
+		
+		JComboBox pricenumCB_1 = new JComboBox();
+		pricenumCB_1.setBounds(219, 122, 40, 23);
+		producPN_1.add(pricenumCB_1);
+		
+		productpriceTF = new JTextField();
+		productpriceTF.setEnabled(false);
+		productpriceTF.setColumns(10);
+		productpriceTF.setBounds(270, 150, 88, 21);
+		producPN_1.add(productpriceTF);
+		
+		syrupnumTF = new JTextField();
+		syrupnumTF.setEnabled(false);
+		syrupnumTF.setColumns(10);
+		syrupnumTF.setBounds(270, 92, 88, 21);
+		producPN_1.add(syrupnumTF);
+		
+		espressonumTF = new JTextField();
+		espressonumTF.setEnabled(false);
+		espressonumTF.setColumns(10);
+		espressonumTF.setBounds(270, 60, 88, 21);
+		producPN_1.add(espressonumTF);
+		
+		productnameTF = new JTextField();
+		productnameTF.setFont(new Font("굴림", Font.PLAIN, 20));
+		productnameTF.setEditable(false);
+		productnameTF.setColumns(10);
+		productnameTF.setBounds(121, 21, 238, 23);
+		producPN_1.add(productnameTF);
+		
+		productnumTF = new JTextField();
+		productnumTF.setEnabled(false);
+		productnumTF.setColumns(10);
+		productnumTF.setBounds(270, 123, 88, 21);
+		producPN_1.add(productnumTF);
+		
+		JLabel lblNewLabel_5_1_1_1_1_1 = new JLabel("quantity");
+		lblNewLabel_5_1_1_1_1_1.setBounds(127, 127, 58, 15);
+		producPN_1.add(lblNewLabel_5_1_1_1_1_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 650, 370, -499);
+		add(scrollPane);
 	}
 }
 
