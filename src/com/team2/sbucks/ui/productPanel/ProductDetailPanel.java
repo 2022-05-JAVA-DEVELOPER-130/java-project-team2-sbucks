@@ -44,15 +44,6 @@ public class ProductDetailPanel extends JPanel {
 					productPriceTF.setText(mainFrame.selectedProduct.getProduct_price()+"");
 					productAllergyTF.setText(mainFrame.selectedProduct.getProduct_allergy());
 					
-					//productKalTF.setText(mainFrame.selectedProductDetail.getNa()+"");
-					
-					
-					
-					JLabel lblNewLabel_4 = new JLabel("");
-					lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-					lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/"+mainFrame.selectedProduct.getProduct_name()+".jpg")));
-					lblNewLabel_4.setBounds(71, 10, 213, 151);
-					add(lblNewLabel_4);
 					
 					
 				}
