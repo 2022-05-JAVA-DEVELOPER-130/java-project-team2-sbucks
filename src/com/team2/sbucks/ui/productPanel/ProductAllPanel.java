@@ -36,6 +36,7 @@ public class ProductAllPanel extends JPanel {
     private ProductService productService;
     private ProductDetailService productDetailService;
     private Product product;
+    private ProductDetail productDetail;
 	private JTextField productNameTF;
 	private JTextField productPriceTF;
 	private JTextField productAllergyTF;
@@ -43,8 +44,6 @@ public class ProductAllPanel extends JPanel {
 	private JTextField productKalTF;
 	private JTextField productCaffineTF;
 	private JTextField productNaTF;
-	private ProductDetail productDetail;
-	private ProductDetailPanel productDetailPanel;
 	private JLabel lblNewLabel_4;
 	private JLabel lblNewLabel_5;
 	private JLabel lblNewLabel_6;
@@ -114,7 +113,7 @@ public class ProductAllPanel extends JPanel {
 	 * @throws Exception *********************************************************/
 	public void productListDispaly() throws Exception{
 		java.util.List<Product>  productList=productService.selectAll();
-		
+
 		ProductService productService= new ProductService();
 		ProductDetailService productDetailService=new ProductDetailService();
 		
@@ -141,6 +140,7 @@ public class ProductAllPanel extends JPanel {
 						System.out.println(productDetailService.selectByNo(product.getProduct_no()));
 						System.out.println();
 						
+
 						
 						mainFrame.selectedProduct=product;
 						mainFrame.tabbedPane.setSelectedIndex(0);

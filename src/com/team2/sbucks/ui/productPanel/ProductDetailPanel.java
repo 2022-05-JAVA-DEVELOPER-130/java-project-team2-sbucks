@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JTextField;
 
+import com.team2.sbucks.dao.product.ProductDetailDao;
 import com.team2.sbucks.dto.Product;
 import com.team2.sbucks.dto.ProductDetail;
 import com.team2.sbucks.ui.MainFrameJiwon;
@@ -43,17 +44,18 @@ public class ProductDetailPanel extends JPanel {
 					productPriceTF.setText(mainFrame.selectedProduct.getProduct_price()+"");
 					productAllergyTF.setText(mainFrame.selectedProduct.getProduct_allergy());
 					
-					
-					
-					JLabel lblNewLabel_4 = new JLabel("");
-					lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-					lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/"+mainFrame.selectedProduct.getProduct_name()+".jpg")));
-					lblNewLabel_4.setBounds(71, 10, 213, 151);
-					add(lblNewLabel_4);
-					
+									
 					
 				}
+				if(mainFrame.selectedProductDetail!=null) {
+					productKalTF.setText(mainFrame.selectedProductDetail.getKal()+"");
+					productCaffineTF.setText(mainFrame.selectedProductDetail.getCaffeine()+"");
+					productNaTF.setText(mainFrame.selectedProductDetail.getNa()+"");
+				}
 			}
+			
+			
+			
 		});
 		setLayout(null);
 		
@@ -130,13 +132,13 @@ public class ProductDetailPanel extends JPanel {
 		productNaTF.setColumns(10);
 		
 		
-		/*
+		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 		lblNewLabel_4.setBounds(71, 10, 213, 151);
 		add(lblNewLabel_4);
-		*/
+		
 		
 		
 		
@@ -147,7 +149,6 @@ public class ProductDetailPanel extends JPanel {
 
 	public void setFrame(MainFrameJiwon mainFrameJiwon) {
 		this.mainFrame=mainFrameJiwon;
-		
 	}
 
 	
