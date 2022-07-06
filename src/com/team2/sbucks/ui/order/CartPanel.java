@@ -21,10 +21,15 @@ import java.awt.GridBagConstraints;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.team2.sbucks.ui.MainFrame;
+import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 
 import java.awt.Dimension;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CartPanel extends JPanel {
 	private JTextField textField;
@@ -35,6 +40,16 @@ public class CartPanel extends JPanel {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private MainFrame mainFrame;
+	private JPanel panel_3;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JButton productchoicedeleteBtn;
+	private JButton productalldeleteBtn;
+	private JLabel lblNewLabel_2;
+	private JButton orderBtn;
+	private JCheckBox pricechoiceCB;
+	private JComboBox espressonumCB_1_2;
 
 	/**
 	 * Create the panel.
@@ -47,24 +62,31 @@ public class CartPanel extends JPanel {
 		panel.setBackground(Color.WHITE);
 		add(panel, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel_3 = new JLabel("장바구니");
-		lblNewLabel_3.setForeground(Color.BLACK);
-		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.PLAIN, 30));
+		lblNewLabel_2 = new JLabel("장바구니");
+		lblNewLabel_2.setForeground(Color.BLACK);
+		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.PLAIN, 30));
 		
-		JLabel lblNewLabel = new JLabel("음료/푸드");
+		lblNewLabel = new JLabel("음료/푸드");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		
-		JButton btnNewButton = new JButton("");
+		btnNewButton = new JButton("");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+					
+			}
+		});
 		btnNewButton.setIcon(new ImageIcon(CartPanel.class.getResource("/images/새로고침.PNG")));
 		
-		JLabel lblNewLabel_1 = new JLabel("주문 메뉴");
+		lblNewLabel_1 = new JLabel("주문 메뉴");
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		
-		JButton productchoicedeleteBtn = new JButton("선택삭제");
+		productchoicedeleteBtn = new JButton("선택삭제");
 		productchoicedeleteBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 10));
 		productchoicedeleteBtn.setContentAreaFilled(false);
 		
-		JButton productalldeleteBtn = new JButton("전체삭제");
+		productalldeleteBtn = new JButton("전체삭제");
 		productalldeleteBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 10));
 		productalldeleteBtn.setContentAreaFilled(false);
 		GroupLayout gl_panel = new GroupLayout(panel);
@@ -86,14 +108,14 @@ public class CartPanel extends JPanel {
 					.addGap(33))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(7)
-					.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 338, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 338, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(48, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
@@ -130,7 +152,7 @@ public class CartPanel extends JPanel {
 		textField_1.setColumns(10);
 		textField_1.setBackground(Color.LIGHT_GRAY);
 		
-		JButton orderBtn = new JButton("");
+		orderBtn = new JButton("");
 		orderBtn.setIcon(new ImageIcon(CartPanel.class.getResource("/images/주문하기.PNG")));
 		orderBtn.setForeground(Color.WHITE);
 		orderBtn.setBackground(Color.GREEN);
@@ -190,10 +212,10 @@ public class CartPanel extends JPanel {
 		scrollPane.setViewportView(panel_2);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_3 = new JPanel();
+		panel_3 = new JPanel();
 		panel_2.add(panel_3, BorderLayout.NORTH);
 		
-		JCheckBox pricechoiceCB = new JCheckBox("");
+		pricechoiceCB = new JCheckBox("");
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("굴림", Font.PLAIN, 20));
@@ -219,7 +241,7 @@ public class CartPanel extends JPanel {
 		
 		JComboBox espressonumCB_1_1 = new JComboBox();
 		
-		JComboBox espressonumCB_1_2 = new JComboBox();
+		espressonumCB_1_2 = new JComboBox();
 		
 		textField_3 = new JTextField();
 		textField_3.setEnabled(false);
