@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 public class CartTestFrame extends JFrame {
 	public Product product;
 	public Cart cart;
-	public int memberNo=3;
+	public int memberNo=2;
 	public int cartNo;
 	private JTabbedPane tabbedPane;
 	private JPanel contentPane;

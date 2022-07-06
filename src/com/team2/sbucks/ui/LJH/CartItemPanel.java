@@ -29,7 +29,7 @@ public class CartItemPanel extends JPanel {
 	private CartService cartService;
 	private OrderService orderService;
 
-	int memberNo = 3;
+	int memberNo = 2;
 	int cartNo = 0;
 	private JPanel cartItemBasicPanel;
 	private JPanel cartItem_panel;
