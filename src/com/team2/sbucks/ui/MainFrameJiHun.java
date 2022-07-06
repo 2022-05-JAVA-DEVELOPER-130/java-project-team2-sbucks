@@ -38,7 +38,7 @@ public class MainFrameJiHun extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		OrderPaneljiHun orderPaneljiHun = new OrderPaneljiHun();
+		OrderPanel orderPaneljiHun = new OrderPanel();
 		orderPaneljiHun.setBounds(5, 5, 381, 548);
 		contentPane.add(orderPaneljiHun);
 	}

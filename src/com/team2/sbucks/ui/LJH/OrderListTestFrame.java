@@ -7,10 +7,27 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.team2.sbucks.dto.OrderDetail;
+import com.team2.sbucks.dto.OrderList;
+import com.team2.sbucks.dto.Product;
+
+import javax.swing.JTabbedPane;
+import com.team2.sbucks.ui.OrderPanel;
+
 public class OrderListTestFrame extends JFrame {
 
-	private JPanel contentPane;
-
+	public JPanel contentPane;
+	public OrderListPanel orderListPanel;
+	
+	public Product selectProduct;
+	public OrderList orderList;
+	public OrderDetail orderDetail;
+	public int memberNo=2;
+	public int orderNo;
+	public JTabbedPane tabbedPane;
+	private OrderDetailPanel orderDetailPanel;
+	private OrderPanel orderPanel;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -32,11 +49,29 @@ public class OrderListTestFrame extends JFrame {
 	 */
 	public OrderListTestFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 401, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
+		
+		orderListPanel = new OrderListPanel();
+		tabbedPane.addTab("New tab", null, orderListPanel, null);
+		orderDetailPanel = new OrderDetailPanel();
+		tabbedPane.addTab("New tab", null, orderDetailPanel, null);
+		
+		/************************************프레임 객체의주소를 패널에 set**********/
+		orderListPanel.setFrame(this);
+		
+		
+		orderDetailPanel.setFrame(this);
+		
+		orderPanel = new OrderPanel();
+		tabbedPane.addTab("New tab", null, orderPanel, null);
+		
 	}
 
 }

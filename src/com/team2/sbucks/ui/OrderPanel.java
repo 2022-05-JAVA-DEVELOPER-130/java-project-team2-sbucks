@@ -27,17 +27,19 @@ import javax.swing.JScrollPane;
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class OrderPaneljiHun extends JPanel {
+public class OrderPanel extends JPanel {
 	private OrderService orderService;
 	private CartService cartService;
 	private ProductService productService;
-	private JTextField totPriceTF;
-	private JTextField productNameTF;
+	Product product;
+	
+	int product_no=3;
 	/**
 	 * Create the panel.
 	 */
-	public OrderPaneljiHun() {
+	public OrderPanel() {
 		
 		JLabel coffeeLB = new JLabel("에스프레소");
 		
@@ -54,11 +56,14 @@ public class OrderPaneljiHun extends JPanel {
 		JComboBox countCB = new JComboBox();
 		countCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		
-		JButton cartJoinNB = new JButton("담기");
-		cartJoinNB.addActionListener(new ActionListener() {
+		
+		
+		JButton cartJoinBtn = new JButton("담기");
+		cartJoinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Product product = productService.selectByNo(1);
+					Product newProduct=new Product();
+					//Product product = productService.selectByNo(product_no);
 					cartService.insertCart(null);//카트 수량체크 후 담기 메소드. 매개변수 어디서 끌고오는가
 				} catch (Exception e2) {
 
@@ -67,8 +72,8 @@ public class OrderPaneljiHun extends JPanel {
 			}
 		});
 		
-		JButton orderNB = new JButton("주문하기");
-		orderNB.addActionListener(new ActionListener() {
+		JButton orderBtn = new JButton("주문하기");
+		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Product product = productService.selectByNo(1);
@@ -80,89 +85,99 @@ public class OrderPaneljiHun extends JPanel {
 			}
 		});
 		
-		totPriceTF = new JTextField();
-		totPriceTF.setEditable(false);
-		totPriceTF.setText("총 가격");
-		totPriceTF.setColumns(10);
+		JLabel item_imgLB = new JLabel("상품이미지");
 		
-		JButton optionUpdateBtn = new JButton("확인");
-		optionUpdateBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		
-		productNameTF = new JTextField();
-		productNameTF.setEditable(false);
-		productNameTF.setText("상품 이름");
-		productNameTF.setColumns(10);
+		JLabel item_nameLB = new JLabel("상품이름");
+		
+		JLabel totalPriceLB = new JLabel("총가격");
+		
+		JLabel item_PriceLB = new JLabel("Price원");
+		
+		JButton o_CancelBtn = new JButton("취소");
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(54)
+					.addComponent(orderBtn, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+					.addGap(69)
+					.addComponent(cartJoinBtn, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(89)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(88)
 							.addComponent(coffeeLB, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 							.addGap(65)
 							.addComponent(coffeeCB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(88)
 							.addComponent(sypUpLB, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 							.addGap(65)
 							.addComponent(sypUpCB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(88)
 							.addComponent(countLB, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 							.addGap(65)
-							.addComponent(countCB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(127)
-							.addComponent(optionUpdateBtn, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(127)
-							.addComponent(totPriceTF, GroupLayout.PREFERRED_SIZE, 218, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(54)
-							.addComponent(orderNB, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-							.addGap(69)
-							.addComponent(cartJoinNB, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(34)
-							.addComponent(productNameTF, GroupLayout.PREFERRED_SIZE, 303, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(25, Short.MAX_VALUE))
+							.addComponent(countCB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(134)
+					.addComponent(item_imgLB, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+					.addComponent(o_CancelBtn))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(151)
+					.addComponent(item_nameLB))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(79)
+					.addComponent(totalPriceLB)
+					.addGap(48)
+					.addComponent(item_PriceLB, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(23)
-					.addComponent(productNameTF, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-					.addGap(52)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(coffeeLB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addComponent(coffeeCB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
-					.addGap(32)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(sypUpLB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(2)
-							.addComponent(sypUpCB, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
-					.addGap(28)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(countLB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+							.addGap(24)
+							.addComponent(item_imgLB, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(item_nameLB)
+							.addGap(30)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(coffeeLB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+								.addComponent(coffeeCB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+							.addGap(32)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(sypUpLB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(2)
+									.addComponent(sypUpCB, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
+							.addGap(28)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(countLB, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(2)
+									.addComponent(countCB, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(2)
-							.addComponent(countCB, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
-					.addGap(26)
-					.addComponent(optionUpdateBtn)
-					.addGap(26)
-					.addComponent(totPriceTF, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addGap(23)
+							.addContainerGap()
+							.addComponent(o_CancelBtn)))
+					.addGap(62)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(totalPriceLB)
+						.addComponent(item_PriceLB))
+					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(orderNB)
-						.addComponent(cartJoinNB)))
+						.addComponent(orderBtn)
+						.addComponent(cartJoinBtn)))
 		);
 		setLayout(groupLayout);
 
 	}
+	
+//생성자끝
+	
+
+	
 }
