@@ -170,6 +170,8 @@ public class ProductAllPanel extends JPanel {
 			
 			JLabel lblNewLabel_3 = new JLabel("전체상품");
 			lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+			
+			
 		}
 		
 	}

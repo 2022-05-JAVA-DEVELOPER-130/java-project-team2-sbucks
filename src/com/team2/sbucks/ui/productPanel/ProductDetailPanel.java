@@ -44,11 +44,20 @@ public class ProductDetailPanel extends JPanel {
 					productPriceTF.setText(mainFrame.selectedProduct.getProduct_price()+"");
 					productAllergyTF.setText(mainFrame.selectedProduct.getProduct_allergy());
 					
-									
+					//productKalTF.setText(mainFrame.selectedProductDetail.getNa()+"");
+					
+					
+					
+					JLabel lblNewLabel_4 = new JLabel("");
+					lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+					lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/"+mainFrame.selectedProduct.getProduct_name()+".jpg")));
+					lblNewLabel_4.setBounds(71, 10, 213, 151);
+					add(lblNewLabel_4);
+					
 					
 				}
 				if(mainFrame.selectedProductDetail!=null) {
-					productKalTF.setText(mainFrame.selectedProductDetail.getKal()+"");
+					productKalTF.setText(productKalTF+"");
 					productCaffineTF.setText(mainFrame.selectedProductDetail.getCaffeine()+"");
 					productNaTF.setText(mainFrame.selectedProductDetail.getNa()+"");
 				}
@@ -132,13 +141,13 @@ public class ProductDetailPanel extends JPanel {
 		productNaTF.setColumns(10);
 		
 		
-		
+		/*
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
 		lblNewLabel_4.setBounds(71, 10, 213, 151);
 		add(lblNewLabel_4);
-		
+		*/
 		
 		
 		
