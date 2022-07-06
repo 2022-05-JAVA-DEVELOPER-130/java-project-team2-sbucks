@@ -176,8 +176,8 @@ public class OrderPanel extends JPanel {
 				} catch (Exception e2) {
 
 				}
-				
-				
+		
+		mainFrame.OrderTabbedPane.setSelectedIndex(3);	
 			}
 		});
 		
@@ -277,13 +277,13 @@ public class OrderPanel extends JPanel {
 	public void displayPrice() {
 		int coffeCount=Integer.parseInt((String)coffeeCB.getSelectedItem());
 		int syrupCount=Integer.parseInt((String)sypUpCB.getSelectedItem());
-		int shotCount=Integer.parseInt((String)countCB.getSelectedItem());
+		int shopCount=Integer.parseInt((String)countCB.getSelectedItem());
 		/*
 		System.out.println(coffeCount);
 		System.out.println(syrupCount);
 		System.out.println(shotCount);
 		*/					
-		int totPrice=(product.getProduct_price()*shotCount)+(product.getProduct_syrupprice()*syrupCount)+(product.getProduct_espressoprice()*coffeCount);
+		int totPrice=(product.getProduct_price()*shopCount)+(product.getProduct_syrupprice()*syrupCount)+(product.getProduct_espressoprice()*coffeCount);
 		DecimalFormat df=new DecimalFormat("#,###,###");;
 		String  strPrice=df.format(totPrice);
 		priceLB.setText(strPrice);

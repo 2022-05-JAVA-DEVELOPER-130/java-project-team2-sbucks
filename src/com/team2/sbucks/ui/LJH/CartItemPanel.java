@@ -7,6 +7,7 @@ import javax.swing.JScrollPane;
 import com.team2.sbucks.dto.Cart;
 import com.team2.sbucks.service.CartService;
 import com.team2.sbucks.service.OrderService;
+import com.team2.sbucks.ui.MainFrame;
 
 import javax.swing.JLabel;
 import java.awt.Dimension;
@@ -24,21 +25,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.awt.event.ItemEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class CartItemPanel extends JPanel {
 	private CartService cartService;
 	private OrderService orderService;
 
-	int memberNo = 2;
+	int memberNo;
 	int cartNo = 0;
 	private JPanel cartItemBasicPanel;
 	private JPanel cartItem_panel;
 	private List<Cart> cartLastList;
-	
+
 	private List<JPanel> panelList;
 	private List<Integer> cartNoList;
 
-	private CartTestFrame mainFrame;
+	private MainFrame mainFrame;
 	private JPanel panel;
 	private JLabel lblNewLabel;
 	private JPanel panel_1;
@@ -100,15 +103,15 @@ public class CartItemPanel extends JPanel {
 		deleteSelectBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					for (int i=0;i<panelList.size();i++) {
+					for (int i = 0; i < panelList.size(); i++) {
 						//panelList.get(i).
-						if(cartCHB_1.isSelected()) {
+						if (cartCHB_1.isSelected()) {
 							cartLastList.add(cartService.selectCart(cartNoList.get(i)));
 						}
-						
+
 					}
 					for (int i = 0; i < cartLastList.size(); i++) {
-						int cartNo=cartLastList.get(i).getCart_no();
+						int cartNo = cartLastList.get(i).getCart_no();
 						cartService.deleteCartItem(cartNo);
 					}
 					cartListDisplay(memberNo);
@@ -123,9 +126,10 @@ public class CartItemPanel extends JPanel {
 		add(scrollPane, BorderLayout.CENTER);
 
 		cartItemBasicPanel = new JPanel();
+
 		cartItemBasicPanel.setPreferredSize(new Dimension(10, 800));
 		scrollPane.setViewportView(cartItemBasicPanel);
-
+		/***************/
 		cartItem_panel = new JPanel();
 		cartItem_panel.setPreferredSize(new Dimension(400, 180));
 		cartItemBasicPanel.add(cartItem_panel);
@@ -182,7 +186,7 @@ public class CartItemPanel extends JPanel {
 		c_addsyrupLB = new JLabel("추가 시럽");
 		c_addsyrupLB.setBounds(194, 75, 57, 15);
 		cartItem_panel.add(c_addsyrupLB);
-
+		/******************/
 		panel_2 = new JPanel();
 		add(panel_2, BorderLayout.SOUTH);
 		panel_2.setLayout(new BorderLayout(0, 0));
@@ -200,7 +204,7 @@ public class CartItemPanel extends JPanel {
 				try {
 					orderService.allCartToOrder(memberNo);
 					System.out.println("주문완료");
-					cartListDisplay(memberNo);
+					cartListDisplay(mainFrame.memberNo);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 					// TODO: handle exception
@@ -213,7 +217,7 @@ public class CartItemPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					orderService.cartitemToOrder(memberNo, cartLastList);
-					cartListDisplay(memberNo);
+					cartListDisplay(mainFrame.memberNo);
 
 				} catch (Exception e2) {
 					e2.printStackTrace();
@@ -224,16 +228,17 @@ public class CartItemPanel extends JPanel {
 
 	}// 생성자 끝
 
+	
+
 	public void cartListDisplay(int memberNo) throws Exception {
-		List<Cart> cartList = new ArrayList<Cart>();
-		cartList = cartService.printCart(memberNo);
+		
+		List<Cart> cartList  = cartService.printCart(memberNo);
 
 		cartItemBasicPanel.removeAll();
 
 		for (int i = 0; i < cartList.size(); i++) {
 			Cart cart = cartList.get(i);
 			cartItem_panel = new JPanel();
-
 
 			cartItem_panel.setPreferredSize(new Dimension(400, 180));
 			cartItemBasicPanel.add(cartItem_panel);
@@ -296,7 +301,7 @@ public class CartItemPanel extends JPanel {
 					+ cart.getProduct_syrup() * cart.getProduct().getProduct_syrupprice()) + "원");
 			c_priceLB.setBounds(194, 155, 57, 15);
 			cartItem_panel.add(c_priceLB);
-			
+
 			//panelList.add(cartItem_panel);
 			//cartNoList.add(cart.getCart_no());
 		}
@@ -304,26 +309,18 @@ public class CartItemPanel extends JPanel {
 		cartCountLB = new JLabel("총 " + cartList.size() + " 개");
 		panel_2.add(cartCountLB, BorderLayout.WEST);
 
-		/*JPanel cartCountPanel = new JPanel();
-		add(cartCountPanel, BorderLayout.SOUTH);
-		cartCountPanel.setLayout(new BorderLayout(0, 0));
-		
-		JLabel cartCountLB = new JLabel("총" + cartList.size() + "수");
-		cartCountLB.setFont(new Font("굴림", Font.PLAIN, 19));
-		cartCountPanel.add(cartCountLB, BorderLayout.NORTH);*/
-
 	}
 
-	public void setFrame(CartTestFrame mainFrame) {
+	public void setFrame(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 
 		try {
 			if (mainFrame.memberNo > 0) {
-				cartListDisplay(mainFrame.memberNo);
+				cartListDisplay(1);
+				System.out.println("dsadas");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }

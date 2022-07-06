@@ -19,6 +19,9 @@ import com.team2.sbucks.ui.order.CartPanel;
 import com.team2.sbucks.ui.memberPanel.LoginPanel;
 import com.team2.sbucks.ui.memberPanel.JoinPanel;
 import com.team2.sbucks.ui.memberPanel.UpdatePanel;
+import com.team2.sbucks.ui.LJH.CartItemPanel;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class MainFrame extends JFrame {
 
@@ -39,10 +42,10 @@ public class MainFrame extends JFrame {
 	public int memberNo=2;
 	public int orderNo;
 	public JTabbedPane MemberTabbedPane;
-	public CartPanel cartPanel;
 	public JoinPanel joinPanel;
 	public LoginPanel loginPanel;
 	public UpdatePanel updatePanel;
+	public CartItemPanel cartItemPanel;
 	
 
 	/**
@@ -122,8 +125,9 @@ public class MainFrame extends JFrame {
 		orderPanel = new OrderPanel();
 		OrderTabbedPane.addTab("주문", null, orderPanel, null);
 		
-		cartPanel = new CartPanel();
-		OrderTabbedPane.addTab("장바구니", null, cartPanel, null);
+	    cartItemPanel = new CartItemPanel();
+	    
+		OrderTabbedPane.addTab("장바구니", null, cartItemPanel, null);
 		
 		/*************프레임의객체의주소를 패널에set ************/
 		ProductAllPanel.setFrame(this);
@@ -131,11 +135,22 @@ public class MainFrame extends JFrame {
 		orderDetailPanel.setFrame(this);
 		orderListPanel.setFrame(this);
 		orderPanel.setFrame(this);
-		cartPanel.setFrame(this);
+		
 		joinPanel.setFrame(this);
+		cartItemPanel.setFrame(this);
 		
 		
 		
 		/****************************************************/
+	}
+	
+	public void test() {
+		try {
+			cartItemPanel.cartListDisplay(memberNo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
