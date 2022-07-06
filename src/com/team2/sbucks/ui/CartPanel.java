@@ -50,6 +50,7 @@ public class CartPanel extends JPanel {
 	private JTextField espressonumTF;
 	private JTextField productnameTF;
 	private JTextField productnumTF;
+	
 	public CartPanel() {
 		cartService=new CartService();
 		setLayout(null);
@@ -244,6 +245,7 @@ public class CartPanel extends JPanel {
 		productpriceTF.setEnabled(false);
 		productpriceTF.setColumns(10);
 		productpriceTF.setBounds(270, 150, 88, 21);
+		
 		producPN_1.add(productpriceTF);
 		
 		syrupnumTF = new JTextField();
@@ -278,6 +280,16 @@ public class CartPanel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 650, 370, -499);
 		add(scrollPane);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+		btnNewButton.setBounds(10, 95, 36, 23);
+		add(btnNewButton);
 	}
 }
 
