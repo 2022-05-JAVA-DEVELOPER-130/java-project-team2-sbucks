@@ -150,6 +150,10 @@ public class ProductDetailPanel extends JPanel {
 		orderBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				
+				
+				/*******************************************/
 				mainFrame.tabbedPane.setSelectedIndex(2);
 				mainFrame.OrderTabbedPane.setSelectedIndex(2);
 			}
