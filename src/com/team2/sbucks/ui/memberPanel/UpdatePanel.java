@@ -11,6 +11,7 @@ import com.team2.sbucks.dto.Login;
 import com.team2.sbucks.dto.Member;
 import com.team2.sbucks.service.LoginService;
 import com.team2.sbucks.service.MemberService;
+import com.team2.sbucks.ui.MainFrame;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -33,6 +34,7 @@ public class UpdatePanel extends JPanel {
 	private JTextField updateEmail_TF;
 	private JTextField updateNickname_TF;
 	private JTextField updateLoc_TF;
+	private MainFrame mainFrame;
 	
 	/**********멤버서비스 객체선언*************/
 	private MemberService memberService;
@@ -322,6 +324,11 @@ public void loginProcess(String id)throws Exception {
 	Member loginSuccessMember=memberService.findById(id);
 	loginMember = loginSuccessMember;
 	//setTitle(loginMember.getMember_id());   --탭 생성시
+	
+	
+}
+public void setFrame(MainFrame mainFrame) {
+	this.mainFrame = mainFrame;
 	
 	
 }
