@@ -13,6 +13,7 @@ import com.team2.sbucks.dto.Login;
 import com.team2.sbucks.dto.Member;
 import com.team2.sbucks.service.LoginService;
 import com.team2.sbucks.service.MemberService;
+import com.team2.sbucks.ui.MainFrame;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -38,6 +39,7 @@ public class JoinPanel extends JPanel {
 	private JTextField joinNickname_TF;
 	private JPasswordField joinPassword_TF;
 	private JPasswordField joinCpassword_TF;
+	private MainFrame mainFrame;
 	
 	/**********멤버서비스 객체선언*************/
 	private MemberService memberService;
@@ -381,5 +383,10 @@ public class JoinPanel extends JPanel {
 		memberService = new MemberService();
 		loginService = new LoginService();
 
+	}
+	public void setFrame(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
+		
+		
 	}
 }//생성자끝

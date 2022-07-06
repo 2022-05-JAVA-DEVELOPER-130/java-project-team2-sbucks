@@ -17,11 +17,11 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.CardLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import net.miginfocom.swing.MigLayout;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import com.team2.sbucks.ui.MainFrame;
+
 import java.awt.Dimension;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -34,6 +34,7 @@ public class CartPanel extends JPanel {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -306,5 +307,8 @@ public class CartPanel extends JPanel {
 		);
 		panel_3.setLayout(gl_panel_3);
 
+	}
+	public void setFrame(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
 	}
 }

@@ -7,6 +7,7 @@ import com.team2.sbucks.dto.Login;
 import com.team2.sbucks.dto.Member;
 import com.team2.sbucks.service.LoginService;
 import com.team2.sbucks.service.MemberService;
+import com.team2.sbucks.ui.MainFrame;
 
 import java.awt.Font;
 
@@ -28,6 +29,7 @@ public class LoginPanel extends JPanel {
 	private JTextField id_TF;
 	private JLabel idFalse_LB;
 	private JLabel passwordFalse_LB;
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -137,4 +139,9 @@ public class LoginPanel extends JPanel {
 		loginService = new LoginService();
 
 	}
+	public void setFrame(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
+	}	
+		
+	
 }// 생성자 끝

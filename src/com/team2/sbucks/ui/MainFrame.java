@@ -15,6 +15,10 @@ import com.team2.sbucks.ui.productPanel.ProductAllPanel;
 import com.team2.sbucks.ui.productPanel.ProductDetailPanel;
 import java.awt.Toolkit;
 import com.team2.sbucks.ui.LJH.OrderPanel;
+import com.team2.sbucks.ui.order.CartPanel;
+import com.team2.sbucks.ui.memberPanel.LoginPanel;
+import com.team2.sbucks.ui.memberPanel.JoinPanel;
+import com.team2.sbucks.ui.memberPanel.UpdatePanel;
 
 public class MainFrame extends JFrame {
 
@@ -34,6 +38,12 @@ public class MainFrame extends JFrame {
 	public OrderPanel orderPanel;
 	public int memberNo=2;
 	public int orderNo;
+	public JTabbedPane MemberTabbedPane;
+	public CartPanel cartPanel;
+	public JoinPanel joinPanel;
+	public LoginPanel loginPanel;
+	public UpdatePanel updatePanel;
+	
 
 	/**
 	 * Launch the application.
@@ -69,6 +79,19 @@ public class MainFrame extends JFrame {
 		
 		MemberPanel = new JPanel();
 		tabbedPane.addTab("회원", null, MemberPanel, null);
+		MemberPanel.setLayout(new BorderLayout(0, 0));
+		
+		MemberTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		MemberPanel.add(MemberTabbedPane);
+		
+		joinPanel = new JoinPanel();
+		MemberTabbedPane.addTab("회원가입", null, joinPanel, null);
+		
+		LoginPanel loginPanel = new LoginPanel();
+		MemberTabbedPane.addTab("로그인", null, loginPanel, null);
+		
+		UpdatePanel updatePanel = new UpdatePanel();
+		MemberTabbedPane.addTab("회원정보", null, updatePanel, null);
 		
 		Product = new JPanel();
 		tabbedPane.addTab("상품", null, Product, null);
@@ -99,13 +122,20 @@ public class MainFrame extends JFrame {
 		orderPanel = new OrderPanel();
 		OrderTabbedPane.addTab("주문", null, orderPanel, null);
 		
+		cartPanel = new CartPanel();
+		OrderTabbedPane.addTab("장바구니", null, cartPanel, null);
+		
 		/*************프레임의객체의주소를 패널에set ************/
 		ProductAllPanel.setFrame(this);
 		ProductDetailPanel.setFrame(this);
 		orderDetailPanel.setFrame(this);
 		orderListPanel.setFrame(this);
 		orderPanel.setFrame(this);
+		cartPanel.setFrame(this);
+		joinPanel.setFrame(this);
+		
+		
+		
 		/****************************************************/
 	}
-
 }
