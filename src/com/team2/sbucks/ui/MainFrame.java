@@ -132,9 +132,8 @@ public class MainFrame extends JFrame {
 		orderListPanel.setFrame(this);
 		orderPanel.setFrame(this);
 		cartPanel.setFrame(this);
-		loginPanel.setFrame(this);
 		joinPanel.setFrame(this);
-		updatePanel.setFrame(this);
+		
 		
 		
 		/****************************************************/
