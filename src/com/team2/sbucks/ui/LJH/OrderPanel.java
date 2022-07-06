@@ -72,6 +72,7 @@ public class OrderPanel extends JPanel {
 				
 				item_imgLB.setIcon(new ImageIcon(OrderPanel.class.getResource("/images/"+mainFrame.selectedProduct.getProduct_name()+".jpg")));
 				item_nameLB.setText(mainFrame.selectedProduct.getProduct_name());
+				/*총가격*/
 				priceLB.setText(mainFrame.selectedProduct.getProduct_price()+"");	
 				
 			}
