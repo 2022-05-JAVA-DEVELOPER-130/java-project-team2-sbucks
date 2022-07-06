@@ -107,7 +107,7 @@ public class MemberService {
 		} else {
 			check = false;
 		}
-		return false;
+		return check;
 	}
 	
 

@@ -38,6 +38,7 @@ public class ProductDetailPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ProductDetailPanel() {
+		setBackground(new Color(255, 255, 255));
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
@@ -63,86 +64,98 @@ public class ProductDetailPanel extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("상품이름");
-		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel.setBounds(42, 196, 57, 15);
+		lblNewLabel.setBounds(62, 200, 57, 15);
+		lblNewLabel.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("상품상세");
+		lblNewLabel_1.setBounds(44, 154, 70, 30);
 		lblNewLabel_1.setForeground(new Color(0, 100, 0));
-		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(42, 156, 115, 15);
+		lblNewLabel_1.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 18));
 		add(lblNewLabel_1);
 		
 		productNameTF = new JTextField();
-		productNameTF.setBounds(157, 195, 154, 21);
+		productNameTF.setBackground(new Color(245, 245, 245));
+		productNameTF.setBounds(139, 197, 154, 21);
 		add(productNameTF);
 		productNameTF.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("상품가격");
-		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_2.setBounds(42, 226, 57, 15);
+		lblNewLabel_2.setBounds(62, 230, 57, 15);
+		lblNewLabel_2.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		add(lblNewLabel_2);
 		
 		productPriceTF = new JTextField();
-		productPriceTF.setBounds(157, 226, 154, 21);
+		productPriceTF.setBackground(new Color(245, 245, 245));
+		productPriceTF.setBounds(139, 228, 154, 21);
 		add(productPriceTF);
 		productPriceTF.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("알러지정보");
-		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(42, 258, 84, 15);
+		lblNewLabel_3.setBounds(52, 262, 84, 15);
+		lblNewLabel_3.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		add(lblNewLabel_3);
 		
 		productAllergyTF = new JTextField();
-		productAllergyTF.setBounds(157, 257, 154, 21);
+		productAllergyTF.setBackground(new Color(245, 245, 245));
+		productAllergyTF.setBounds(139, 259, 154, 21);
 		add(productAllergyTF);
 		productAllergyTF.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("영양정보");
+		lblNewLabel_6.setBounds(41, 308, 85, 30);
 		lblNewLabel_6.setForeground(new Color(0, 100, 0));
-		lblNewLabel_6.setFont(new Font("맑은 고딕", Font.BOLD, 16));
-		lblNewLabel_6.setBounds(42, 309, 85, 30);
+		lblNewLabel_6.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 18));
 		add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("칼로리");
-		lblNewLabel_7.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_7.setBounds(42, 349, 57, 15);
+		lblNewLabel_7.setBounds(72, 352, 57, 15);
+		lblNewLabel_7.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("카페인");
-		lblNewLabel_8.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_8.setBounds(42, 382, 57, 15);
+		lblNewLabel_8.setBounds(72, 385, 57, 15);
+		lblNewLabel_8.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("나트륨");
-		lblNewLabel_9.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_9.setBounds(42, 418, 57, 15);
+		lblNewLabel_9.setBounds(72, 421, 57, 15);
+		lblNewLabel_9.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		add(lblNewLabel_9);
 		
 		productKalTF = new JTextField();
-		productKalTF.setBounds(157, 348, 154, 21);
+		productKalTF.setBackground(new Color(245, 245, 245));
+		productKalTF.setBounds(139, 349, 154, 21);
 		add(productKalTF);
 		productKalTF.setColumns(10);
 		
 		productCaffineTF = new JTextField();
-		productCaffineTF.setBounds(157, 381, 154, 21);
+		productCaffineTF.setBackground(new Color(245, 245, 245));
+		productCaffineTF.setBounds(139, 382, 154, 21);
 		add(productCaffineTF);
 		productCaffineTF.setColumns(10);
 		
 		productNaTF = new JTextField();
-		productNaTF.setBounds(157, 417, 154, 21);
+		productNaTF.setBackground(new Color(245, 245, 245));
+		productNaTF.setBounds(139, 418, 154, 21);
 		add(productNaTF);
 		productNaTF.setColumns(10);
 		
 		
 		
 		lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setBounds(80, 10, 213, 151);
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/(ICE)아메리카노.jpg")));
-		lblNewLabel_4.setBounds(71, 10, 213, 151);
 		add(lblNewLabel_4);
 		
-		JButton orderBtn = new JButton("주문하기");
+		JButton orderBtn = new JButton("");
+		orderBtn.setBorderPainted(false);
+		orderBtn.setContentAreaFilled(false);
+		orderBtn.setFocusPainted(false);
+		orderBtn.setBorder(null);
+		orderBtn.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/주문하기-1.png")));
+		orderBtn.setBounds(78, 461, 197, 41);
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -158,7 +171,6 @@ public class ProductDetailPanel extends JPanel {
 				mainFrame.OrderTabbedPane.setSelectedIndex(2);
 			}
 		});
-		orderBtn.setBounds(87, 463, 197, 23);
 		add(orderBtn);
 		
 		

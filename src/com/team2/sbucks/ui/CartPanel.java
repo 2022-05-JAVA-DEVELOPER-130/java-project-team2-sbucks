@@ -142,7 +142,8 @@ public class CartPanel extends JPanel {
 		lblNewLabel_1.setBounds(22, 156, 67, 26);
 		add(lblNewLabel_1);
 		
-		JButton productchoicedeleteBtn = new JButton("선택삭제");
+		JButton productchoicedeleteBtn = new JButton("");
+		productchoicedeleteBtn.setIcon(new ImageIcon(CartPanel.class.getResource("/images/선택삭제-2.png")));
 		productchoicedeleteBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -160,11 +161,16 @@ public class CartPanel extends JPanel {
 			}
 		});
 		productchoicedeleteBtn.setContentAreaFilled(false);
+		productchoicedeleteBtn.setBorderPainted(false);
+		productchoicedeleteBtn.setContentAreaFilled(false);
+		productchoicedeleteBtn.setFocusPainted(false);
+		productchoicedeleteBtn.setBorder(null);
 		productchoicedeleteBtn.setFont(new Font("굴림", Font.PLAIN, 8));
-		productchoicedeleteBtn.setBounds(218, 158, 65, 27);
+		productchoicedeleteBtn.setBounds(199, 157, 84, 27);
 		add(productchoicedeleteBtn);
 		
-		productalldeleteBtn = new JButton("전체삭제");
+		productalldeleteBtn = new JButton("");
+		productalldeleteBtn.setIcon(new ImageIcon(CartPanel.class.getResource("/images/전체삭제-2.png")));
 		productalldeleteBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -184,8 +190,13 @@ public class CartPanel extends JPanel {
 			}
 		});
 		productalldeleteBtn.setContentAreaFilled(false);
+		productalldeleteBtn.setContentAreaFilled(false);
+		productalldeleteBtn.setBorderPainted(false);
+		productalldeleteBtn.setContentAreaFilled(false);
+		productalldeleteBtn.setFocusPainted(false);
+		productalldeleteBtn.setBorder(null);
 		productalldeleteBtn.setFont(new Font("굴림", Font.PLAIN, 8));
-		productalldeleteBtn.setBounds(281, 158, 67, 27);
+		productalldeleteBtn.setBounds(288, 157, 67, 27);
 		add(productalldeleteBtn);
 		
 		JPanel panel_3 = new JPanel();

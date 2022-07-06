@@ -21,6 +21,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.Color;
 
 public class OrderListPanel extends JPanel {
 	private JPanel orderListPanel;
@@ -45,22 +46,25 @@ public class OrderListPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public OrderListPanel() {
+		setBackground(new Color(255, 255, 255));
 		orderService = new OrderService();
 		setLayout(new BorderLayout(0, 0));
 
 		lblNewLabel = new JLabel("주문 내역");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 26));
+		lblNewLabel.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 31));
 		add(lblNewLabel, BorderLayout.NORTH);
 
 		scrollPane = new JScrollPane();
 		add(scrollPane, BorderLayout.CENTER);
 
 		orderListBasicPanel = new JPanel();
+		orderListBasicPanel.setBackground(new Color(255, 255, 255));
 		
 		orderListBasicPanel.setPreferredSize(new Dimension(10, 800));
 		scrollPane.setViewportView(orderListBasicPanel);
 
 		orderListPanel = new JPanel();
+		orderListPanel.setBackground(new Color(255, 255, 255));
 		orderListPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -77,22 +81,27 @@ public class OrderListPanel extends JPanel {
 		orderListPanel.setLayout(null);
 
 		p_NameLB_1 = new JLabel("상품 이름");
+		p_NameLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		p_NameLB_1.setBounds(144, 26, 139, 15);
 		orderListPanel.add(p_NameLB_1);
 
 		o_DateLB_1 = new JLabel("주문 날짜");
+		o_DateLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		o_DateLB_1.setBounds(144, 64, 92, 15);
 		orderListPanel.add(o_DateLB_1);
 
 		o_PriceLB_1 = new JLabel("주문금액");
+		o_PriceLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		o_PriceLB_1.setBounds(298, 64, 57, 15);
 		orderListPanel.add(o_PriceLB_1);
 
 		p_imgLB_1 = new JLabel("이미지");
+		p_imgLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		p_imgLB_1.setBounds(41, 10, 77, 80);
 		orderListPanel.add(p_imgLB_1);
 
 		o_NoLB_1 = new JLabel("주문번호");
+		o_NoLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		o_NoLB_1.setBounds(267, 10, 107, 15);
 		orderListPanel.add(o_NoLB_1);
 

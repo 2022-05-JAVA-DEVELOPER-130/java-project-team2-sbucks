@@ -27,6 +27,7 @@ import java.util.List;
 import java.awt.event.ItemEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.Color;
 
 public class CartItemPanel extends JPanel {
 	private CartService cartService;
@@ -66,25 +67,33 @@ public class CartItemPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public CartItemPanel() {
+		setBackground(new Color(255, 255, 255));
 		cartService = new CartService();
 		orderService = new OrderService();
 		cartLastList = new ArrayList<Cart>();
-
-		setLayout(new BorderLayout(0, 0));
+		setLayout(null);
 
 		panel = new JPanel();
-		add(panel, BorderLayout.NORTH);
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(0, 0, 450, 66);
+		add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
 
 		lblNewLabel = new JLabel("장바구니");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 31));
+		lblNewLabel.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 31));
 		panel.add(lblNewLabel);
 
 		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 
-		deleteAllBtn = new JButton("전체 비우기");
+		deleteAllBtn = new JButton("");
+		deleteAllBtn.setBorderPainted(false);
+		deleteAllBtn.setContentAreaFilled(false);
+		deleteAllBtn.setFocusPainted(false);
+		deleteAllBtn.setBorder(null);
+		deleteAllBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/전체삭제-2.png")));
 		deleteAllBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -99,7 +108,12 @@ public class CartItemPanel extends JPanel {
 		});
 		panel_1.add(deleteAllBtn, BorderLayout.EAST);
 
-		deleteSelectBtn = new JButton("선택 삭제");
+		deleteSelectBtn = new JButton("");
+		deleteSelectBtn .setBorderPainted(false);
+		deleteSelectBtn .setContentAreaFilled(false);
+		deleteSelectBtn .setFocusPainted(false);
+		deleteSelectBtn .setBorder(null);
+		deleteSelectBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/선택삭제-2.png")));
 		deleteSelectBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -123,23 +137,29 @@ public class CartItemPanel extends JPanel {
 		panel_1.add(deleteSelectBtn, BorderLayout.WEST);
 
 		scrollPane = new JScrollPane();
-		add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setBackground(new Color(255, 255, 255));
+		scrollPane.setBounds(0, 66, 450, 464);
+		add(scrollPane);
 
 		cartItemBasicPanel = new JPanel();
+		cartItemBasicPanel.setBackground(new Color(255, 255, 255));
 
 		cartItemBasicPanel.setPreferredSize(new Dimension(10, 800));
 		scrollPane.setViewportView(cartItemBasicPanel);
 		/***************/
 		cartItem_panel = new JPanel();
+		cartItem_panel.setBackground(new Color(255, 255, 255));
 		cartItem_panel.setPreferredSize(new Dimension(400, 180));
 		cartItemBasicPanel.add(cartItem_panel);
 		cartItem_panel.setLayout(null);
 
 		c_imgLB_1 = new JLabel("이미지");
+		c_imgLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_imgLB_1.setBounds(62, 41, 106, 108);
 		cartItem_panel.add(c_imgLB_1);
 
 		c_itemNameLB_1 = new JLabel("상품이름");
+		c_itemNameLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_itemNameLB_1.setBounds(194, 20, 136, 15);
 		cartItem_panel.add(c_itemNameLB_1);
 
@@ -168,36 +188,53 @@ public class CartItemPanel extends JPanel {
 		});
 
 		c_espressoLB = new JLabel("추가 샷 숫자");
+		c_espressoLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_espressoLB.setBounds(270, 41, 57, 15);
 		cartItem_panel.add(c_espressoLB);
 
 		c_syrupLB = new JLabel("추가시럽 숫자");
+		c_syrupLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_syrupLB.setBounds(270, 75, 57, 15);
 		cartItem_panel.add(c_syrupLB);
 
 		c_priceLB = new JLabel("가격");
+		c_priceLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_priceLB.setBounds(194, 155, 57, 15);
 		cartItem_panel.add(c_priceLB);
 
 		c_addshotLB = new JLabel("추가 샷");
+		c_addshotLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_addshotLB.setBounds(194, 41, 57, 15);
 		cartItem_panel.add(c_addshotLB);
 
 		c_addsyrupLB = new JLabel("추가 시럽");
+		c_addsyrupLB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		c_addsyrupLB.setBounds(194, 75, 57, 15);
 		cartItem_panel.add(c_addsyrupLB);
 		/******************/
 		panel_2 = new JPanel();
-		add(panel_2, BorderLayout.SOUTH);
+		panel_2.setBackground(new Color(255, 255, 255));
+		panel_2.setBounds(0, 530, 450, 29);
+		add(panel_2);
 		panel_2.setLayout(new BorderLayout(0, 0));
 
 		cartCountLB = new JLabel("총 몇개");
 		panel_2.add(cartCountLB, BorderLayout.WEST);
 
-		selectOrderBtn = new JButton("선택 주문");
+		selectOrderBtn = new JButton("");
+		selectOrderBtn.setBorderPainted(false);
+		selectOrderBtn.setContentAreaFilled(false);
+		selectOrderBtn.setFocusPainted(false);
+		selectOrderBtn.setBorder(null);
+		selectOrderBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/선택주문1.png")));
 		panel_2.add(selectOrderBtn, BorderLayout.EAST);
 
-		allOrderBtn = new JButton("전체 주문");
+		allOrderBtn = new JButton("");
+		allOrderBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/전체주문1_2.png")));
+		allOrderBtn.setBorderPainted(false);
+		allOrderBtn.setContentAreaFilled(false);
+		allOrderBtn.setFocusPainted(false);
+		allOrderBtn.setBorder(null);
 		panel_2.add(allOrderBtn, BorderLayout.CENTER);
 		allOrderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

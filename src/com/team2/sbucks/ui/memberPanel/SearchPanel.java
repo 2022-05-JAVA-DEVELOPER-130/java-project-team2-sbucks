@@ -54,12 +54,12 @@ public class SearchPanel extends JPanel {
 		JLabel SearchTitle_LB = new JLabel("아이디/비밀번호 찾기");
 		SearchTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		SearchTitle_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 25));
-		SearchTitle_LB.setBounds(56, 16, 257, 46);
+		SearchTitle_LB.setBounds(56, 7, 257, 46);
 		add(SearchTitle_LB);
 		
 		JLabel searchID_LB = new JLabel("아이디찾기");
 		searchID_LB.setHorizontalAlignment(SwingConstants.LEFT);
-		searchID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 17));
+		searchID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 15));
 		searchID_LB.setBounds(36, 191, 88, 16);
 		add(searchID_LB);
 		
@@ -78,7 +78,7 @@ public class SearchPanel extends JPanel {
 		
 		JLabel searchPassword_LB = new JLabel("패스워드 찾기");
 		searchPassword_LB.setHorizontalAlignment(SwingConstants.LEFT);
-		searchPassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 17));
+		searchPassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 15));
 		searchPassword_LB.setBounds(36, 342, 112, 16);
 		add(searchPassword_LB);
 		
@@ -102,25 +102,25 @@ public class SearchPanel extends JPanel {
 		
 		JLabel inputEmail_LB = new JLabel("*이메일을 입력하세요.");
 		inputEmail_LB.setForeground(new Color(0, 128, 0));
-		inputEmail_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
+		inputEmail_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 9));
 		inputEmail_LB.setBounds(35, 213, 100, 16);
 		add(inputEmail_LB);
 		
-		JLabel inputPhone_TF = new JLabel("*핸드폰번호를 입력하세요.");
+		JLabel inputPhone_TF = new JLabel("*핸드폰번호를 입력하세요. * 'xxxx-xxxx'");
 		inputPhone_TF.setForeground(new Color(0, 128, 0));
-		inputPhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
-		inputPhone_TF.setBounds(35, 270, 149, 16);
+		inputPhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 9));
+		inputPhone_TF.setBounds(35, 270, 173, 16);
 		add(inputPhone_TF);
 		
 		JLabel inputID_LB = new JLabel("*아이디를 입력하세요.");
 		inputID_LB.setForeground(new Color(0, 128, 0));
-		inputID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
+		inputID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 9));
 		inputID_LB.setBounds(35, 362, 112, 16);
 		add(inputID_LB);
 		
 		JLabel inputEmail2_LB = new JLabel("*이메일을 입력하세요.");
 		inputEmail2_LB.setForeground(new Color(0, 128, 0));
-		inputEmail2_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 10));
+		inputEmail2_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 9));
 		inputEmail2_LB.setBounds(35, 419, 115, 16);
 		add(inputEmail2_LB);
 		

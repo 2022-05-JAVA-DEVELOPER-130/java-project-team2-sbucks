@@ -23,6 +23,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.Color;
 
 public class OrderDetailPanel extends JPanel {
 	private OrderService orderService;
@@ -57,14 +58,20 @@ public class OrderDetailPanel extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 
 		lblNewLabel = new JLabel("주문상세");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 31));
 		panel.add(lblNewLabel, BorderLayout.WEST);
 
-		returnOrderListBtn = new JButton("주문 내역으로 돌아가기");
+		returnOrderListBtn = new JButton("");
+		returnOrderListBtn.setBorderPainted(false);
+		returnOrderListBtn.setContentAreaFilled(false);
+		returnOrderListBtn.setFocusPainted(false);
+		returnOrderListBtn.setBorder(null);
+		returnOrderListBtn.setIcon(new ImageIcon(OrderDetailPanel.class.getResource("/images/주문내역으로 돌아가기1.png")));
 		returnOrderListBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -83,6 +90,7 @@ public class OrderDetailPanel extends JPanel {
 		add(scrollPane, BorderLayout.CENTER);
 
 		orderDetailBasicPanel = new JPanel();
+		orderDetailBasicPanel.setBackground(new Color(255, 255, 255));
 		
 		
 		
@@ -94,27 +102,34 @@ public class OrderDetailPanel extends JPanel {
 		scrollPane.setViewportView(orderDetailBasicPanel);
 		
 		orderDetailPanel = new JPanel();
+		orderDetailPanel.setBorder(null);
+		orderDetailPanel.setBackground(new Color(255, 255, 255));
 		orderDetailPanel.setPreferredSize(new Dimension(400, 150));
 		orderDetailBasicPanel.add(orderDetailPanel);
 		orderDetailPanel.setLayout(null);
 		
 		od_p_imgLB_1 = new JLabel("이미지");
+		od_p_imgLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_p_imgLB_1.setBounds(27, 18, 98, 101);
 		orderDetailPanel.add(od_p_imgLB_1);
 
 		od_p_nameLB_1 = new JLabel("상품 이름입니다~~~~~");
+		od_p_nameLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_p_nameLB_1.setBounds(158, 10, 152, 15);
 		orderDetailPanel.add(od_p_nameLB_1);
 
 		od_addELB_1 = new JLabel("추가 샷 :");
+		od_addELB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_addELB_1.setBounds(158, 53, 57, 15);
 		orderDetailPanel.add(od_addELB_1);
 
 		od_addSLB_1 = new JLabel("추가 시럽 :");
+		od_addSLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_addSLB_1.setBounds(268, 53, 75, 15);
 		orderDetailPanel.add(od_addSLB_1);
 
 		od_PriceLB_1 = new JLabel("금액");
+		od_PriceLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_PriceLB_1.setBounds(158, 104, 98, 15);
 		orderDetailPanel.add(od_PriceLB_1);
 
@@ -123,14 +138,17 @@ public class OrderDetailPanel extends JPanel {
 		orderDetailPanel.add(od_espressoLB_1);
 
 		od_syrupLB_1 = new JLabel("0");
+		od_syrupLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_syrupLB_1.setBounds(355, 53, 57, 15);
 		orderDetailPanel.add(od_syrupLB_1);
 
 		od_STMTLB_1 = new JLabel("주문상태");
+		od_STMTLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_STMTLB_1.setBounds(268, 104, 99, 15);
 		orderDetailPanel.add(od_STMTLB_1);
 
 		od_qtyLB_1 = new JLabel("수량");
+		od_qtyLB_1.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 13));
 		od_qtyLB_1.setBounds(322, 10, 57, 15);
 		orderDetailPanel.add(od_qtyLB_1);
 		

@@ -78,42 +78,42 @@ public class UpdatePanel extends JPanel {
 		
 		JLabel updateID_LB = new JLabel("아이디");
 		updateID_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateID_LB.setBounds(20, 158, 57, 15);
+		updateID_LB.setBounds(28, 159, 57, 15);
 		add(updateID_LB);
 		
 		updateID_TF = new JTextField();
 		updateID_TF.setBackground(new Color(245, 245, 245));
 		updateID_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateID_TF.setColumns(10);
-		updateID_TF.setBounds(101, 155, 143, 21);
+		updateID_TF.setBounds(109, 156, 143, 21);
 		add(updateID_TF);
 		
 		JLabel originalPassword_LB = new JLabel("기존 비밀번호");
 		originalPassword_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		originalPassword_LB.setBounds(20, 199, 83, 15);
+		originalPassword_LB.setBounds(28, 200, 83, 15);
 		add(originalPassword_LB);
 		
 		originalPassword_TF = new JPasswordField();
 		originalPassword_TF.setBackground(new Color(245, 245, 245));
 		originalPassword_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		originalPassword_TF.setBounds(101, 196, 143, 21);
+		originalPassword_TF.setBounds(109, 197, 143, 21);
 		add(originalPassword_TF);
 		
 		JLabel updatePassword_LB = new JLabel("비밀번호변경");
 		updatePassword_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updatePassword_LB.setBounds(20, 238, 97, 15);
+		updatePassword_LB.setBounds(28, 239, 97, 15);
 		add(updatePassword_LB);
 		
 		updatePassword_TF = new JPasswordField();
 		updatePassword_TF.setBackground(new Color(245, 245, 245));
 		updatePassword_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updatePassword_TF.setEnabled(false);
-		updatePassword_TF.setBounds(101, 235, 143, 21);
+		updatePassword_TF.setBounds(109, 236, 143, 21);
 		add(updatePassword_TF);
 		
 		JLabel updatePhone_LB = new JLabel("핸드폰");
 		updatePhone_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updatePhone_LB.setBounds(20, 283, 57, 15);
+		updatePhone_LB.setBounds(28, 284, 57, 15);
 		add(updatePhone_LB);
 		
 		
@@ -124,12 +124,12 @@ public class UpdatePanel extends JPanel {
 		updatePhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updatePhone_TF.setEditable(false);
 		updatePhone_TF.setColumns(10);
-		updatePhone_TF.setBounds(170, 280, 74, 21);
+		updatePhone_TF.setBounds(178, 281, 74, 21);
 		add(updatePhone_TF);
 		
 		JLabel updateBirth_LB = new JLabel("생일");
 		updateBirth_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateBirth_LB.setBounds(20, 320, 57, 15);
+		updateBirth_LB.setBounds(28, 321, 57, 15);
 		add(updateBirth_LB);
 		
 		updateBirth_TF = new JTextField();
@@ -137,12 +137,12 @@ public class UpdatePanel extends JPanel {
 		updateBirth_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateBirth_TF.setEditable(false);
 		updateBirth_TF.setColumns(10);
-		updateBirth_TF.setBounds(101, 317, 143, 21);
+		updateBirth_TF.setBounds(109, 318, 143, 21);
 		add(updateBirth_TF);
 		
 		JLabel updateEmail_LB = new JLabel("이메일");
 		updateEmail_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateEmail_LB.setBounds(20, 353, 57, 15);
+		updateEmail_LB.setBounds(28, 354, 57, 15);
 		add(updateEmail_LB);
 		
 		updateEmail_TF = new JTextField();
@@ -150,12 +150,12 @@ public class UpdatePanel extends JPanel {
 		updateEmail_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateEmail_TF.setEditable(false);
 		updateEmail_TF.setColumns(10);
-		updateEmail_TF.setBounds(101, 350, 143, 21);
+		updateEmail_TF.setBounds(109, 351, 143, 21);
 		add(updateEmail_TF);
 		
 		JLabel updateNickname_LB = new JLabel("닉네임");
 		updateNickname_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateNickname_LB.setBounds(20, 385, 57, 15);
+		updateNickname_LB.setBounds(28, 386, 57, 15);
 		add(updateNickname_LB);
 		
 		updateNickname_TF = new JTextField();
@@ -163,12 +163,12 @@ public class UpdatePanel extends JPanel {
 		updateNickname_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateNickname_TF.setEnabled(false);
 		updateNickname_TF.setColumns(10);
-		updateNickname_TF.setBounds(102, 380, 142, 21);
+		updateNickname_TF.setBounds(110, 381, 142, 21);
 		add(updateNickname_TF);
 		
 		JLabel updateLoc_LB = new JLabel("지역");
 		updateLoc_LB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateLoc_LB.setBounds(20, 418, 57, 15);
+		updateLoc_LB.setBounds(28, 419, 57, 15);
 		add(updateLoc_LB);
 		
 		updateLoc_TF = new JTextField();
@@ -176,24 +176,29 @@ public class UpdatePanel extends JPanel {
 		updateLoc_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateLoc_TF.setEnabled(false);
 		updateLoc_TF.setColumns(10);
-		updateLoc_TF.setBounds(102, 415, 142, 21);
+		updateLoc_TF.setBounds(110, 416, 142, 21);
 		add(updateLoc_TF);
 		
 		updatePagree_CB = new JCheckBox("핸드폰 정보제공 동의");
 		updatePagree_CB.setEnabled(false);
 		updatePagree_CB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updatePagree_CB.setBounds(25, 445, 148, 23);
+		updatePagree_CB.setBounds(25, 446, 148, 23);
 		add(updatePagree_CB);
 		
 		updateEagree_CB = new JCheckBox("지역 정보제공 동의");
 		updateEagree_CB.setEnabled(false);
 		updateEagree_CB.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 13));
-		updateEagree_CB.setBounds(198, 445, 146, 23);
+		updateEagree_CB.setBounds(206, 446, 146, 23);
 		add(updateEagree_CB);
 		
 		
 		
-		JButton update_Btn = new JButton("업데이트");
+		JButton update_Btn = new JButton("");
+		update_Btn.setIcon(new ImageIcon(UpdatePanel.class.getResource("/images/업데이트1.png")));
+		update_Btn.setBorderPainted(false);
+		update_Btn.setContentAreaFilled(false);
+		update_Btn.setFocusPainted(false);
+		update_Btn.setBorder(null);
 		update_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -240,10 +245,15 @@ public class UpdatePanel extends JPanel {
 				}
 			}
 		});
-		update_Btn.setBounds(202, 473, 97, 23);
+		update_Btn.setBounds(209, 482, 97, 23);
 		add(update_Btn);
 		
-		JButton out_Btn = new JButton("탈퇴");
+		JButton out_Btn = new JButton("");
+		out_Btn.setIcon(new ImageIcon(UpdatePanel.class.getResource("/images/탈퇴11.png")));
+		out_Btn.setBorderPainted(false);
+		out_Btn.setContentAreaFilled(false);
+		out_Btn.setFocusPainted(false);
+		out_Btn.setBorder(null);
 		out_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -275,7 +285,7 @@ public class UpdatePanel extends JPanel {
 				
 			}
 		});
-		out_Btn.setBounds(64, 473, 97, 23);
+		out_Btn.setBounds(66, 481, 89, 24);
 		add(out_Btn);
 		
 		JButton updatePassword_Btn = new JButton("변경");
@@ -307,13 +317,13 @@ public class UpdatePanel extends JPanel {
 			}
 		});
 		updatePassword_Btn.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 10));
-		updatePassword_Btn.setBounds(258, 235, 71, 23);
+		updatePassword_Btn.setBounds(266, 236, 71, 23);
 		add(updatePassword_Btn);
 		
 		updatePhone_CB = new JComboBox();
 		updatePhone_CB.setModel(new DefaultComboBoxModel(new String[] {"010", "017", "011"}));
 		updatePhone_CB.setEnabled(false);
-		updatePhone_CB.setBounds(102, 277, 61, 27);
+		updatePhone_CB.setBounds(110, 278, 61, 27);
 		add(updatePhone_CB);
 		
 		JButton sameID_Btn = new JButton("일치 확인");
@@ -361,7 +371,7 @@ public class UpdatePanel extends JPanel {
 			}
 		});
 		sameID_Btn.setFont(new Font("KoPubWorld돋움체 Medium", Font.PLAIN, 10));
-		sameID_Btn.setBounds(258, 179, 71, 23);
+		sameID_Btn.setBounds(265, 175, 71, 23);
 		add(sameID_Btn);
 	
 		memberService=new MemberService();

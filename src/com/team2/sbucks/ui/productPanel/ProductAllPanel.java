@@ -55,13 +55,20 @@ public class ProductAllPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ProductAllPanel() {
+		setBorder(null);
+		setBackground(new Color(255, 255, 255));
 		setForeground(SystemColor.info);
-		setLayout(new BorderLayout(0, 0));
+		setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBorder(null);
+		scrollPane.setBounds(0, 22, 450, 278);
 		add(scrollPane);
 		
 		productListBasicpanel = new JPanel();
+		productListBasicpanel.setBorder(null);
+		productListBasicpanel.setOpaque(false);
+		productListBasicpanel.setBackground(new Color(255, 255, 255));
 		
 		productListBasicpanel.setForeground(new Color(46, 139, 87));
 		productListBasicpanel.setPreferredSize(new Dimension(320, 1500));
@@ -89,19 +96,20 @@ public class ProductAllPanel extends JPanel {
 		
 		lblNewLabel_5 = new JLabel("(HOT)아메리카노");
 		lblNewLabel_5.setBounds(110, 46, 93, 17);
-		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+		lblNewLabel_5.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 12));
 		productitemPanel_1.add(lblNewLabel_5);
 		
 		lblNewLabel_4 = new JLabel("<html>안녕<br>안녕</html>");
 		lblNewLabel_4.setBounds(208, 40, 22, 30);
-		lblNewLabel_4.setFont(new Font("맑은 고딕", Font.PLAIN, 11));
+		lblNewLabel_4.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 11));
 		
 		productitemPanel_1.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_3 = new JLabel("전체상품");
-		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+		lblNewLabel_3.setBounds(6, 1, 71, 22);
+		lblNewLabel_3.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 14));
 		/*********************************************************/
-		add(lblNewLabel_3, BorderLayout.NORTH);
+		add(lblNewLabel_3);
 		productService=new ProductService();
 		try {
 			productListDispaly();
@@ -163,16 +171,16 @@ public class ProductAllPanel extends JPanel {
 			
 			JLabel lblNewLabel_1 = new JLabel(product.getProduct_name());
 			lblNewLabel_1.setBounds(120, 20, 113, 15);
-			lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+			lblNewLabel_1.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 12));
 			productitemPanel_1.add(lblNewLabel_1);
 			
 			JLabel lblNewLabel_2 = new JLabel("<html>"+product.getProduct_content()+"</html>");
 			lblNewLabel_2.setBounds(120, 35, 231, 73);
-			lblNewLabel_2.setFont(new Font("맑은 고딕", Font.PLAIN, 11));
+			lblNewLabel_2.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 11));
 			productitemPanel_1.add(lblNewLabel_2);
 			
 			JLabel lblNewLabel_3 = new JLabel("전체상품");
-			lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+			lblNewLabel_3.setFont(new Font("KoPubWorldDotum_Pro", Font.BOLD, 16));
 			
 			
 		}
