@@ -194,7 +194,7 @@ public class UpdatePanel extends JPanel {
 		
 		
 		JButton update_Btn = new JButton("");
-		update_Btn.setIcon(new ImageIcon(UpdatePanel.class.getResource("/images/업데이트1.png")));
+		update_Btn.setIcon(new ImageIcon(UpdatePanel.class.getResource("/images/업데이트1.png")));
 		update_Btn.setBorderPainted(false);
 		update_Btn.setContentAreaFilled(false);
 		update_Btn.setFocusPainted(false);
@@ -250,7 +250,7 @@ public class UpdatePanel extends JPanel {
 		
 		JButton out_Btn = new JButton("");
 		out_Btn.setEnabled(false);
-		out_Btn.setIcon(new ImageIcon(UpdatePanel.class.getResource("/images/탈퇴11.png")));
+		out_Btn.setIcon(new ImageIcon(UpdatePanel.class.getResource("/images/탈퇴11.png")));
 		out_Btn.setBorderPainted(false);
 		out_Btn.setContentAreaFilled(false);
 		out_Btn.setFocusPainted(false);

@@ -147,7 +147,7 @@ public class OrderPanel extends JPanel {
 		
 		
 		cartJoinBtn = new JButton("");
-		cartJoinBtn.setIcon(new ImageIcon(OrderPanel.class.getResource("/images/담기-2png.png")));
+		cartJoinBtn.setIcon(new ImageIcon(OrderPanel.class.getResource("/images/담기-2png.png")));
 		cartJoinBtn.setBorderPainted(false);
 		cartJoinBtn.setContentAreaFilled(false);
 		cartJoinBtn.setFocusPainted(false);
@@ -190,7 +190,7 @@ public class OrderPanel extends JPanel {
 		
 		
 		orderBtn = new JButton("");
-		orderBtn.setIcon(new ImageIcon(OrderPanel.class.getResource("/images/주문하기-1.png")));
+		orderBtn.setIcon(new ImageIcon(OrderPanel.class.getResource("/images/주문하기-1.png")));
 		orderBtn.setBorderPainted(false);
 		orderBtn.setContentAreaFilled(false);
 		orderBtn.setFocusPainted(false);

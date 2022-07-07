@@ -85,7 +85,7 @@ public class CartItemPanel extends JPanel {
 		cartIcon_Btn.setContentAreaFilled(false);
 		cartIcon_Btn.setFocusPainted(false);
 		cartIcon_Btn.setBorder(null);
-		cartIcon_Btn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/장바구니1-3.png")));
+		cartIcon_Btn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/장바구니1-3.png")));
 		cartIcon_Btn.setBounds(73, -5, 117, 44);
 		panel.add(cartIcon_Btn);
 
@@ -105,7 +105,7 @@ public class CartItemPanel extends JPanel {
 		deleteAllBtn.setContentAreaFilled(false);
 		deleteAllBtn.setFocusPainted(false);
 		deleteAllBtn.setBorder(null);
-		deleteAllBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/전체삭제-2.png")));
+		deleteAllBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/전체삭제-2.png")));
 		deleteAllBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -125,7 +125,7 @@ public class CartItemPanel extends JPanel {
 		deleteSelectBtn .setContentAreaFilled(false);
 		deleteSelectBtn .setFocusPainted(false);
 		deleteSelectBtn .setBorder(null);
-		deleteSelectBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/선택삭제-2.png")));
+		deleteSelectBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/선택삭제-2.png")));
 		deleteSelectBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -238,11 +238,11 @@ public class CartItemPanel extends JPanel {
 		selectOrderBtn.setContentAreaFilled(false);
 		selectOrderBtn.setFocusPainted(false);
 		selectOrderBtn.setBorder(null);
-		selectOrderBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/선택주문1.png")));
+		selectOrderBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/선택주문1.png")));
 		panel_2.add(selectOrderBtn, BorderLayout.EAST);
 
 		allOrderBtn = new JButton("");
-		allOrderBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/전체주문1_2.png")));
+		allOrderBtn.setIcon(new ImageIcon(CartItemPanel.class.getResource("/images/전체주문1_2.png")));
 		allOrderBtn.setBorderPainted(false);
 		allOrderBtn.setContentAreaFilled(false);
 		allOrderBtn.setFocusPainted(false);

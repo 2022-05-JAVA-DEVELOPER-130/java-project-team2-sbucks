@@ -71,7 +71,7 @@ public class OrderDetailPanel extends JPanel {
 		returnOrderListBtn.setContentAreaFilled(false);
 		returnOrderListBtn.setFocusPainted(false);
 		returnOrderListBtn.setBorder(null);
-		returnOrderListBtn.setIcon(new ImageIcon(OrderDetailPanel.class.getResource("/images/주문내역으로 돌아가기1.png")));
+		returnOrderListBtn.setIcon(new ImageIcon(OrderDetailPanel.class.getResource("/images/주문내역으로 돌아가기1.png")));
 		returnOrderListBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

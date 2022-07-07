@@ -44,10 +44,11 @@ public class MainFrame extends JFrame {
 	public int memberNo=2;
 	public int orderNo;
 	public JTabbedPane MemberTabbedPane;
-	public JoinPanel joinPanel;
 	public LoginPanel loginPanel;
 	public UpdatePanel updatePanel;
 	public CartItemPanel cartItemPanel;
+	private JoinPanel joinPanel;
+	private UpdatePanel updatePanel_1;
 	
 
 	/**
@@ -92,12 +93,6 @@ public class MainFrame extends JFrame {
 		LoginPanel loginPanel_1 = new LoginPanel();
 		MemberTabbedPane.addTab("로그인", null, loginPanel_1, null);
 		
-		joinPanel = new JoinPanel();
-		MemberTabbedPane.addTab("회원가입", null, joinPanel, null);
-		
-		UpdatePanel updatePanel = new UpdatePanel();
-		MemberTabbedPane.addTab("회원정보", null, updatePanel, null);
-		
 		Product = new JPanel();
 		tabbedPane.addTab("상품", null, Product, null);
 		Product.setLayout(new BorderLayout(0, 0));
@@ -138,10 +133,14 @@ public class MainFrame extends JFrame {
 		orderListPanel.setFrame(this);
 		orderPanel.setFrame(this);
 		
-		joinPanel.setFrame(this);
-		
 		SearchPanel searchPanel = new SearchPanel();
 		MemberTabbedPane.addTab("아이디/비밀번호 찾기", null, searchPanel, null);
+		
+		joinPanel = new JoinPanel();
+		MemberTabbedPane.addTab("회원가입", null, joinPanel, null);
+		
+		updatePanel_1 = new UpdatePanel();
+		MemberTabbedPane.addTab("회원정보", null, updatePanel_1, null);
 		cartItemPanel.setFrame(this);
 		
 		

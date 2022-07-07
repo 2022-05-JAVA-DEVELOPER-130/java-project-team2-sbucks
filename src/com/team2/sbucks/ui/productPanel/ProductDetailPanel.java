@@ -154,7 +154,7 @@ public class ProductDetailPanel extends JPanel {
 		orderBtn.setContentAreaFilled(false);
 		orderBtn.setFocusPainted(false);
 		orderBtn.setBorder(null);
-		orderBtn.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/주문하기-1.png")));
+		orderBtn.setIcon(new ImageIcon(ProductDetailPanel.class.getResource("/images/주문하기-1.png")));
 		orderBtn.setBounds(78, 461, 197, 41);
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

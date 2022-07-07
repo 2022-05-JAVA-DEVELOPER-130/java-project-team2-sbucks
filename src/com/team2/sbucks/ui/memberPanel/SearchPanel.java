@@ -147,7 +147,7 @@ public class SearchPanel extends JPanel {
 		confirmID_Btn.setContentAreaFilled(false);
 		confirmID_Btn.setFocusPainted(false);
 		confirmID_Btn.setBorder(null);
-		confirmID_Btn.setIcon(new ImageIcon(SearchPanel.class.getResource("/images/확인-2.png")));
+		confirmID_Btn.setIcon(new ImageIcon(SearchPanel.class.getResource("/images/확인-2.png")));
 		confirmID_Btn.setBounds(235, 230, 117, 86);
 		add(confirmID_Btn);
 		
@@ -180,7 +180,7 @@ public class SearchPanel extends JPanel {
 		confirmPassword_Btn.setContentAreaFilled(false);
 		confirmPassword_Btn.setFocusPainted(false);
 		confirmPassword_Btn.setBorder(null);
-		confirmPassword_Btn.setIcon(new ImageIcon(SearchPanel.class.getResource("/images/확인-2.png")));
+		confirmPassword_Btn.setIcon(new ImageIcon(SearchPanel.class.getResource("/images/확인-2.png")));
 		confirmPassword_Btn.setBounds(235, 382, 117, 86);
 		add(confirmPassword_Btn);
 		

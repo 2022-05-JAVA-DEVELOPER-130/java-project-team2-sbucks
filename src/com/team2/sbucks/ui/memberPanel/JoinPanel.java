@@ -217,7 +217,7 @@ public class JoinPanel extends JPanel {
 		joinCancelBtn.setBorder(null);
 		joinCancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainFrame.MemberTabbedPane.setSelectedIndex(0);
+				//mainFrame.MemberTabbedPane.setSelectedIndex(0);
 			}
 		});
 		joinCancelBtn.setIcon(new ImageIcon(JoinPanel.class.getResource("/images/취소.png")));
